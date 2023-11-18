@@ -15,8 +15,8 @@
 #define BIN1_pin 5
 #define BIN2_pin 18
 
-#define ENCA 32
-#define ENCB 14
+#define ENCAPin 32
+#define ENCBPin 14
 boolean x=1;
 uint8_t pos=0;
 uint8_t curpos=0;
@@ -65,35 +65,46 @@ void MotorPID(void *pvParameters){
 
 
 void Baitandswitch(void* parameter){
-  Motor motor1(PWM1_pin, AIN1_pin , AIN2_pin );  // Replace with actual pin numbers
-  motor1.loop(200,1);
-
+  Motor motor1(PWM1_pin, AIN1_pin , AIN2_pin,ENCAPin,ENCBPin );  
+  motor1.Movetest(100);
 }
 
-void Baitandswitch(void* parameter){
-  Motor motor1(PWM1_pin, AIN1_pin , AIN2_pin );  // Replace with actual pin numbers
 
-  int8_t goalpos=0; 
-  int8_t curpos=0; 
-  
 
-  motor1.loop(200,1);
+void enc_loop(void* parameter){
+  Motor motor1(PWM1_pin, AIN1_pin , AIN2_pin,ENCAPin,ENCBPin );  // Replace with actual pin numbers
+  for(;;){
+    motor1.updateEncoder();
+    vTaskDelay(10);
+  }
+}
+
+
+
+void setpostask(void* parameter){
+  Motor motor1(PWM1_pin, AIN1_pin , AIN2_pin,ENCAPin, ENCBPin ); 
+  //motor1.goalpos=100;
+  //motor1.setpos(100,60);
+  motor1.setposPID(1000);
 
 }
 
 
 void setup() {
   Serial.begin(115200);
-  Motor motor1(PWM1_pin, AIN1_pin , AIN2_pin );  // Replace with actual pin numbers
+  Motor motor1(PWM1_pin, AIN1_pin , AIN2_pin, ENCAPin,ENCBPin );  // Replace with actual pin numbers
 
   motor1.speed = 200;
   motor1.dir = 1;
+  //motor1.move(100);
+  //boolean E = motor1.getenc();
+  //Serial.print(E);
+  //xTaskCreate (Baitandswitch, "A",  4096, NULL, 1, NULL);
+  xTaskCreate (enc_loop, "ENC",  4096, NULL, 2, NULL);
+  //xTaskCreate (setpostask, "setpos",  4096, NULL, 1, NULL);
 
-
-  xTaskCreate (Baitandswitch, "A",  4096, NULL, 1, NULL);
-  //xTaskCreate (Square_Wave, "Slow",  4096, &SlowTask, 2, NULL);
 }
  
 void loop() {
   delay(1000);
-}
+}  
