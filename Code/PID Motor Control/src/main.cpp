@@ -23,85 +23,49 @@ uint8_t curpos=0;
 uint8_t PWMI1=255 ;
 uint8_t PWMI2=126 ;
 
+Motor motor1(PWM1_pin, AIN1_pin , AIN2_pin,ENCAPin, ENCBPin ); 
 
-
-//Motor(int pwmPin, int dirPin1, int dirPin2);
-
- 
-/**
-void MotorPID(void *pvParameters){
-  SquareWaveParams* params = (SquareWaveParams*)pvParameters;
-  const int pin = params->pin;
-  int frequency = params->frequency;
-  int duty_cycle = params->duty_cycle;
-
-  float time_on;
-  float time_off;
-
-  
-    while(true){
-      if (curpos>pos){
-
-      digitalWrite(pin,1);
-      vTaskDelay(time_on);
-      digitalWrite(pin,0);
-      vTaskDelay(time_off);
-
-    }
-    Serial.print("Error: exited infinite loop.");
-    }
-  else{
-    Serial.print("Please input duty cycle between 0 and 100");
-    
-  }
-}
-
-
-
-  motor1.move(200,1);
-  delay(1000);
-  motor1.move(200,0);
-*/
-
-
+// ___________________Functions___________________
 void Baitandswitch(void* parameter){
-  Motor motor1(PWM1_pin, AIN1_pin , AIN2_pin,ENCAPin,ENCBPin );  
+
   motor1.Movetest(100);
 }
 
 
-
+//Encoder update loop 
 void enc_loop(void* parameter){
-  Motor motor1(PWM1_pin, AIN1_pin , AIN2_pin,ENCAPin,ENCBPin );  // Replace with actual pin numbers
+
   for(;;){
     motor1.updateEncoder();
-    vTaskDelay(10);
+    vTaskDelay(1);
   }
 }
 
 
 
 void setpostask(void* parameter){
-  Motor motor1(PWM1_pin, AIN1_pin , AIN2_pin,ENCAPin, ENCBPin ); 
+  
   //motor1.goalpos=100;
   //motor1.setpos(100,60);
-  motor1.setposPID(1000);
+  motor1.setgoalpos(100);
+  motor1.setposPID();
 
 }
 
 
+
+//___________________Setup and Loop Functions___________________
+
 void setup() {
   Serial.begin(115200);
-  Motor motor1(PWM1_pin, AIN1_pin , AIN2_pin, ENCAPin,ENCBPin );  // Replace with actual pin numbers
 
-  motor1.speed = 200;
-  motor1.dir = 1;
   //motor1.move(100);
   //boolean E = motor1.getenc();
   //Serial.print(E);
   //xTaskCreate (Baitandswitch, "A",  4096, NULL, 1, NULL);
   xTaskCreate (enc_loop, "ENC",  4096, NULL, 2, NULL);
-  //xTaskCreate (setpostask, "setpos",  4096, NULL, 1, NULL);
+  xTaskCreate (setpostask, "setpos",  4096, NULL, 1, NULL);
+
 
 }
  

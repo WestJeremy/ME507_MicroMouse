@@ -21,15 +21,16 @@ void Motor:: updateEncoder() {
         int sum = (lastEncoded << 2) | encoded;
 
         if (sum == 0b1101 || sum == 0b0100 || sum == 0b0010 || sum == 0b1011) {
-            encoderPosition++;
+            encoderPosition-- ;
         } else if (sum == 0b1110 || sum == 0b0111 || sum == 0b0001 || sum == 0b1000) {
-            encoderPosition--;
+            encoderPosition++ ;
         }
 
         lastEncoded = encoded;
 
         // Print the current position for debugging
         //shaft_angle=encoderPosition/360;
+        Serial.print("Encoder Position: ");
         Serial.println(encoderPosition);
 }
 
@@ -48,6 +49,11 @@ void Motor::move(int speed,boolean dir) {
     vTaskDelay(10);
 }
 
+void Motor:: setgoalpos(int pos) {
+goalpos=pos;
+}
+
+
 void Motor::setpos(int goalpos, int speed) {
     boolean dirt=1;
     for(;;){
@@ -63,33 +69,29 @@ void Motor::setpos(int goalpos, int speed) {
     }
 }
 
-void Motor::setposPID(int goalpos) {
-    int8_t error=goalpos-encoderPosition;
-    int8_t kp = 4;
-    int8_t speedy;
+void Motor::setposPID() {
+    int error=goalpos-encoderPosition;
+    int kp = 2;
+    int speedy;
     for(;;){
-        updateEncoder();
-        if (error= 0){
+        if (error!= 0){
         Serial.print("Goal Pos: ");
         Serial.println(goalpos);
-        Serial.print("Pos: ");
-        Serial.println(encoderPosition);
-        Serial.print("Speedy:");
-        Serial.println(speedy);
-        Serial.print("error: ");
+        Serial.print("Kp: ");
+        Serial.println(kp);
+        Serial.print("Error: ");
         Serial.println(error);
+        Serial.print("P input: ");
+        Serial.println(speedy);
         }
         error=goalpos-encoderPosition;
         speedy=error*kp;
         //speedy=error;
 
 
-        //Serial.println(100*kp);
-        //Serial.println(error*kp);
-        //Serial.println(speedy);
 
         move(error*kp);
-        vTaskDelay(1);
+        vTaskDelay(10);
         
     }
 }

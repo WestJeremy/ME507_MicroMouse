@@ -23,14 +23,16 @@ public:
     boolean getenc();
     void updateEncoder();
     void stop();
+
+    void setgoalpos(int pos);
     void setpos(int goalpos, int speed);
-    void setposPID(int goalpos);
+    void setposPID();
     void Movetest(int speed);
 
     int speed; 
     bool dir;
-    int8_t goalpos=0; 
-    int8_t curpos=0; 
+    int goalpos=0; 
+    int curpos=0; 
 
 private:
     int pwmPin_;
