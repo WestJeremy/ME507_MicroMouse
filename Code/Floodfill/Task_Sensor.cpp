@@ -1,46 +1,62 @@
-/** @file Task_Sensor.cpp
- *  This file contains a task function which recieves sensor data
- *  and then updates a set of shared variables that will be used to
- *  update wall locations for a maze solving algorithm.
+/** @file Task_sensor.cpp
+ *  This file contains code for a sensor task that will be
+ *  used to update the walls of wall arrays
  * 
  *  @author Cesar Santana
- *  @date 2023-Nov-22
+ *  @date   2023-Dec-04
 */
-
 #include <Arduino.h>
-#include "taskqueue.h"
-#include "taskshare.h"
+#include "Printstream.h"
 #include "shares.h"
 #include "Task_Sensor.h"
 
+/** @brief  Task which takes sensor feedback and uses it to update wall arrays
+ *  @param  p_params An unused pointer to nonexistent parameters
+*/
 void task_sensor (void* p_params)
 {
-    const uint8_t R_IR = 9;
-    const uint8_t L_IR = 8;
+    const int8_t L_IR = 8;      // GPIO pin for left IR sensor
+    const int8_t R_IR = 9;      // GPIO pin for right IR sensor
+    pinMode(L_IR, INPUT);       // Sets up L_IR as an input
+    pinMode(R_IR, INPUT);       // Sets up R_IR as an input
+    // need to set up tof sensor here
 
     for(;;)
     {
-        // These two if statements check the output of R_IR and update a shared variable
-        if (digitalRead(R_IR) == true)
+        if (direction.get() == 1 || 2 )
         {
-            r_wall.put(1);
-        }
-        if (digitalRead(R_IR) == false)
-        {
-            r_wall.put(0);
-        }
-
-        // These two if statements check the output of L_IR and update a shared variable
-        if (digitalRead(L_IR) == true)
-        {
-            l_wall.put(1);
-        }
-        if (digitalRead(L_IR) == false)
-        {
-            l_wall.put(0);
+            if (digitalRead(L_IR) == false)
+            {
+                l_wall.put('-');
+            }
+            if (digitalRead(R_IR) == false)
+            {
+                r_wall.put('-');
+            }
+            // include condition for tof reading
+            if ()
+            {
+                f_wall.put('|');
+            }
+            
         }
 
-        // include TOF detection here
+        if (direction.get() == 3 || 4)
+        {
+            if (digitalRead(L_IR) == false)
+            {
+                l_wall.put('|');
+            }
+            if (digitalRead(R_IR) == false)
+            {
+                r_wall.put('|'); 
+            }
+            // include condition for tof
+            if ()
+            {
+                f_wall.put('|');
+            }
+        }
+        vTaskDelay(5);
     }
-
 }

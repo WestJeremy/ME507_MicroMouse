@@ -6,21 +6,24 @@
  *  @date   2023-Nov-22
  */
 
-#ifndef _SHARES_H_
-#define _SHARES_H_
+#ifndef SHARES_H
+#define SHARES_H
 
+#include "Printstream.h"
 #include "taskqueue.h"
 #include "taskshare.h"
 
+// A share which hold thecurrent orientation of the micromouse
+extern Share<uint8_t> direction;
 // A share which holds whether the right IR sensor detects a wall or not
-extern Share<uint8_t> r_wall;
+extern Share<char> r_wall;
 
 // A share which holds whether the left IR sensor detects a wall or not
-extern Share<uint8_t> l_wall;
+extern Share<char> l_wall;
 
 // A share which holds whether the front TOF sensor detects a wall or not
-extern Share<uint8_t> f_wall;
+extern Share<char> f_wall;
 
 
 
-#endif _SHARES_H_
+#endif 

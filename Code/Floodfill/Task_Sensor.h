@@ -1,17 +1,14 @@
 /** @file Task_Sensor.h
- *  This file contains the header file for a task function that recieves
- *  sensor data and stores it in a shared variable that is used to update
- *  wall locations in a maze solving algorithm.
+ *  This file contains the header for a task function that takes sensor data
  * 
  *  @author Cesar Santana
- *  @date   2023-Nov-22
+ *  @date   2023-Dec-04
 */
 
 #ifndef TASK_SENSOR_H
 #define TASK_SENSOR_H
-#include <Arduino.h>
 
-// This is the function that imppliments the sensor task
-void task_sensor (void* p_params);
+// This is the function that impliments the sensor task
+void task_sensor(void* p_params);
 
 #endif
