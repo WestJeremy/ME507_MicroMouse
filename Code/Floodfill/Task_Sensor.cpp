@@ -54,7 +54,7 @@ void task_sensor (void* p_params)
             // include condition for tof
             if ()
             {
-                f_wall.put('|');
+                f_wall.put('-');
             }
         }
         vTaskDelay(5);
