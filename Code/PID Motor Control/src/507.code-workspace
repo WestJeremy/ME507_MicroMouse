@@ -1,0 +1,43 @@
+{
+	"folders": [
+		{
+			"path": "../../../../Documents/PlatformIO/Projects/507FirstCPlusPlus"
+		},
+		{
+			"name": "PythonListssssss",
+			"path": "../../../../Documents/PlatformIO/Projects/PythonListssssss"
+		},
+		{
+			"path": "../../Motor Driver Control"
+		},
+		{
+			"path": "../../MPU9250"
+		},
+		{
+			"path": ".."
+		},
+		{
+			"name": "States and Tasks",
+			"path": "../../../../Documents/PlatformIO/Projects/States and Tasks"
+		},
+		{
+			"name": "Tasks and States",
+			"path": "../../../../Documents/PlatformIO/Projects/Tasks and States"
+		},
+		{
+			"name": "Stat_Assignment",
+			"path": "../../../../Documents/PlatformIO/Projects/Stat_Assignment"
+		},
+		{
+			"name": "Shared Object",
+			"path": "../../../../Documents/PlatformIO/Projects/Shared Object"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"*.cps": "javascript",
+			"websockets": "cpp",
+			"ostream": "cpp"
+		}
+	}
+}

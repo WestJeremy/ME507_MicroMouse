@@ -3,7 +3,7 @@
  *
  */
 
-#ifndef MOTOR__H
+#ifndef MOTOR_H
 #define MOTOR_H
 
 #include <Arduino.h>
@@ -24,10 +24,14 @@ public:
     void updateEncoder();
     void ISR_Enc_Read(); 
     void stop();
+    void zeroEncPos();
 
     void setgoalpos(int pos);
     void setpos(int goalpos, int speed);
     void setposPID();
+    void stepsetposPID();
+    void stepsetposPID(float error);
+    void stepsetposPIDU(float U);
     void Movetest(int speed);
 
     int speed; 

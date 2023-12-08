@@ -1,5 +1,5 @@
 #include "Motor.h"
-//#include <wiringPi.h>
+
 
 Motor::Motor(int pwmPin, int dirPin1, int dirPin2,int encA1Pin,int encA2Pin) : pwmPin_(pwmPin), dirPin1_(dirPin1), dirPin2_(dirPin2), encA1Pin_(encA1Pin), encA2Pin_(encA2Pin){
     pinMode(pwmPin_, OUTPUT);
@@ -13,6 +13,7 @@ Motor::Motor(int pwmPin, int dirPin1, int dirPin2,int encA1Pin,int encA2Pin) : p
 
 
 void Motor:: updateEncoder() {
+    //Print statements in this function will crash the microcontroller due to ISR
         int8_t shaft_angle = 0.0;
         int MSB = digitalRead(encA1Pin_);
         int LSB = digitalRead(encA2Pin_);
@@ -21,43 +22,36 @@ void Motor:: updateEncoder() {
         int sum = (lastEncoded << 2) | encoded;
 
         if (sum == 0b1101 || sum == 0b0100 || sum == 0b0010 || sum == 0b1011) {
-            encoderPosition++ ;
-        } else if (sum == 0b1110 || sum == 0b0111 || sum == 0b0001 || sum == 0b1000) {
             encoderPosition-- ;
+        } else if (sum == 0b1110 || sum == 0b0111 || sum == 0b0001 || sum == 0b1000) {
+            encoderPosition++ ;
         }
 
         lastEncoded = encoded;
 
-        // Print the current position for debugging
-        //shaft_angle=encoderPosition/360;
-        //Serial.print("Encoder Position: ");
-        //Serial.println(encoderPosition);
+
 }
 
-//Encoder update loop 
-void Motor::ISR_Enc_Read() {
+void Motor::zeroEncPos(){
+    int zero=0;
+    encoderPosition=zero;
+} 
 
-  //attachInterrupt(encA1Pin_, &Motor::updateEncoder, CHANGE);
-  //attachInterrupt(encA2Pin_, updateEncoder, CHANGE);
 
-  for(;;){
-    vTaskDelay(100);
-  }
-}
 
 void Motor::move(int speed) {
     boolean dir=(speed >= 0) ? 1 : 0; //if speed in negative set dir in reverse
     uint8_t abs_speed = speed;
     digitalWrite(dirPin1_, dir);
     digitalWrite(dirPin2_, !dir);
-    analogWrite(pwmPin_, abs_speed);  // Set the PWM duty cycle (0-1023)
+    analogWrite(pwmPin_, abs_speed);  // Set the PWM duty cycle (0-255)
 
 }
 
 void Motor::move(int speed,boolean dir) {
     digitalWrite(dirPin1_, dir);
     digitalWrite(dirPin2_, !dir);
-    analogWrite(pwmPin_, speed);  // Set the PWM duty cycle (0-1023)
+    analogWrite(pwmPin_, speed);  // Set the PWM duty cycle (0-255)
     vTaskDelay(10);
 }
 
@@ -95,9 +89,9 @@ void Motor::setposPID() {
     int i_in;
     int d_in;
 
-    float kp = 2;
-    float ki=0.0;
-    float kd=-0.1;
+    float kp = 1;
+    float ki=0.01;
+    float kd=0.01;
 
     float t_in;
 
@@ -109,30 +103,13 @@ void Motor::setposPID() {
 
         p_in=error*kp;
         i_in=I_error*ki;
-        d_in=d_error*kd;
+        d_in=-d_error*kd;
 
         t_in=p_in+i_in+d_in;
-        t_in=(t_in > 50) ? 50 : t_in; //if the controler input is oversaturated write it to 100%
+        t_in=(t_in > 255) ? 255 : t_in; //if the controler input is oversaturated write it to 100%
         move(t_in);
 
-        if (error!= 0){
-/*             Serial.print("Goal Pos: ");
-            Serial.println(goalpos);
-            Serial.print("Kp: ");
-            Serial.println(kp);
-            Serial.print("Error: ");
-            Serial.println(error);
-            Serial.print("P input: ");
-            Serial.println(p_in);
-            Serial.print("I input: ");
-            Serial.println(i_in);
-            Serial.print("D input: ");
-            Serial.println(d_in);
-            Serial.print("Total input: ");
-            Serial.println(t_in); */
-        }
         vTaskDelay(t_step);
-        
     }
 }
 
@@ -148,6 +125,132 @@ void Motor::Movetest(int speed) {
         vTaskDelay(2000); 
 
     }
+}
+
+void Motor::stepsetposPID() {
+
+    int t_step=10;
+
+    int error=goalpos-encoderPosition;
+    float pre_error=0;
+    float I_error=0;
+    float dt_error=0;
+    float d_error;
+
+    int p_in;
+    int i_in;
+    int d_in;
+
+    float kp = 1;
+    float ki=0.01;
+    float kd=0.01;
+
+    float t_in;
+
+    
+
+        error=goalpos-encoderPosition;
+        I_error=I_error+error;
+        d_error=error-pre_error/t_step;
+
+        p_in=error*kp;
+        i_in=I_error*ki;
+        d_in=-d_error*kd;
+
+        t_in=p_in+i_in+d_in;
+        t_in=(t_in > 255) ? 255 : t_in; //if the controler input is oversaturated write it to 100%
+        move(t_in);
+
+        vTaskDelay(t_step);
+    
+}
+
+void Motor::stepsetposPID(float error) {
+
+    int t_step=10;
+
+
+    float pre_error=0;
+    float I_error=0;
+    float dt_error=0;
+    float d_error;
+
+    int p_in;
+    int i_in;
+    int d_in;
+
+    float kp = 1;
+    float ki=0.01;
+    float kd=0.01;
+
+    float t_in;
+
+    
+
+        error=goalpos-encoderPosition;
+        I_error=I_error+error;
+        d_error=error-pre_error/t_step;
+
+        p_in=error*kp;
+        i_in=I_error*ki;
+        d_in=-d_error*kd;
+
+        t_in=p_in+i_in+d_in;
+        t_in=(t_in > 255) ? 255 : t_in; //if the controler input is oversaturated write it to 100%
+        move(t_in);
+
+        vTaskDelay(t_step);
+    
+}
+
+
+void Motor::stepsetposPIDU(float U) {
+    int t_step=10;
+
+    float pre_error=0;
+    float I_error=0;
+    float dt_error=0;
+    float d_error=0;
+
+    int p_in=0;
+    int i_in=0;
+    int d_in=0;
+
+    float kp = 1;
+    float ki=0.01;
+    float kd=0.01;
+
+    float t_in;
+
+    //float error=goalpos-encoderPosition+U;
+
+    float error=goalpos-encoderPosition;
+
+    //float error=U;
+    I_error=I_error+error;
+    d_error=error-pre_error/t_step;
+
+    p_in=error*kp;
+    i_in=I_error*ki;
+    d_in=-d_error*kd;
+
+    t_in=p_in+i_in+d_in;
+    float tu=kp*U;//+ki*U+kd*U;
+
+/*     Serial.print("pos: ");
+    Serial.print(p_in+i_in+d_in);
+    Serial.print("      ");
+ */
+ 
+
+    t_in=(t_in > 200) ? 200 : t_in; //if the controler input is oversaturated write it to 100%
+    t_in=t_in+tu;
+    t_in=(t_in > 255) ? 255 : t_in; //if the controler input is oversaturated write it to 100%
+    move(t_in);
+    Serial.print("t_in: ");
+    Serial.println(t_in);
+
+    vTaskDelay(t_step);
 }
 
 void Motor::forward(int speed) {
