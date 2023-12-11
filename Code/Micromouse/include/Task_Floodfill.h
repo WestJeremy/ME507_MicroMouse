@@ -10,8 +10,21 @@
 #define TASK_FLOODFILL_H
 
 #include <Arduino.h>
+#include "Micromouse.h"
 
+
+
+
+class Solver{
+public:
+Solver(Micromouse* Micromouse);
 // This is the function that impliments the maze solving task
-void task_floodfill (void* p_params);
+void task_floodfill ();
+
+private:
+Micromouse* Micromouse_;
+};
+
+
 
 #endif

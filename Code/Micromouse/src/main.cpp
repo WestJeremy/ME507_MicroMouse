@@ -3,6 +3,8 @@
 #include "States.h"
 #include "Micromouse.h"
 #include "MPU9250.h"
+#include "Task_Floodfill.h"
+#include "WebsocketInterface.h"
 
 
 //#include "FreeRTOS.h"
@@ -45,7 +47,7 @@ int tof_address = 0x29;
 volatile bool interruptFlag = false;
 
 int cur_state=0;
-int micromouse_states=2;
+int micromouse_states=3;
 
 boolean x=1;
 uint8_t pos=0;
@@ -63,10 +65,24 @@ Time_Of_Flight TOF(tof_address);
 MPU9250 IMU(Wire, 0x68);
 int status;
 
-Micromouse Mouse(&motor1, &motor2 , &IR_L , &IR_R , &TOF , &IMU);
+
+
+
 
 State state(micromouse_states);
 
+Micromouse Mouse(&motor1, &motor2 , &IR_L , &IR_R , &TOF , &IMU, &state);
+
+Solver solve(&Mouse);
+
+
+// SSID and password of Wifi connection:
+const char* ssid = "MojoDojoCasaHouse";
+const char* password = "SUBLIME!";
+
+// The String below "webpage" contains the complete HTML code that is sent to the client whenever someone connects to the webserver
+String webpage = "<!DOCTYPE html><html><head><title>Page Title</title></head><body style='background-color: #EEEEEE;'><span style='color: #003366;'><h1>Micromouse Websockets Interface</h1> <p>Motor 1 position: <span id='rand1'>-</span></p><p>Motor 2 position: <span id='rand2'>-</span></p><p>State: <span id='state'>-</span></p><p><button type='button' id='BTN_SEND_BACK'>Update State</button></p></span></body><script> var Socket; document.getElementById('BTN_SEND_BACK').addEventListener('click', button_send_back); function init() { Socket = new WebSocket('ws://' + window.location.hostname + ':81/'); Socket.onmessage = function(event) { processCommand(event); }; } function button_send_back() { var msg = {inc: 1,};Socket.send(JSON.stringify(msg)); } function processCommand(event) {var obj = JSON.parse(event.data);document.getElementById('rand1').innerHTML = obj.rand1;document.getElementById('rand2').innerHTML = obj.rand2; document.getElementById('state').innerHTML = obj.state; console.log(obj.rand1);console.log(obj.rand2); console.log(obj.state); } window.onload = function(event) { init(); }</script></html>";
+WebsocketConnection BeepBoopStream(ssid, password, webpage,&Mouse);
 
 //Task Handles
 TaskHandle_t myIntTaskHandle = NULL;
@@ -78,6 +94,7 @@ TaskHandle_t buttonIntTaskHandle = NULL;
 void EncoderUpdate(){
   motor1.updateEncoder();
   motor2.updateEncoder();
+  Mouse.updateEncoder();
 }
 
 //Task loop For Encoder Interrupt
@@ -99,6 +116,7 @@ void buttonInterruptTask(void* parameter){
     //Code to run on interupt goes below
     state.update();
     cur_state=state.get();
+
     //Serial.print(cur_state);
   }
 }
@@ -141,9 +159,8 @@ void IRAM_ATTR ISRH_Handler_Encoder() {
     portEXIT_CRITICAL_ISR(&mux);
 }
 
-void PollSensors(void* parameter){
-for(;;){
-  if (state.get()==0 ){
+void PollSensors(){
+
   Serial.print("Motor 1: ");
   Serial.print(motor1.encoderPosition);
   Serial.print("  ");
@@ -187,16 +204,10 @@ for(;;){
   Serial.print(IMU.getGyroY_rads(), 6);
   Serial.print("  ");
   Serial.print("Z:  ");
-  Serial.print(IMU.getGyroZ_rads(), 6);}
-
-
-
- 
-
-  vTaskDelay(100);
+  Serial.print(IMU.getGyroZ_rads(), 6);
 
 }
-}
+
 
 
 void Gotask(void* parameter){
@@ -211,31 +222,27 @@ void Gotask(void* parameter){
   for(;;){
   int cur_state=state.get();
 
+
   if(cur_state >= 1){
-    vTaskDelay(1000);
-    if (MoveState.get()==1){
-      Mouse.MoveStable(Cells);
-      MoveState.set(0);
+    vTaskDelay(100);
+    
+    if (state.get()==1){
+      solve.task_floodfill();
+      state.set(0);
+    }
+
+    if (state.get()==2){
+      PollSensors();
+      
       //Serial.print("Started PID");
 
     }
-
-    if (MoveState.get()==2){
-      Mouse.RotStable(90);
-      MoveState.set(0);
-      //Serial.print("Started PID");
-
-    }
-
-    vTaskDelay(10);
-    
-    
 
   }else{
-    Serial.print("State Zero: Stand by -o- ");
+    Serial.print("  State Zero: Stand by -o-  ");
     motor1.stop();
     motor2.stop();
-    vTaskDelay(1000);
+    vTaskDelay(500);
     
   }
   }
@@ -257,7 +264,6 @@ void setpostask(void* parameter){
   }
 
   else{
-    //Serial.print("State Zero: Stand by -o- ");
     motor1.stop();
     motor2.stop();
     vTaskDelay(100);
@@ -276,6 +282,10 @@ void but_task(void* parameter){
 
     vTaskDelay(10);
   }
+}
+
+void webservertask(void* parameter){
+  BeepBoopStream.task();
 }
 
 
@@ -303,32 +313,24 @@ void setup() {
   Mouse.calIMU();
   Mouse.zeroenc();
 
-  
-
-
+  //Start webserver
+  BeepBoopStream.Start();
 
   //Encoder ISRs
   attachInterrupt(digitalPinToInterrupt(ENC2APin), ISRH_Handler_Encoder, CHANGE);
   attachInterrupt(digitalPinToInterrupt(ENC2BPin), ISRH_Handler_Encoder, CHANGE);
   attachInterrupt(digitalPinToInterrupt(ENCAPin), ISRH_Handler_Encoder, CHANGE);
   attachInterrupt(digitalPinToInterrupt(ENCBPin), ISRH_Handler_Encoder, CHANGE);
-  Serial.println("1");
+
   //Button ISR for state control
   attachInterrupt(digitalPinToInterrupt(button), ISRH_Handler_button,RISING);
-  Serial.println("2");
+ 
 
   //Tasks
-  //xTaskCreate (setpostask, "setpos",  4096, NULL, 3, NULL);
-  xTaskCreate (Gotask, "setpos",  4096, NULL, 3, NULL);
-
-
-  xTaskCreate (PollSensors, "Poll_Sensors",  2000, NULL, 1, NULL);
-
-  Serial.println("3");
+  xTaskCreate (Gotask, "Go Task",  4096, NULL, 3, NULL);
   xTaskCreate (myInterruptTask, "Encoder ISR",  4096, NULL, 1, &myIntTaskHandle);
   xTaskCreate (buttonInterruptTask, "Button Interrupt",  4096, NULL, 2, &buttonIntTaskHandle);
-
-  Serial.println("4");
+  xTaskCreate (webservertask, "Webserver Task",  4096, NULL, 2, NULL);
 }
  
 void loop() {

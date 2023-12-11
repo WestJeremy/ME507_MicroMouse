@@ -10,7 +10,6 @@
 
 #include <Arduino.h>
 #include "Sensors.h"
-#include "States.h"
 
 /**    Micromouse
  *  
@@ -19,14 +18,14 @@
 
 class Micromouse {
 public:
-    Micromouse(Motor* motor1,Motor* motor2,IR* IR_L,IR* IR_R,Time_Of_Flight* TOF,MPU9250* IMU, State* state_);
+    Micromouse(Motor* motor1,Motor* motor2,IR* IR_L,IR* IR_R,Time_Of_Flight* TOF,MPU9250* IMU);
 
     int IR_L;
     int IR_R;
 
 
-    int volatile encposL_=0;
-    int volatile encposR_=0;
+    int encposL;
+    int encposR;
     int position;
     void calIMU();
     void Move(int Cells);
@@ -39,12 +38,6 @@ public:
     void zeroenc();
     void stop();
     void RotStable(float angle);
-    void updateEncoder();
-    State* state_;
-    void setstate(int NewState);
-    
-
-
     
     
 

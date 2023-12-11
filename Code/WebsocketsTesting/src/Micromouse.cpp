@@ -2,20 +2,11 @@
 
 
 
-Micromouse::Micromouse(Motor* motor1, Motor* motor2, IR* IR_L,IR* IR_R,Time_Of_Flight* TOF, MPU9250* IMU,State* state)
- : motor1_(motor1), motor2_(motor2), IR_L_(IR_L), IR_R_(IR_R),TOF_(TOF),IMU_(IMU),encposL_(0),encposR_(0),state_(state){
+Micromouse::Micromouse(Motor* motor1, Motor* motor2, IR* IR_L,IR* IR_R,Time_Of_Flight* TOF, MPU9250* IMU) : motor1_(motor1), motor2_(motor2), IR_L_(IR_L), IR_R_(IR_R),TOF_(TOF),IMU_(IMU){
     
 }
 
-void Micromouse::updateEncoder(){
-  encposL_=  motor1_ -> encoderPosition;
-  encposR_=  motor2_ -> encoderPosition;
-}
 
-void Micromouse::setstate(int NewState){
-state_ ->set(NewState);
-  
-}
 
 void Micromouse::calIMU() {
   void setMagCalX(float getMagBiasX_uT(),float getMagScaleFactorX());
@@ -108,7 +99,7 @@ void Micromouse::RotStable(float angle) {
   Serial.println("Entering loop: ");
 
   float AngleErrorAllowable=.4;
-
+// abs(GoalAngle) > abs(AngError) 
   while(abs(AngError)>.4){
     IMU_->readSensor();
     AngError=AngError+IMU_->getGyroZ_rads();
@@ -125,6 +116,9 @@ void Micromouse::RotStable(float angle) {
     vTaskDelay(10);
   }
   stop();
+
+  
+
 }
 
 

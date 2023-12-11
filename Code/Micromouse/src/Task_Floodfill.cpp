@@ -8,13 +8,18 @@
 #include <Arduino.h>
 #include <queue>
 #include "Printstream.h"
-#include "shares.h"
+//#include "shares.h"
 #include "Task_Floodfill.h"
+
 
 /** @brief  Task which performs maze solve by implimenting the use of a floodfill algorithm
  *  @param  p_params An unused pointer to nonexistent parameters
 */
-void task_floodfill(void* p_params)
+
+Solver::Solver(Micromouse* Micromouse):Micromouse_(Micromouse)  {
+}
+
+void Solver::task_floodfill()
 {
     Serial.begin (115200);
     const int8_t button = 4;        // GPIO pin for pushbutton
@@ -74,19 +79,20 @@ void task_floodfill(void* p_params)
         // initial state, goes to state 1 once button pressed
         if (state == 0)
         {
-            if (digitalRead(button) == false)
+            state=1;
+            /* if (digitalRead(button) == false)
             {
                 state = 1;
             }
             else 
             {
                 state = 0;
-            }
+            } */
         }
 
         if (state == 1)
         {
-            direction.put(1);
+            //direction.put(1);
             vTaskDelay(1000);
             m = i + 1;
             n = j + 1;
@@ -212,8 +218,14 @@ void task_floodfill(void* p_params)
             // This if statement orients the micromouse east and moves it forward
             if (orient_row == m_row[1] && orient_col == m_col[1])
             {
-                // run motor function to orient the micro mouse east (facing right)
+
+
                 // run motor function to advance the micro mouse forward by one cell
+                Micromouse_ -> MoveStable(1);
+
+
+
+
                 trail[m_row[1]][m_col[1]] = '*';
                 Serial << "moving right" << "\n";
                 for (int8_t i = 0; i < 6; ++i) 
@@ -248,7 +260,10 @@ void task_floodfill(void* p_params)
             if (orient_row == m_row[0] && orient_col == m_col[0])
             {
                 // run motor function to orient the micro mouse west (facing left)
+                Micromouse_ -> RotStable(180);
                 // run motor function to advance the micro mouse forward by one cell
+                Micromouse_ -> MoveStable(1);
+
                 trail[m_row[0]][m_col[0]] = '*';
                 Serial << "moving left" << "\n";
                 for (int8_t i = 0; i < 6; ++i) 
@@ -283,7 +298,10 @@ void task_floodfill(void* p_params)
             if (orient_row == m_row[2] && orient_col == m_col[2])
             {
                 // run motor function to orient the micro mouse north (facing up)
+                Micromouse_ -> RotStable(90);
                 // run motor function to advance the micro mouse forward by one cell
+                Micromouse_ -> MoveStable(1);
+
                 trail[m_row[2]][m_col[2]] = '*';
                 Serial << "moving up" << "\n";
                 for (int8_t i = 0; i < 6; ++i) 
@@ -318,7 +336,10 @@ void task_floodfill(void* p_params)
             if (orient_row == m_row[3] && orient_col == m_col[3])
             {
                 // run motor function to orient the micro mouse south (facing down)
+                Micromouse_ -> RotStable(-90);
                 // run motor function to advance the micro mouse forward by one cell
+                Micromouse_ -> MoveStable(1);
+
                 trail[m_row[3]][m_col[3]] = '*';
                 Serial << "moving down" << "\n";
                 for (int8_t i = 0; i < 6; ++i) 
@@ -353,7 +374,7 @@ void task_floodfill(void* p_params)
 
         if (state == 2)
         {
-            direction.put(2);
+            //direction.put(2);
             vTaskDelay(1000);
             m = i + 1;
             n = j + 1;
@@ -478,7 +499,9 @@ void task_floodfill(void* p_params)
             if (orient_row == m_row[1] && orient_col == m_col[1])
             {
                 // run motor function to orient the micro mouse east (facing right)
+                Micromouse_ -> RotStable(180);
                 // run motor function to advance the micro mouse forward by one cell
+                Micromouse_ -> MoveStable(1);
                 trail[m_row[1]][m_col[1]] = '*';
                 Serial << "moving right" << "\n";
                 for (int8_t i = 0; i < 6; ++i) 
@@ -513,7 +536,9 @@ void task_floodfill(void* p_params)
             if (orient_row == m_row[0] && orient_col == m_col[0])
             {
                 // run motor function to orient the micro mouse west (facing left)
+ 
                 // run motor function to advance the micro mouse forward by one cell
+                Micromouse_ -> MoveStable(1);
                 trail[m_row[0]][m_col[0]] = '*';
                 Serial << "moving left" << "\n";
                 for (int8_t i = 0; i < 6; ++i) 
@@ -548,7 +573,9 @@ void task_floodfill(void* p_params)
             if (orient_row == m_row[2] && orient_col == m_col[2])
             {
                 // run motor function to orient the micro mouse north (facing up)
+                Micromouse_ -> RotStable(-90);
                 // run motor function to advance the micro mouse forward by one cell
+                Micromouse_ -> MoveStable(1);
                 trail[m_row[2]][m_col[2]] = '*';
                 Serial << "moving up" << "\n";
                 for (int8_t i = 0; i < 6; ++i) 
@@ -583,7 +610,10 @@ void task_floodfill(void* p_params)
             if (orient_row == m_row[3] && orient_col == m_col[3])
             {
                 // run motor function to orient the micro mouse south (facing down)
+                Micromouse_ -> RotStable(90);
                 // run motor function to advance the micro mouse forward by one cell
+                Micromouse_ -> MoveStable(1);
+
                 trail[m_row[3]][m_col[3]] = '*';
                 Serial << "moving down" << "\n";
                 for (int8_t i = 0; i < 6; ++i) 
@@ -618,7 +648,7 @@ void task_floodfill(void* p_params)
 
         if (state == 3)
         {
-            direction.put(3);
+            //direction.put(3);
             vTaskDelay(1000);
             m = i + 1;
             n = j + 1;
@@ -744,7 +774,10 @@ void task_floodfill(void* p_params)
             if (orient_row == m_row[1] && orient_col == m_col[1])
             {
                 // run motor function to orient the micro mouse east (facing right)
+                Micromouse_ -> RotStable(-90);
                 // run motor function to advance the micro mouse forward by one cell
+                Micromouse_ -> MoveStable(1);
+
                 trail[m_row[1]][m_col[1]] = '*';
                 Serial << "moving right" << "\n";
                 for (int8_t i = 0; i < 6; ++i) 
@@ -779,7 +812,9 @@ void task_floodfill(void* p_params)
             if (orient_row == m_row[0] && orient_col == m_col[0])
             {
                 // run motor function to orient the micro mouse west (facing left)
+                Micromouse_ -> RotStable(90);
                 // run motor function to advance the micro mouse forward by one cell
+                Micromouse_ -> MoveStable(1);
                 trail[m_row[0]][m_col[0]] = '*';
                 Serial << "moving left" << "\n";
                 for (int8_t i = 0; i < 6; ++i) 
@@ -814,7 +849,10 @@ void task_floodfill(void* p_params)
             if (orient_row == m_row[2] && orient_col == m_col[2])
             {
                 // run motor function to orient the micro mouse north (facing up)
+
                 // run motor function to advance the micro mouse forward by one cell
+                Micromouse_ -> MoveStable(1);
+
                 trail[m_row[2]][m_col[2]] = '*';
                 Serial << "moving up" << "\n";
                 for (int8_t i = 0; i < 6; ++i) 
@@ -849,7 +887,10 @@ void task_floodfill(void* p_params)
             if (orient_row == m_row[3] && orient_col == m_col[3])
             {
                 // run motor function to orient the micro mouse south (facing down)
+                Micromouse_ -> RotStable(180);
                 // run motor function to advance the micro mouse forward by one cell
+                Micromouse_ -> MoveStable(1);
+
                 trail[m_row[3]][m_col[3]] = '*';
                 Serial << "moving down" << "\n";
                 for (int8_t i = 0; i < 6; ++i) 
@@ -884,7 +925,7 @@ void task_floodfill(void* p_params)
 
         if (state == 4)
         {
-            direction.put(4);
+            //direction.put(4);
             vTaskDelay(1000);
             m = i + 1;
             n = j + 1;
@@ -1010,7 +1051,10 @@ void task_floodfill(void* p_params)
             if (orient_row == m_row[1] && orient_col == m_col[1])
             {
                 // run motor function to orient the micro mouse east (facing right)
+                Micromouse_ -> RotStable(90);
                 // run motor function to advance the micro mouse forward by one cell
+                Micromouse_ -> MoveStable(1);
+
                 trail[m_row[1]][m_col[1]] = '*';
                 Serial << "moving right" << "\n";
                 for (int8_t i = 0; i < 6; ++i) 
@@ -1045,7 +1089,9 @@ void task_floodfill(void* p_params)
             if (orient_row == m_row[0] && orient_col == m_col[0])
             {
                 // run motor function to orient the micro mouse west (facing left)
+                Micromouse_ -> RotStable(-90);
                 // run motor function to advance the micro mouse forward by one cell
+                Micromouse_ -> MoveStable(1);
                 trail[m_row[0]][m_col[0]] = '*';
                 Serial << "moving left" << "\n";
                 for (int8_t i = 0; i < 6; ++i) 
@@ -1080,7 +1126,9 @@ void task_floodfill(void* p_params)
             if (orient_row == m_row[2] && orient_col == m_col[2])
             {
                 // run motor function to orient the micro mouse north (facing up)
+                Micromouse_ -> RotStable(180);
                 // run motor function to advance the micro mouse forward by one cell
+                Micromouse_ -> MoveStable(1);
                 trail[m_row[2]][m_col[2]] = '*';
                 Serial << "moving up" << "\n";
                 for (int8_t i = 0; i < 6; ++i) 
@@ -1115,7 +1163,9 @@ void task_floodfill(void* p_params)
             if (orient_row == m_row[3] && orient_col == m_col[3])
             {
                 // run motor function to orient the micro mouse south (facing down)
+
                 // run motor function to advance the micro mouse forward by one cell
+                Micromouse_ -> MoveStable(1);
                 trail[m_row[3]][m_col[3]] = '*';
                 Serial << "moving down" << "\n";
                 for (int8_t i = 0; i < 6; ++i) 
