@@ -1,0 +1,212 @@
+\doxysection{C\+:/\+Users/westj/\+Micro\+Mouse/\+Code/\+Micromouse Final Code/src/main.cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{C:/Users/westj/MicroMouse/Code/Micromouse Final Code/src/main.cpp@{C:/Users/westj/MicroMouse/Code/Micromouse Final Code/src/main.cpp}}
+
+
+\doxylink{class_micromouse}{Micromouse} main application.  
+
+
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include "{}Motor.\+h"{}}\newline
+{\ttfamily \#include "{}States.\+h"{}}\newline
+{\ttfamily \#include "{}Micromouse.\+h"{}}\newline
+{\ttfamily \#include "{}MPU9250.\+h"{}}\newline
+{\ttfamily \#include "{}Task\+\_\+\+Floodfill.\+h"{}}\newline
+{\ttfamily \#include "{}Websocket\+Interface.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{main_8cpp_a37976ee6fe1fb8546bfd6153b83ffa6c}\label{main_8cpp_a37976ee6fe1fb8546bfd6153b83ffa6c} 
+\#define {\bfseries button}~34
+\item 
+\Hypertarget{main_8cpp_a37064104a00c75fbe3df57ca4f1d8040}\label{main_8cpp_a37064104a00c75fbe3df57ca4f1d8040} 
+\#define {\bfseries PWM1\+\_\+pin}~14
+\item 
+\Hypertarget{main_8cpp_a56fb640fa36bbdcbdc3f2d2f22181bd1}\label{main_8cpp_a56fb640fa36bbdcbdc3f2d2f22181bd1} 
+\#define {\bfseries AIN1\+\_\+pin}~15
+\item 
+\Hypertarget{main_8cpp_ab6ac800e89ce7f41548b83c3ece453c1}\label{main_8cpp_ab6ac800e89ce7f41548b83c3ece453c1} 
+\#define {\bfseries AIN2\+\_\+pin}~32
+\item 
+\Hypertarget{main_8cpp_a73f29c0bd8f104a8da3cb7a14c479322}\label{main_8cpp_a73f29c0bd8f104a8da3cb7a14c479322} 
+\#define {\bfseries ENCAPin}~21
+\item 
+\Hypertarget{main_8cpp_aea645f0b6f11181ae98fe927aa576bbd}\label{main_8cpp_aea645f0b6f11181ae98fe927aa576bbd} 
+\#define {\bfseries ENCBPin}~4
+\item 
+\Hypertarget{main_8cpp_a068d3c0e64742cf567f12df1a87eb9bf}\label{main_8cpp_a068d3c0e64742cf567f12df1a87eb9bf} 
+\#define {\bfseries PWM2\+\_\+pin}~12
+\item 
+\Hypertarget{main_8cpp_adca91662a86be44a53dbe26a16e65feb}\label{main_8cpp_adca91662a86be44a53dbe26a16e65feb} 
+\#define {\bfseries BIN1\+\_\+pin}~33
+\item 
+\Hypertarget{main_8cpp_aa126243b01f040a93e00943699cfdc49}\label{main_8cpp_aa126243b01f040a93e00943699cfdc49} 
+\#define {\bfseries BIN2\+\_\+pin}~27
+\item 
+\Hypertarget{main_8cpp_a226b03bf45d9fa491129fa48f5064210}\label{main_8cpp_a226b03bf45d9fa491129fa48f5064210} 
+\#define {\bfseries ENC2\+APin}~25
+\item 
+\Hypertarget{main_8cpp_a3d09267bb6c6a9c43c6ece87795b945b}\label{main_8cpp_a3d09267bb6c6a9c43c6ece87795b945b} 
+\#define {\bfseries ENC2\+BPin}~26
+\item 
+\Hypertarget{main_8cpp_a1aab17470a5d34c8aa1a2b76970dc6d6}\label{main_8cpp_a1aab17470a5d34c8aa1a2b76970dc6d6} 
+\#define {\bfseries IR\+\_\+\+L\+\_\+\+Pin}~39
+\item 
+\Hypertarget{main_8cpp_a8a383679c8d33b11dbe82a661f0e10f6}\label{main_8cpp_a8a383679c8d33b11dbe82a661f0e10f6} 
+\#define {\bfseries IR\+\_\+\+R\+\_\+\+Pin}~36
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{main_8cpp_a0b7c7ebdb53540a4028a93e2dc0ee364}\label{main_8cpp_a0b7c7ebdb53540a4028a93e2dc0ee364} 
+\mbox{\hyperlink{class_websocket_connection}{Websocket\+Connection}} {\bfseries Beep\+Boop\+Stream} (ssid, password, webpage,\&Mouse)
+\item 
+\Hypertarget{main_8cpp_a67469880db1a8b27f8bb719a2be58c18}\label{main_8cpp_a67469880db1a8b27f8bb719a2be58c18} 
+void {\bfseries Encoder\+Update} ()
+\begin{DoxyCompactList}\small\item\em Function to update both encoders. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_ae3665130cca18c36935037c1ba3a7396}{my\+Interrupt\+Task}} (void \texorpdfstring{$\ast$}{*}parameter)
+\begin{DoxyCompactList}\small\item\em Task loop for encoder interrupt. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_abcebefd5a31e77dc51bda51c9da64e83}{button\+Interrupt\+Task}} (void \texorpdfstring{$\ast$}{*}parameter)
+\begin{DoxyCompactList}\small\item\em Task loop for button interrupt. \end{DoxyCompactList}\item 
+\Hypertarget{main_8cpp_a1cb72a248a56b5dc2b2ed27db7560b90}\label{main_8cpp_a1cb72a248a56b5dc2b2ed27db7560b90} 
+void {\bfseries handle\+Interrupt} ()
+\begin{DoxyCompactList}\small\item\em resume encoder task. \end{DoxyCompactList}\item 
+\Hypertarget{main_8cpp_a73050f835725c0e7da1f5a23bddc3564}\label{main_8cpp_a73050f835725c0e7da1f5a23bddc3564} 
+void {\bfseries handle\+Button\+Interrupt} ()
+\begin{DoxyCompactList}\small\item\em resume button task. \end{DoxyCompactList}\item 
+\Hypertarget{main_8cpp_a503ac9cf89b1c845bac770af86d49455}\label{main_8cpp_a503ac9cf89b1c845bac770af86d49455} 
+void IRAM\+\_\+\+ATTR {\bfseries ISRH\+\_\+\+Handler\+\_\+button} ()
+\begin{DoxyCompactList}\small\item\em ISR handler for button interrupt. \end{DoxyCompactList}\item 
+\Hypertarget{main_8cpp_aed487527298b959af091ce104a03cd3a}\label{main_8cpp_aed487527298b959af091ce104a03cd3a} 
+void IRAM\+\_\+\+ATTR {\bfseries ISRH\+\_\+\+Handler\+\_\+\+Encoder} ()
+\begin{DoxyCompactList}\small\item\em ISR handler for encoder interrupt. \end{DoxyCompactList}\item 
+\Hypertarget{main_8cpp_ae92caae85dbef22d6d338a986dbfb26e}\label{main_8cpp_ae92caae85dbef22d6d338a986dbfb26e} 
+void {\bfseries Poll\+Sensors} ()
+\begin{DoxyCompactList}\small\item\em Poll all sensors, and states and print to serial. \end{DoxyCompactList}\item 
+\Hypertarget{main_8cpp_adeae6c2a7df392d037963ea8d7422340}\label{main_8cpp_adeae6c2a7df392d037963ea8d7422340} 
+void {\bfseries Gotask} (void \texorpdfstring{$\ast$}{*}parameter)
+\begin{DoxyCompactList}\small\item\em Main state system dispatcher for the microcmouse. \end{DoxyCompactList}\item 
+\Hypertarget{main_8cpp_a8fd133b7047407a49ac8d08705641c99}\label{main_8cpp_a8fd133b7047407a49ac8d08705641c99} 
+void {\bfseries setpostask} (void \texorpdfstring{$\ast$}{*}parameter)
+\begin{DoxyCompactList}\small\item\em test software to set arbitrary goal position \end{DoxyCompactList}\item 
+\Hypertarget{main_8cpp_a23c583ede08e583bb2a4fba0ac2abbf7}\label{main_8cpp_a23c583ede08e583bb2a4fba0ac2abbf7} 
+void {\bfseries webservertask} (void \texorpdfstring{$\ast$}{*}parameter)
+\begin{DoxyCompactList}\small\item\em task wrapper for webserver init \end{DoxyCompactList}\item 
+\Hypertarget{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}\label{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d} 
+void {\bfseries setup} ()
+\item 
+\Hypertarget{main_8cpp_afe461d27b9c48d5921c00d521181f12f}\label{main_8cpp_afe461d27b9c48d5921c00d521181f12f} 
+void {\bfseries loop} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{main_8cpp_a91ac39b56f805516fc9a5261b0682ba0}\label{main_8cpp_a91ac39b56f805516fc9a5261b0682ba0} 
+int {\bfseries tof\+\_\+address} = 0x29
+\item 
+\Hypertarget{main_8cpp_a8401524759ad65a7d2cf99141ae1c5c3}\label{main_8cpp_a8401524759ad65a7d2cf99141ae1c5c3} 
+volatile bool {\bfseries interrupt\+Flag} = false
+\item 
+\Hypertarget{main_8cpp_a8dae6ee4b13f5a7860eceb6099fa4ab1}\label{main_8cpp_a8dae6ee4b13f5a7860eceb6099fa4ab1} 
+int {\bfseries cur\+\_\+state} =0
+\item 
+\Hypertarget{main_8cpp_aca139b9171377669a98ff02f0827e143}\label{main_8cpp_aca139b9171377669a98ff02f0827e143} 
+int {\bfseries micromouse\+\_\+states} =2
+\item 
+\Hypertarget{main_8cpp_aad3afec3ae418e284c9e2530f0415bfc}\label{main_8cpp_aad3afec3ae418e284c9e2530f0415bfc} 
+boolean {\bfseries x} =1
+\item 
+\Hypertarget{main_8cpp_a29716abd4f651ba9d6f1476ea79fa7ae}\label{main_8cpp_a29716abd4f651ba9d6f1476ea79fa7ae} 
+uint8\+\_\+t {\bfseries pos} =0
+\item 
+\Hypertarget{main_8cpp_a72be9b640989f3d561a6bc8b67695eaa}\label{main_8cpp_a72be9b640989f3d561a6bc8b67695eaa} 
+uint8\+\_\+t {\bfseries curpos} =0
+\item 
+\Hypertarget{main_8cpp_a05a1cfdf86c4b0267bb4800d588762cd}\label{main_8cpp_a05a1cfdf86c4b0267bb4800d588762cd} 
+\mbox{\hyperlink{class_motor}{Motor}} {\bfseries motor1} (PWM1\+\_\+pin, AIN1\+\_\+pin, AIN2\+\_\+pin, ENCAPin, ENCBPin)
+\item 
+\Hypertarget{main_8cpp_a86fde6bfaf1528bef114dbf04ecb8906}\label{main_8cpp_a86fde6bfaf1528bef114dbf04ecb8906} 
+\mbox{\hyperlink{class_motor}{Motor}} {\bfseries motor2} (PWM2\+\_\+pin, BIN1\+\_\+pin, BIN2\+\_\+pin, ENC2\+APin, ENC2\+BPin)
+\item 
+\Hypertarget{main_8cpp_a6bb3afab077d8caba2b6cb7122a6ec95}\label{main_8cpp_a6bb3afab077d8caba2b6cb7122a6ec95} 
+\mbox{\hyperlink{class_i_r}{IR}} {\bfseries IR\+\_\+L} (IR\+\_\+\+L\+\_\+\+Pin)
+\item 
+\Hypertarget{main_8cpp_a0e017c1f2c3ec9a3ae8ab72c13b7d6a8}\label{main_8cpp_a0e017c1f2c3ec9a3ae8ab72c13b7d6a8} 
+\mbox{\hyperlink{class_i_r}{IR}} {\bfseries IR\+\_\+R} (IR\+\_\+\+R\+\_\+\+Pin)
+\item 
+\Hypertarget{main_8cpp_ac9bba8b1da6565480f467cc137a83b03}\label{main_8cpp_ac9bba8b1da6565480f467cc137a83b03} 
+\mbox{\hyperlink{class_time___of___flight}{Time\+\_\+\+Of\+\_\+\+Flight}} {\bfseries TOF} (tof\+\_\+address)
+\item 
+\Hypertarget{main_8cpp_a3ab266e6c650bec75f39cb48ce9b691e}\label{main_8cpp_a3ab266e6c650bec75f39cb48ce9b691e} 
+\mbox{\hyperlink{class_m_p_u9250}{MPU9250}} {\bfseries IMU} (Wire, 0x68)
+\item 
+\Hypertarget{main_8cpp_a6e27f49150e9a14580fb313cc2777e00}\label{main_8cpp_a6e27f49150e9a14580fb313cc2777e00} 
+int {\bfseries status}
+\item 
+\Hypertarget{main_8cpp_a697d6629110eed396003fdccae7e46b6}\label{main_8cpp_a697d6629110eed396003fdccae7e46b6} 
+\mbox{\hyperlink{class_state}{State}} {\bfseries state} (micromouse\+\_\+states)
+\item 
+\Hypertarget{main_8cpp_a09d44a42942aaa9777f51d3a3e51c605}\label{main_8cpp_a09d44a42942aaa9777f51d3a3e51c605} 
+\mbox{\hyperlink{class_solver}{Solver}} solve \& {\bfseries Mouse}
+\item 
+\Hypertarget{main_8cpp_a587ba0cb07f02913598610049a3bbb79}\label{main_8cpp_a587ba0cb07f02913598610049a3bbb79} 
+const char \texorpdfstring{$\ast$}{*} {\bfseries ssid} = "{}Mojo\+Dojo\+Casa\+House"{}
+\item 
+\Hypertarget{main_8cpp_aa4a2ebcb494493f648ae1e6975672575}\label{main_8cpp_aa4a2ebcb494493f648ae1e6975672575} 
+const char \texorpdfstring{$\ast$}{*} {\bfseries password} = "{}SUBLIME!"{}
+\item 
+\Hypertarget{main_8cpp_a0de2f6e0427579fab755bc06580de6fa}\label{main_8cpp_a0de2f6e0427579fab755bc06580de6fa} 
+String {\bfseries webpage} = "{}$<$!DOCTYPE html$>$$<$html$>$$<$head$>$$<$title$>$Page Title$<$/title$>$$<$/head$>$$<$body style=\textquotesingle{}background-\/color\+: \#EEEEEE;\textquotesingle{}$>$$<$span style=\textquotesingle{}color\+: \#003366;\textquotesingle{}$>$$<$h1$>$\mbox{\hyperlink{class_micromouse}{Micromouse}} Websockets Interface$<$/h1$>$ $<$p$>$\mbox{\hyperlink{class_motor}{Motor}} 1 position\+: $<$span id=\textquotesingle{}rand1\textquotesingle{}$>$-\/$<$/span$>$$<$/p$>$$<$p$>$\mbox{\hyperlink{class_motor}{Motor}} 2 position\+: $<$span id=\textquotesingle{}rand2\textquotesingle{}$>$-\/$<$/span$>$$<$/p$>$$<$p$>$State\+: $<$span id=\textquotesingle{}state\textquotesingle{}$>$-\/$<$/span$>$$<$/p$>$$<$p$>$$<$button type=\textquotesingle{}button\textquotesingle{} id=\textquotesingle{}BTN\+\_\+\+SEND\+\_\+\+BACK\textquotesingle{}$>$Update \mbox{\hyperlink{class_state}{State}}$<$/button$>$$<$/p$>$$<$/span$>$$<$/body$>$$<$script$>$ var Socket; document.\+get\+Element\+By\+Id(\textquotesingle{}BTN\+\_\+\+SEND\+\_\+\+BACK\textquotesingle{}).add\+Event\+Listener(\textquotesingle{}click\textquotesingle{}, button\+\_\+send\+\_\+back); function init() \{ Socket = new Web\+Socket(\textquotesingle{}ws\+://\textquotesingle{} + window.\+location.\+hostname + \textquotesingle{}\+:81/\textquotesingle{}); Socket.\+onmessage = function(event) \{ process\+Command(event); \}; \} function button\+\_\+send\+\_\+back() \{ var msg = \{inc\+: 1,\};Socket.\+send(JSON.\+stringify(msg)); \} function process\+Command(event) \{var obj = JSON.\+parse(event.\+data);document.\+get\+Element\+By\+Id(\textquotesingle{}rand1\textquotesingle{}).inner\+HTML = obj.\+rand1;document.\+get\+Element\+By\+Id(\textquotesingle{}rand2\textquotesingle{}).inner\+HTML = obj.\+rand2; document.\+get\+Element\+By\+Id(\textquotesingle{}state\textquotesingle{}).inner\+HTML = obj.\+state; console.\+log(obj.\+rand1);console.\+log(obj.\+rand2); console.\+log(obj.\+state); \} window.\+onload = function(event) \{ init(); \}$<$/script$>$$<$/html$>$"{}
+\item 
+\Hypertarget{main_8cpp_a571995c6c0a4e5af7f20a7be285bdcd4}\label{main_8cpp_a571995c6c0a4e5af7f20a7be285bdcd4} 
+Task\+Handle\+\_\+t {\bfseries my\+Int\+Task\+Handle} = NULL
+\item 
+\Hypertarget{main_8cpp_a462d8d6e871d6a221a5ec0d6da104913}\label{main_8cpp_a462d8d6e871d6a221a5ec0d6da104913} 
+Task\+Handle\+\_\+t {\bfseries button\+Int\+Task\+Handle} = NULL
+\item 
+\Hypertarget{main_8cpp_a7c46df5b748e33e1c886fc8f1d74abc0}\label{main_8cpp_a7c46df5b748e33e1c886fc8f1d74abc0} 
+port\+MUX\+\_\+\+TYPE {\bfseries mux} = port\+MUX\+\_\+\+INITIALIZER\+\_\+\+UNLOCKED
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_micromouse}{Micromouse} main application. 
+
+\begin{DoxyAuthor}{Author}
+Jeremy West 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2023-\/Nov-\/3 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_abcebefd5a31e77dc51bda51c9da64e83}\label{main_8cpp_abcebefd5a31e77dc51bda51c9da64e83} 
+\index{main.cpp@{main.cpp}!buttonInterruptTask@{buttonInterruptTask}}
+\index{buttonInterruptTask@{buttonInterruptTask}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{buttonInterruptTask()}{buttonInterruptTask()}}
+{\footnotesize\ttfamily void button\+Interrupt\+Task (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{parameter }\end{DoxyParamCaption})}
+
+
+
+Task loop for button interrupt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parameter} & Task parameter (not used). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{main_8cpp_ae3665130cca18c36935037c1ba3a7396}\label{main_8cpp_ae3665130cca18c36935037c1ba3a7396} 
+\index{main.cpp@{main.cpp}!myInterruptTask@{myInterruptTask}}
+\index{myInterruptTask@{myInterruptTask}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{myInterruptTask()}{myInterruptTask()}}
+{\footnotesize\ttfamily void my\+Interrupt\+Task (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{parameter }\end{DoxyParamCaption})}
+
+
+
+Task loop for encoder interrupt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parameter} & Task parameter (not used). \\
+\hline
+\end{DoxyParams}

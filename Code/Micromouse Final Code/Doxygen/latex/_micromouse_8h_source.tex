@@ -1,0 +1,62 @@
+\doxysection{Micromouse.\+h}
+\hypertarget{_micromouse_8h_source}{}\label{_micromouse_8h_source}\index{C:/Users/westj/MicroMouse/Code/Micromouse Final Code/include/Micromouse.h@{C:/Users/westj/MicroMouse/Code/Micromouse Final Code/include/Micromouse.h}}
+\mbox{\hyperlink{_micromouse_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ MICROMOUSE\_H}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ MICROMOUSE\_H}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}Sensors.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_states_8h}{States.h}}"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_micromouse}{Micromouse}}\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{class_micromouse}{Micromouse}}(\mbox{\hyperlink{class_motor}{Motor}}*\ motor1,\ \mbox{\hyperlink{class_motor}{Motor}}*\ motor2,\ \mbox{\hyperlink{class_i_r}{IR}}*\ \mbox{\hyperlink{class_micromouse_a4f1667c81c45873a3a3f74de38ffb10f}{IR\_L}},\ \mbox{\hyperlink{class_i_r}{IR}}*\ \mbox{\hyperlink{class_micromouse_ae2bc7389d1c02133bb2a0f84f800994a}{IR\_R}},\ \mbox{\hyperlink{class_time___of___flight}{Time\_Of\_Flight}}*\ TOF,\ \mbox{\hyperlink{class_m_p_u9250}{MPU9250}}*\ IMU,\ \mbox{\hyperlink{class_state}{State}}*\ \mbox{\hyperlink{class_micromouse_a9cae43453f85b5904e1fad6873fcd4ec}{state\_}});}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_micromouse_a4f1667c81c45873a3a3f74de38ffb10f}{IR\_L}};\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_micromouse_ae2bc7389d1c02133bb2a0f84f800994a}{IR\_R}};\ }
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{int}\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{class_micromouse_a0672809a369ed830993344e9266730ed}{encposL\_}}=0;\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{int}\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{class_micromouse_aa99bcfa1c5f5fd8893490a004ecece5e}{encposR\_}}=0;\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_micromouse_abc72700d8eb0e05c50b10f290a8b92fa}{position}};\ }
+\DoxyCodeLine{00040\ \ \ \ \ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_micromouse_ad0f28fbc78c3826255928b419676c08e}{calIMU}}();}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_micromouse_ab7c21f7bb8a626fb33947ec7c8d4148a}{Move}}(\textcolor{keywordtype}{int}\ Cells);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_micromouse_ad2a39e02534bae936dc6b9d288b6de7b}{StepAngularPID}}();}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_micromouse_addb8f13af8079ad878fb0bb4b5076ddb}{MoveStable}}(\textcolor{keywordtype}{int}\ Cells);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_micromouse_a2397e14582653a0f1ac7ee1e4937bc3f}{AngError}}=0;\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_micromouse_a98a6481e2eee1fc557fe2b93a3aababc}{AngZero}};\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_micromouse_a00ade280705e7f9a8b3bb6ec3fbcd800}{GoalAngle}};\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_micromouse_a5bfe36e01fc480d63cc3296d0d480c5c}{I\_error}};\ }
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_micromouse_ab63a2502b0b3777605e1d46218e65fef}{zeroenc}}();}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_micromouse_a14d2e4db79d9af5cb426ca2b304bab8b}{stop}}();}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_micromouse_a3df41781fe4ee0acd8e84c65ec21b6fc}{RotStable}}(\textcolor{keywordtype}{float}\ angle);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_micromouse_a3a6e8ecd50316513d2b49d718a9ac0d5}{updateEncoder}}();}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{class_state}{State}}*\ \mbox{\hyperlink{class_micromouse_a9cae43453f85b5904e1fad6873fcd4ec}{state\_}};\ }
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_micromouse_a19e64717c20b7b47b9c342377955c855}{setstate}}(\textcolor{keywordtype}{int}\ NewState);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00095\ \ \ \ \ \mbox{\hyperlink{class_motor}{Motor}}*\ motor1\_;\ }
+\DoxyCodeLine{00096\ \ \ \ \ \mbox{\hyperlink{class_motor}{Motor}}*\ motor2\_;\ }
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \mbox{\hyperlink{class_i_r}{IR}}*\ IR\_L\_;\ }
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{class_i_r}{IR}}*\ IR\_R\_;\ }
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \mbox{\hyperlink{class_time___of___flight}{Time\_Of\_Flight}}*\ TOF\_;\ }
+\DoxyCodeLine{00102\ \ \ \ \ \mbox{\hyperlink{class_m_p_u9250}{MPU9250}}*\ IMU\_;\ }
+\DoxyCodeLine{00103\ \};}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

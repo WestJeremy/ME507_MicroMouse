@@ -1,0 +1,211 @@
+\doxysection{Micromouse Class Reference}
+\hypertarget{class_micromouse}{}\label{class_micromouse}\index{Micromouse@{Micromouse}}
+
+
+Class for the \doxylink{class_micromouse}{Micromouse} project.  
+
+
+
+
+{\ttfamily \#include $<$Micromouse.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_micromouse_a7f7af5d129a9fb428e77ed506ce1df98}{Micromouse}} (\mbox{\hyperlink{class_motor}{Motor}} \texorpdfstring{$\ast$}{*}motor1, \mbox{\hyperlink{class_motor}{Motor}} \texorpdfstring{$\ast$}{*}motor2, \mbox{\hyperlink{class_i_r}{IR}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_micromouse_a4f1667c81c45873a3a3f74de38ffb10f}{IR\+\_\+L}}, \mbox{\hyperlink{class_i_r}{IR}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_micromouse_ae2bc7389d1c02133bb2a0f84f800994a}{IR\+\_\+R}}, \mbox{\hyperlink{class_time___of___flight}{Time\+\_\+\+Of\+\_\+\+Flight}} \texorpdfstring{$\ast$}{*}TOF, \mbox{\hyperlink{class_m_p_u9250}{MPU9250}} \texorpdfstring{$\ast$}{*}IMU, \mbox{\hyperlink{class_state}{State}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_micromouse_a9cae43453f85b5904e1fad6873fcd4ec}{state\+\_\+}})
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{class_micromouse}{Micromouse} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_micromouse_ad0f28fbc78c3826255928b419676c08e}{cal\+IMU}} ()
+\begin{DoxyCompactList}\small\item\em Calibrate the Inertial Measurement Unit (IMU). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_micromouse_ab7c21f7bb8a626fb33947ec7c8d4148a}{Move}} (int Cells)
+\begin{DoxyCompactList}\small\item\em Move the \doxylink{class_micromouse}{Micromouse} a specified number of cells. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_micromouse_ad2a39e02534bae936dc6b9d288b6de7b}{Step\+Angular\+PID}} ()
+\begin{DoxyCompactList}\small\item\em Perform a stepwise movement using Angular PID control. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_micromouse_addb8f13af8079ad878fb0bb4b5076ddb}{Move\+Stable}} (int Cells)
+\begin{DoxyCompactList}\small\item\em Move the \doxylink{class_micromouse}{Micromouse} a specified number of cells with stable rotation. \end{DoxyCompactList}\item 
+\Hypertarget{class_micromouse_ab63a2502b0b3777605e1d46218e65fef}\label{class_micromouse_ab63a2502b0b3777605e1d46218e65fef} 
+void {\bfseries zeroenc} ()
+\begin{DoxyCompactList}\small\item\em Zero the motor encoders. \end{DoxyCompactList}\item 
+\Hypertarget{class_micromouse_a14d2e4db79d9af5cb426ca2b304bab8b}\label{class_micromouse_a14d2e4db79d9af5cb426ca2b304bab8b} 
+void {\bfseries stop} ()
+\begin{DoxyCompactList}\small\item\em Stop the movement of the \doxylink{class_micromouse}{Micromouse}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_micromouse_a3df41781fe4ee0acd8e84c65ec21b6fc}{Rot\+Stable}} (float angle)
+\begin{DoxyCompactList}\small\item\em Perform a stable rotation to a specified angle. \end{DoxyCompactList}\item 
+\Hypertarget{class_micromouse_a3a6e8ecd50316513d2b49d718a9ac0d5}\label{class_micromouse_a3a6e8ecd50316513d2b49d718a9ac0d5} 
+void {\bfseries update\+Encoder} ()
+\begin{DoxyCompactList}\small\item\em Update the motor encoders. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_micromouse_a19e64717c20b7b47b9c342377955c855}{setstate}} (int New\+State)
+\begin{DoxyCompactList}\small\item\em Set the state of the \doxylink{class_micromouse}{Micromouse}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_micromouse_a4f1667c81c45873a3a3f74de38ffb10f}\label{class_micromouse_a4f1667c81c45873a3a3f74de38ffb10f} 
+int {\bfseries IR\+\_\+L}
+\begin{DoxyCompactList}\small\item\em Left Infrared (\doxylink{class_i_r}{IR}) sensor value. \end{DoxyCompactList}\item 
+\Hypertarget{class_micromouse_ae2bc7389d1c02133bb2a0f84f800994a}\label{class_micromouse_ae2bc7389d1c02133bb2a0f84f800994a} 
+int {\bfseries IR\+\_\+R}
+\begin{DoxyCompactList}\small\item\em Right Infrared (\doxylink{class_i_r}{IR}) sensor value. \end{DoxyCompactList}\item 
+\Hypertarget{class_micromouse_a0672809a369ed830993344e9266730ed}\label{class_micromouse_a0672809a369ed830993344e9266730ed} 
+int volatile {\bfseries encpos\+L\+\_\+} =0
+\begin{DoxyCompactList}\small\item\em Left motor encoder position. \end{DoxyCompactList}\item 
+\Hypertarget{class_micromouse_aa99bcfa1c5f5fd8893490a004ecece5e}\label{class_micromouse_aa99bcfa1c5f5fd8893490a004ecece5e} 
+int volatile {\bfseries encpos\+R\+\_\+} =0
+\begin{DoxyCompactList}\small\item\em Right motor encoder position. \end{DoxyCompactList}\item 
+\Hypertarget{class_micromouse_abc72700d8eb0e05c50b10f290a8b92fa}\label{class_micromouse_abc72700d8eb0e05c50b10f290a8b92fa} 
+int {\bfseries position}
+\begin{DoxyCompactList}\small\item\em Current position of the \doxylink{class_micromouse}{Micromouse}. \end{DoxyCompactList}\item 
+\Hypertarget{class_micromouse_a2397e14582653a0f1ac7ee1e4937bc3f}\label{class_micromouse_a2397e14582653a0f1ac7ee1e4937bc3f} 
+float {\bfseries Ang\+Error} =0
+\begin{DoxyCompactList}\small\item\em Angular error value. \end{DoxyCompactList}\item 
+\Hypertarget{class_micromouse_a98a6481e2eee1fc557fe2b93a3aababc}\label{class_micromouse_a98a6481e2eee1fc557fe2b93a3aababc} 
+float {\bfseries Ang\+Zero}
+\begin{DoxyCompactList}\small\item\em Zero angle reference. \end{DoxyCompactList}\item 
+\Hypertarget{class_micromouse_a00ade280705e7f9a8b3bb6ec3fbcd800}\label{class_micromouse_a00ade280705e7f9a8b3bb6ec3fbcd800} 
+float {\bfseries Goal\+Angle}
+\begin{DoxyCompactList}\small\item\em Goal angular position. \end{DoxyCompactList}\item 
+\Hypertarget{class_micromouse_a5bfe36e01fc480d63cc3296d0d480c5c}\label{class_micromouse_a5bfe36e01fc480d63cc3296d0d480c5c} 
+float {\bfseries I\+\_\+error}
+\begin{DoxyCompactList}\small\item\em Integral error for PID control. \end{DoxyCompactList}\item 
+\Hypertarget{class_micromouse_a9cae43453f85b5904e1fad6873fcd4ec}\label{class_micromouse_a9cae43453f85b5904e1fad6873fcd4ec} 
+\mbox{\hyperlink{class_state}{State}} \texorpdfstring{$\ast$}{*} {\bfseries state\+\_\+}
+\begin{DoxyCompactList}\small\item\em Pointer to the \doxylink{class_state}{State} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for the \doxylink{class_micromouse}{Micromouse} project. 
+
+This class represents the \doxylink{class_micromouse}{Micromouse} project and provides methods for controlling its behavior. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_micromouse_a7f7af5d129a9fb428e77ed506ce1df98}\label{class_micromouse_a7f7af5d129a9fb428e77ed506ce1df98} 
+\index{Micromouse@{Micromouse}!Micromouse@{Micromouse}}
+\index{Micromouse@{Micromouse}!Micromouse@{Micromouse}}
+\doxysubsubsection{\texorpdfstring{Micromouse()}{Micromouse()}}
+{\footnotesize\ttfamily Micromouse\+::\+Micromouse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_motor}{Motor}} \texorpdfstring{$\ast$}{*}}]{motor1,  }\item[{\mbox{\hyperlink{class_motor}{Motor}} \texorpdfstring{$\ast$}{*}}]{motor2,  }\item[{\mbox{\hyperlink{class_i_r}{IR}} \texorpdfstring{$\ast$}{*}}]{IR\+\_\+L,  }\item[{\mbox{\hyperlink{class_i_r}{IR}} \texorpdfstring{$\ast$}{*}}]{IR\+\_\+R,  }\item[{\mbox{\hyperlink{class_time___of___flight}{Time\+\_\+\+Of\+\_\+\+Flight}} \texorpdfstring{$\ast$}{*}}]{TOF,  }\item[{\mbox{\hyperlink{class_m_p_u9250}{MPU9250}} \texorpdfstring{$\ast$}{*}}]{IMU,  }\item[{\mbox{\hyperlink{class_state}{State}} \texorpdfstring{$\ast$}{*}}]{state }\end{DoxyParamCaption})}
+
+
+
+Constructor for the \doxylink{class_micromouse}{Micromouse} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em motor1} & A pointer to the first motor object. \\
+\hline
+{\em motor2} & A pointer to the second motor object. \\
+\hline
+{\em IR\+\_\+L} & A pointer to the left Infrared (\doxylink{class_i_r}{IR}) sensor object. \\
+\hline
+{\em IR\+\_\+R} & A pointer to the right Infrared (\doxylink{class_i_r}{IR}) sensor object. \\
+\hline
+{\em TOF} & A pointer to the Time-\/of-\/\+Flight (ToF) sensor object. \\
+\hline
+{\em IMU} & A pointer to the \doxylink{class_m_p_u9250}{MPU9250} Inertial Measurement Unit (IMU) object. \\
+\hline
+{\em state\+\_\+} & A pointer to the \doxylink{class_state}{State} object.\\
+\hline
+{\em motor1} & Pointer to the first motor object. \\
+\hline
+{\em motor2} & Pointer to the second motor object. \\
+\hline
+{\em IR\+\_\+L} & Pointer to the left Infrared (\doxylink{class_i_r}{IR}) sensor object. \\
+\hline
+{\em IR\+\_\+R} & Pointer to the right Infrared (\doxylink{class_i_r}{IR}) sensor object. \\
+\hline
+{\em TOF} & Pointer to the Time-\/of-\/\+Flight (ToF) sensor object. \\
+\hline
+{\em IMU} & Pointer to the \doxylink{class_m_p_u9250}{MPU9250} Inertial Measurement Unit (IMU) object. \\
+\hline
+{\em state} & Pointer to the \doxylink{class_state}{State} object. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_micromouse_ad0f28fbc78c3826255928b419676c08e}\label{class_micromouse_ad0f28fbc78c3826255928b419676c08e} 
+\index{Micromouse@{Micromouse}!calIMU@{calIMU}}
+\index{calIMU@{calIMU}!Micromouse@{Micromouse}}
+\doxysubsubsection{\texorpdfstring{calIMU()}{calIMU()}}
+{\footnotesize\ttfamily void Micromouse\+::cal\+IMU (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calibrate the Inertial Measurement Unit (IMU). 
+
+Calibration function for the Inertial Measurement Unit (IMU). \Hypertarget{class_micromouse_ab7c21f7bb8a626fb33947ec7c8d4148a}\label{class_micromouse_ab7c21f7bb8a626fb33947ec7c8d4148a} 
+\index{Micromouse@{Micromouse}!Move@{Move}}
+\index{Move@{Move}!Micromouse@{Micromouse}}
+\doxysubsubsection{\texorpdfstring{Move()}{Move()}}
+{\footnotesize\ttfamily void Micromouse\+::\+Move (\begin{DoxyParamCaption}\item[{int}]{Cells }\end{DoxyParamCaption})}
+
+
+
+Move the \doxylink{class_micromouse}{Micromouse} a specified number of cells. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Cells} & The number of cells to move. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_micromouse_addb8f13af8079ad878fb0bb4b5076ddb}\label{class_micromouse_addb8f13af8079ad878fb0bb4b5076ddb} 
+\index{Micromouse@{Micromouse}!MoveStable@{MoveStable}}
+\index{MoveStable@{MoveStable}!Micromouse@{Micromouse}}
+\doxysubsubsection{\texorpdfstring{MoveStable()}{MoveStable()}}
+{\footnotesize\ttfamily void Micromouse\+::\+Move\+Stable (\begin{DoxyParamCaption}\item[{int}]{Cells }\end{DoxyParamCaption})}
+
+
+
+Move the \doxylink{class_micromouse}{Micromouse} a specified number of cells with stable rotation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Cells} & The number of cells to move. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_micromouse_a3df41781fe4ee0acd8e84c65ec21b6fc}\label{class_micromouse_a3df41781fe4ee0acd8e84c65ec21b6fc} 
+\index{Micromouse@{Micromouse}!RotStable@{RotStable}}
+\index{RotStable@{RotStable}!Micromouse@{Micromouse}}
+\doxysubsubsection{\texorpdfstring{RotStable()}{RotStable()}}
+{\footnotesize\ttfamily void Micromouse\+::\+Rot\+Stable (\begin{DoxyParamCaption}\item[{float}]{angle }\end{DoxyParamCaption})}
+
+
+
+Perform a stable rotation to a specified angle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & The target angle for rotation. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_micromouse_a19e64717c20b7b47b9c342377955c855}\label{class_micromouse_a19e64717c20b7b47b9c342377955c855} 
+\index{Micromouse@{Micromouse}!setstate@{setstate}}
+\index{setstate@{setstate}!Micromouse@{Micromouse}}
+\doxysubsubsection{\texorpdfstring{setstate()}{setstate()}}
+{\footnotesize\ttfamily void Micromouse\+::setstate (\begin{DoxyParamCaption}\item[{int}]{New\+State }\end{DoxyParamCaption})}
+
+
+
+Set the state of the \doxylink{class_micromouse}{Micromouse}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em New\+State} & The new state to set for the \doxylink{class_micromouse}{Micromouse}. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_micromouse_ad2a39e02534bae936dc6b9d288b6de7b}\label{class_micromouse_ad2a39e02534bae936dc6b9d288b6de7b} 
+\index{Micromouse@{Micromouse}!StepAngularPID@{StepAngularPID}}
+\index{StepAngularPID@{StepAngularPID}!Micromouse@{Micromouse}}
+\doxysubsubsection{\texorpdfstring{StepAngularPID()}{StepAngularPID()}}
+{\footnotesize\ttfamily float Micromouse\+::\+Step\+Angular\+PID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Perform a stepwise movement using Angular PID control. 
+
+\begin{DoxyReturn}{Returns}
+The angular error after the movement. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/westj/\+Micro\+Mouse/\+Code/\+Micromouse Final Code/include/\mbox{\hyperlink{_micromouse_8h}{Micromouse.\+h}}\item 
+C\+:/\+Users/westj/\+Micro\+Mouse/\+Code/\+Micromouse Final Code/src/\mbox{\hyperlink{_micromouse_8cpp}{Micromouse.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,94 @@
+\doxysection{State Class Reference}
+\hypertarget{class_state}{}\label{class_state}\index{State@{State}}
+
+
+Class for managing generic states.  
+
+
+
+
+{\ttfamily \#include $<$States.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_state_a7948ad01d843c797854bec11be9659c2}{State}} (int limit)
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{class_state}{State} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_state_a1c39ad3bdaa33864ee474b6be0e3e44d}{update}} ()
+\begin{DoxyCompactList}\small\item\em increment the state by 1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_state_a7ba9233b36224e6cab31a3182f147cec}{set}} (int newstate)
+\begin{DoxyCompactList}\small\item\em Set the state to a new value. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_state_aac347061b5d70387e5d6cfd7859c1855}{get}} ()
+\begin{DoxyCompactList}\small\item\em Get the current state value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for managing generic states. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_state_a7948ad01d843c797854bec11be9659c2}\label{class_state_a7948ad01d843c797854bec11be9659c2} 
+\index{State@{State}!State@{State}}
+\index{State@{State}!State@{State}}
+\doxysubsubsection{\texorpdfstring{State()}{State()}}
+{\footnotesize\ttfamily State\+::\+State (\begin{DoxyParamCaption}\item[{int}]{limit }\end{DoxyParamCaption})}
+
+
+
+Constructor for the \doxylink{class_state}{State} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em limit} & Maximum limit for the state values.\\
+\hline
+{\em limit} & The maximum value for the state. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_state_aac347061b5d70387e5d6cfd7859c1855}\label{class_state_aac347061b5d70387e5d6cfd7859c1855} 
+\index{State@{State}!get@{get}}
+\index{get@{get}!State@{State}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily int State\+::get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the current state value. 
+
+Get the current state.
+
+\begin{DoxyReturn}{Returns}
+The current state value. 
+\end{DoxyReturn}
+\Hypertarget{class_state_a7ba9233b36224e6cab31a3182f147cec}\label{class_state_a7ba9233b36224e6cab31a3182f147cec} 
+\index{State@{State}!set@{set}}
+\index{set@{set}!State@{State}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily void State\+::set (\begin{DoxyParamCaption}\item[{int}]{newstate }\end{DoxyParamCaption})}
+
+
+
+Set the state to a new value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em newstate} & The new state value. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_state_a1c39ad3bdaa33864ee474b6be0e3e44d}\label{class_state_a1c39ad3bdaa33864ee474b6be0e3e44d} 
+\index{State@{State}!update@{update}}
+\index{update@{update}!State@{State}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void State\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+increment the state by 1. 
+
+Increment the state. If the state surpasses the limit, reset to 0. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/westj/\+Micro\+Mouse/\+Code/\+Micromouse Final Code/include/\mbox{\hyperlink{_states_8h}{States.\+h}}\item 
+C\+:/\+Users/westj/\+Micro\+Mouse/\+Code/\+Micromouse Final Code/src/\mbox{\hyperlink{_states_8cpp}{States.\+cpp}}\end{DoxyCompactItemize}

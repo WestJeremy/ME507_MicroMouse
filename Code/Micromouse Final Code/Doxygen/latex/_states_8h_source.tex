@@ -1,0 +1,28 @@
+\doxysection{States.\+h}
+\hypertarget{_states_8h_source}{}\label{_states_8h_source}\index{C:/Users/westj/MicroMouse/Code/Micromouse Final Code/include/States.h@{C:/Users/westj/MicroMouse/Code/Micromouse Final Code/include/States.h}}
+\mbox{\hyperlink{_states_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ STATES\_H}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ STATES\_H}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_state}{State}}\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_state}{State}}(\textcolor{keywordtype}{int}\ limit);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_state_a1c39ad3bdaa33864ee474b6be0e3e44d}{update}}();}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_state_a7ba9233b36224e6cab31a3182f147cec}{set}}(\textcolor{keywordtype}{int}\ newstate);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_state_aac347061b5d70387e5d6cfd7859c1855}{get}}();}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{volatile}\ \textcolor{keywordtype}{int}\ state\_;\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{int}\ limit\_;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00048\ \};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

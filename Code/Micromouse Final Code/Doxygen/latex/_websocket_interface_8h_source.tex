@@ -1,0 +1,44 @@
+\doxysection{Websocket\+Interface.\+h}
+\hypertarget{_websocket_interface_8h_source}{}\label{_websocket_interface_8h_source}\index{C:/Users/westj/MicroMouse/Code/Micromouse Final Code/include/WebsocketInterface.h@{C:/Users/westj/MicroMouse/Code/Micromouse Final Code/include/WebsocketInterface.h}}
+\mbox{\hyperlink{_websocket_interface_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ WEBSOCKETINTERFACE\_H}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ WEBSOCKETINTERFACE\_H}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <WiFi.h>}\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ needed\ to\ connect\ to\ WiFi}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <WebServer.h>}\ \ \ \ \ \ \textcolor{comment}{//\ needed\ to\ create\ a\ simple\ webserver}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <WebSocketsServer.h>}\ \textcolor{comment}{//\ needed\ for\ instant\ communication\ between\ client\ and\ server\ through\ Websockets}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <ArduinoJson.h>}\ \ \ \ \textcolor{comment}{//\ needed\ for\ JSON\ encapsulation\ (send\ multiple\ variables\ with\ one\ string)}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_micromouse_8h}{Micromouse.h}}"{}}\ \ \ \ \ \textcolor{comment}{//\ needed\ to\ upload\ all\ Mouse\ class\ variables\ to\ the\ websever\ }}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_websocket_connection}{WebsocketConnection}}\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{class_websocket_connection}{WebsocketConnection}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ ssid,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ password,\ String\ webpage);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{class_websocket_connection}{WebsocketConnection}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ ssid,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ password,\ String\ webpage,\ \mbox{\hyperlink{class_micromouse}{Micromouse}}*\ \mbox{\hyperlink{class_micromouse}{Micromouse}});}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_websocket_connection_a2047940a22dd8bd914fe2de0d7d391ba}{Event}}(\textcolor{keywordtype}{byte}\ num,\ WStype\_t\ type,\ uint8\_t\ *\ payload,\ \textcolor{keywordtype}{size\_t}\ length);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_websocket_connection_a909ad59bf68535dc69743aed4448d0c5}{task}}();}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_websocket_connection_ac348c1a794957906e3117802e9894f86}{Start}}();}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ ssid\_;\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ password\_;\ \ \ \ \ }
+\DoxyCodeLine{00065\ \ \ \ \ String\ webpage\_;\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{int}\ serverport\ =\ 80;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{int}\ socketsport\ =\ 81;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{int}\ interval\ =\ 1000;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ previousMillis\ =\ 0;\ }
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ WebServer\ server;\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00072\ \ \ \ \ WebSocketsServer\ webSocket;\ }
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{class_micromouse}{Micromouse}}*\ Micromouse\_;\ \ \ \ }
+\DoxyCodeLine{00074\ \};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

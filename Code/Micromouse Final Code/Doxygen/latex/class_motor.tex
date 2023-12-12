@@ -1,0 +1,264 @@
+\doxysection{Motor Class Reference}
+\hypertarget{class_motor}{}\label{class_motor}\index{Motor@{Motor}}
+
+
+{\ttfamily \#include $<$Motor.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_motor_a566abc2930fb25d91a404759f1e8b3a9}{Motor}} (int pwm\+Pin, int dir\+Pin1, int dir\+Pin2, int enc\+A1\+Pin, int enc\+A2\+Pin)
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{class_motor}{Motor} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_motor_a20a52196ed3d0ff88efd318ae7e94d56}{move}} (int speed, boolean dir)
+\begin{DoxyCompactList}\small\item\em Move the motor at a specified speed and direction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_motor_ae3633851666016f869a060ab0214575d}{move}} (int speed)
+\begin{DoxyCompactList}\small\item\em Move the motor at a specified speed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_motor_ac6860dca821b06155d0125d60821a4b1}{forward}} (int speed)
+\begin{DoxyCompactList}\small\item\em Perform a a move forward at a constant speed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_motor_aac1fdcb666337f2f3ca7c5747a5ea48b}{loop}} (int speed, boolean dir)
+\begin{DoxyCompactList}\small\item\em Test loop for speed and direction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_motor_a4f3e9a76a8e2ff87b6e009b45ca0976b}{reverse}} (int speed)
+\begin{DoxyCompactList}\small\item\em Reverse motor. \end{DoxyCompactList}\item 
+\Hypertarget{class_motor_a201cf3928e6fbbcf3304090f4fa188c3}\label{class_motor_a201cf3928e6fbbcf3304090f4fa188c3} 
+boolean {\bfseries getenc} ()
+\begin{DoxyCompactList}\small\item\em get encoder position \end{DoxyCompactList}\item 
+\Hypertarget{class_motor_a8cd1df6555bfb76a4e2cd9847baa7c37}\label{class_motor_a8cd1df6555bfb76a4e2cd9847baa7c37} 
+void {\bfseries update\+Encoder} ()
+\begin{DoxyCompactList}\small\item\em Update the motor encoder position. \end{DoxyCompactList}\item 
+\Hypertarget{class_motor_a3c3693e58807ab3dfa429a84b5afcaea}\label{class_motor_a3c3693e58807ab3dfa429a84b5afcaea} 
+void {\bfseries ISR\+\_\+\+Enc\+\_\+\+Read} ()
+\item 
+\Hypertarget{class_motor_a015fd5308d4d27e5dcf7f9ea3d5c03f6}\label{class_motor_a015fd5308d4d27e5dcf7f9ea3d5c03f6} 
+void {\bfseries stop} ()
+\begin{DoxyCompactList}\small\item\em stop motor \end{DoxyCompactList}\item 
+\Hypertarget{class_motor_a6fbf61f796fbcf7a093f8fd074c08804}\label{class_motor_a6fbf61f796fbcf7a093f8fd074c08804} 
+void {\bfseries zero\+Enc\+Pos} ()
+\begin{DoxyCompactList}\small\item\em Zero the motor encoder position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_motor_ad0151d7b85bfbb78976487e3f3cca3d1}{setgoalpos}} (int pos)
+\begin{DoxyCompactList}\small\item\em Set the goal position for the motor in encoder counts. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_motor_a88abd93f6876e59b86a4f95ac34b34ee}{setpos}} (int goalpos, int speed)
+\begin{DoxyCompactList}\small\item\em Move the motor to a specified position with a specified speed. \end{DoxyCompactList}\item 
+\Hypertarget{class_motor_a009f264b96fd5d335c14454763b5c4bd}\label{class_motor_a009f264b96fd5d335c14454763b5c4bd} 
+void {\bfseries setpos\+PID} ()
+\begin{DoxyCompactList}\small\item\em Move the motor to a specified position using PID control. \end{DoxyCompactList}\item 
+\Hypertarget{class_motor_a3c6750024e70c708c865b2c3ec701f7a}\label{class_motor_a3c6750024e70c708c865b2c3ec701f7a} 
+void {\bfseries stepsetpos\+PID} ()
+\begin{DoxyCompactList}\small\item\em Perform a stepwise movement to a specified position using PID control. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_motor_afa3256869da67bab498fdc85c30509d3}{stepsetpos\+PID}} (float error)
+\begin{DoxyCompactList}\small\item\em Perform a stepwise movement to a specified position using PID control. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_motor_a86e4e9fdccc6cbfae821bab11f208460}{stepsetpos\+PIDU}} (float U)
+\begin{DoxyCompactList}\small\item\em Perform a stepwise movement to a specified position using PID control. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_motor_ab3706d4e7e194c4bfebfc64bc0c76a5c}{Movetest}} (int speed)
+\begin{DoxyCompactList}\small\item\em Test function for moving the motor forward and backward. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_motor_a68b835dd35395fbab7b32eb0bbc12283}\label{class_motor_a68b835dd35395fbab7b32eb0bbc12283} 
+int {\bfseries speed}
+\item 
+\Hypertarget{class_motor_ad09304e73cbb35599edcbdaef396de00}\label{class_motor_ad09304e73cbb35599edcbdaef396de00} 
+bool {\bfseries dir}
+\item 
+\Hypertarget{class_motor_aee18c707fecf2d40f698e96d1e4cd5c4}\label{class_motor_aee18c707fecf2d40f698e96d1e4cd5c4} 
+int {\bfseries goalpos} =0
+\item 
+\Hypertarget{class_motor_a23452d1111f3545968ee35bb7f0b1b03}\label{class_motor_a23452d1111f3545968ee35bb7f0b1b03} 
+int {\bfseries curpos} =0
+\item 
+\Hypertarget{class_motor_a9ac5c56dbbcca4d6e649432d69f3cc32}\label{class_motor_a9ac5c56dbbcca4d6e649432d69f3cc32} 
+volatile int {\bfseries encoder\+Position}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for motor and its functions 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_motor_a566abc2930fb25d91a404759f1e8b3a9}\label{class_motor_a566abc2930fb25d91a404759f1e8b3a9} 
+\index{Motor@{Motor}!Motor@{Motor}}
+\index{Motor@{Motor}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{Motor()}{Motor()}}
+{\footnotesize\ttfamily Motor\+::\+Motor (\begin{DoxyParamCaption}\item[{int}]{pwm\+Pin,  }\item[{int}]{dir\+Pin1,  }\item[{int}]{dir\+Pin2,  }\item[{int}]{enc\+A1\+Pin,  }\item[{int}]{enc\+A2\+Pin }\end{DoxyParamCaption})}
+
+
+
+Constructor for the \doxylink{class_motor}{Motor} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pwm\+Pin} & PWM pin for motor speed control. \\
+\hline
+{\em dir\+Pin1} & Direction pin 1. \\
+\hline
+{\em dir\+Pin2} & Direction pin 2. \\
+\hline
+{\em enc\+A1\+Pin} & Encoder channel A1 pin. \\
+\hline
+{\em enc\+A2\+Pin} & Encoder channel A2 pin. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_motor_ac6860dca821b06155d0125d60821a4b1}\label{class_motor_ac6860dca821b06155d0125d60821a4b1} 
+\index{Motor@{Motor}!forward@{forward}}
+\index{forward@{forward}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{forward()}{forward()}}
+{\footnotesize\ttfamily void Motor\+::forward (\begin{DoxyParamCaption}\item[{int}]{speed }\end{DoxyParamCaption})}
+
+
+
+Perform a a move forward at a constant speed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em speed} & speed 0-\/255. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_motor_aac1fdcb666337f2f3ca7c5747a5ea48b}\label{class_motor_aac1fdcb666337f2f3ca7c5747a5ea48b} 
+\index{Motor@{Motor}!loop@{loop}}
+\index{loop@{loop}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily void Motor\+::loop (\begin{DoxyParamCaption}\item[{int}]{speed,  }\item[{boolean}]{dir }\end{DoxyParamCaption})}
+
+
+
+Test loop for speed and direction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em speed} & speed 0-\/255. \\
+\hline
+{\em dir} & boolean \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_motor_ae3633851666016f869a060ab0214575d}\label{class_motor_ae3633851666016f869a060ab0214575d} 
+\index{Motor@{Motor}!move@{move}}
+\index{move@{move}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Motor\+::move (\begin{DoxyParamCaption}\item[{int}]{speed }\end{DoxyParamCaption})}
+
+
+
+Move the motor at a specified speed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em speed} & Speed of the motor. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_motor_a20a52196ed3d0ff88efd318ae7e94d56}\label{class_motor_a20a52196ed3d0ff88efd318ae7e94d56} 
+\index{Motor@{Motor}!move@{move}}
+\index{move@{move}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Motor\+::move (\begin{DoxyParamCaption}\item[{int}]{speed,  }\item[{boolean}]{dir }\end{DoxyParamCaption})}
+
+
+
+Move the motor at a specified speed and direction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em speed} & Speed of the motor. \\
+\hline
+{\em dir} & Direction of the motor. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_motor_ab3706d4e7e194c4bfebfc64bc0c76a5c}\label{class_motor_ab3706d4e7e194c4bfebfc64bc0c76a5c} 
+\index{Motor@{Motor}!Movetest@{Movetest}}
+\index{Movetest@{Movetest}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{Movetest()}{Movetest()}}
+{\footnotesize\ttfamily void Motor\+::\+Movetest (\begin{DoxyParamCaption}\item[{int}]{speed }\end{DoxyParamCaption})}
+
+
+
+Test function for moving the motor forward and backward. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em speed} & Speed of the motor. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_motor_a4f3e9a76a8e2ff87b6e009b45ca0976b}\label{class_motor_a4f3e9a76a8e2ff87b6e009b45ca0976b} 
+\index{Motor@{Motor}!reverse@{reverse}}
+\index{reverse@{reverse}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{reverse()}{reverse()}}
+{\footnotesize\ttfamily void Motor\+::reverse (\begin{DoxyParamCaption}\item[{int}]{speed }\end{DoxyParamCaption})}
+
+
+
+Reverse motor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em speed} & speed 0-\/255. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_motor_ad0151d7b85bfbb78976487e3f3cca3d1}\label{class_motor_ad0151d7b85bfbb78976487e3f3cca3d1} 
+\index{Motor@{Motor}!setgoalpos@{setgoalpos}}
+\index{setgoalpos@{setgoalpos}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{setgoalpos()}{setgoalpos()}}
+{\footnotesize\ttfamily void Motor\+::setgoalpos (\begin{DoxyParamCaption}\item[{int}]{pos }\end{DoxyParamCaption})}
+
+
+
+Set the goal position for the motor in encoder counts. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & The goal position. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_motor_a88abd93f6876e59b86a4f95ac34b34ee}\label{class_motor_a88abd93f6876e59b86a4f95ac34b34ee} 
+\index{Motor@{Motor}!setpos@{setpos}}
+\index{setpos@{setpos}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{setpos()}{setpos()}}
+{\footnotesize\ttfamily void Motor\+::setpos (\begin{DoxyParamCaption}\item[{int}]{goalpos,  }\item[{int}]{speed }\end{DoxyParamCaption})}
+
+
+
+Move the motor to a specified position with a specified speed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goalpos} & The goal position. \\
+\hline
+{\em speed} & Speed of the motor. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_motor_afa3256869da67bab498fdc85c30509d3}\label{class_motor_afa3256869da67bab498fdc85c30509d3} 
+\index{Motor@{Motor}!stepsetposPID@{stepsetposPID}}
+\index{stepsetposPID@{stepsetposPID}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{stepsetposPID()}{stepsetposPID()}}
+{\footnotesize\ttfamily void Motor\+::stepsetpos\+PID (\begin{DoxyParamCaption}\item[{float}]{error }\end{DoxyParamCaption})}
+
+
+
+Perform a stepwise movement to a specified position using PID control. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em error} & Error value. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_motor_a86e4e9fdccc6cbfae821bab11f208460}\label{class_motor_a86e4e9fdccc6cbfae821bab11f208460} 
+\index{Motor@{Motor}!stepsetposPIDU@{stepsetposPIDU}}
+\index{stepsetposPIDU@{stepsetposPIDU}!Motor@{Motor}}
+\doxysubsubsection{\texorpdfstring{stepsetposPIDU()}{stepsetposPIDU()}}
+{\footnotesize\ttfamily void Motor\+::stepsetpos\+PIDU (\begin{DoxyParamCaption}\item[{float}]{U }\end{DoxyParamCaption})}
+
+
+
+Perform a stepwise movement to a specified position using PID control. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em U} & Control input. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/westj/\+Micro\+Mouse/\+Code/\+Micromouse Final Code/include/\mbox{\hyperlink{_motor_8h}{Motor.\+h}}\item 
+C\+:/\+Users/westj/\+Micro\+Mouse/\+Code/\+Micromouse Final Code/src/\mbox{\hyperlink{_motor_8cpp}{Motor.\+cpp}}\end{DoxyCompactItemize}

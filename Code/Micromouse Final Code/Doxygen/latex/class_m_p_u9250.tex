@@ -1,0 +1,741 @@
+\doxysection{MPU9250 Class Reference}
+\hypertarget{class_m_p_u9250}{}\label{class_m_p_u9250}\index{MPU9250@{MPU9250}}
+Inheritance diagram for MPU9250\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_m_p_u9250}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_p_u9250_afef8319c985d9930cd31797263b37585}\label{class_m_p_u9250_afef8319c985d9930cd31797263b37585} 
+enum {\bfseries Gyro\+Range} \{ {\bfseries GYRO\+\_\+\+RANGE\+\_\+250\+DPS}
+, {\bfseries GYRO\+\_\+\+RANGE\+\_\+500\+DPS}
+, {\bfseries GYRO\+\_\+\+RANGE\+\_\+1000\+DPS}
+, {\bfseries GYRO\+\_\+\+RANGE\+\_\+2000\+DPS}
+ \}
+\item 
+\Hypertarget{class_m_p_u9250_a1d1d4f36ec5a9cd9cea9e196b02cb0f1}\label{class_m_p_u9250_a1d1d4f36ec5a9cd9cea9e196b02cb0f1} 
+enum {\bfseries Accel\+Range} \{ {\bfseries ACCEL\+\_\+\+RANGE\+\_\+2G}
+, {\bfseries ACCEL\+\_\+\+RANGE\+\_\+4G}
+, {\bfseries ACCEL\+\_\+\+RANGE\+\_\+8G}
+, {\bfseries ACCEL\+\_\+\+RANGE\+\_\+16G}
+ \}
+\item 
+\Hypertarget{class_m_p_u9250_a7eb38e4553c5cb064169037c6172baa8}\label{class_m_p_u9250_a7eb38e4553c5cb064169037c6172baa8} 
+enum {\bfseries Dlpf\+Bandwidth} \{ \newline
+{\bfseries DLPF\+\_\+\+BANDWIDTH\+\_\+184\+HZ}
+, {\bfseries DLPF\+\_\+\+BANDWIDTH\+\_\+92\+HZ}
+, {\bfseries DLPF\+\_\+\+BANDWIDTH\+\_\+41\+HZ}
+, {\bfseries DLPF\+\_\+\+BANDWIDTH\+\_\+20\+HZ}
+, \newline
+{\bfseries DLPF\+\_\+\+BANDWIDTH\+\_\+10\+HZ}
+, {\bfseries DLPF\+\_\+\+BANDWIDTH\+\_\+5\+HZ}
+ \}
+\item 
+\Hypertarget{class_m_p_u9250_a497013a9b2a7273571fb83c9c2b2266f}\label{class_m_p_u9250_a497013a9b2a7273571fb83c9c2b2266f} 
+enum {\bfseries Lp\+Accel\+Odr} \{ \newline
+{\bfseries LP\+\_\+\+ACCEL\+\_\+\+ODR\+\_\+0\+\_\+24\+HZ} = 0
+, {\bfseries LP\+\_\+\+ACCEL\+\_\+\+ODR\+\_\+0\+\_\+49\+HZ} = 1
+, {\bfseries LP\+\_\+\+ACCEL\+\_\+\+ODR\+\_\+0\+\_\+98\+HZ} = 2
+, {\bfseries LP\+\_\+\+ACCEL\+\_\+\+ODR\+\_\+1\+\_\+95\+HZ} = 3
+, \newline
+{\bfseries LP\+\_\+\+ACCEL\+\_\+\+ODR\+\_\+3\+\_\+91\+HZ} = 4
+, {\bfseries LP\+\_\+\+ACCEL\+\_\+\+ODR\+\_\+7\+\_\+81\+HZ} = 5
+, {\bfseries LP\+\_\+\+ACCEL\+\_\+\+ODR\+\_\+15\+\_\+63\+HZ} = 6
+, {\bfseries LP\+\_\+\+ACCEL\+\_\+\+ODR\+\_\+31\+\_\+25\+HZ} = 7
+, \newline
+{\bfseries LP\+\_\+\+ACCEL\+\_\+\+ODR\+\_\+62\+\_\+50\+HZ} = 8
+, {\bfseries LP\+\_\+\+ACCEL\+\_\+\+ODR\+\_\+125\+HZ} = 9
+, {\bfseries LP\+\_\+\+ACCEL\+\_\+\+ODR\+\_\+250\+HZ} = 10
+, {\bfseries LP\+\_\+\+ACCEL\+\_\+\+ODR\+\_\+500\+HZ} = 11
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_p_u9250_acaf2ae31cfdeb6d47b922996feb55b69}\label{class_m_p_u9250_acaf2ae31cfdeb6d47b922996feb55b69} 
+{\bfseries MPU9250} (Two\+Wire \&bus, uint8\+\_\+t address)
+\item 
+\Hypertarget{class_m_p_u9250_a4b15facd0ce38964d241db56b1c57f75}\label{class_m_p_u9250_a4b15facd0ce38964d241db56b1c57f75} 
+{\bfseries MPU9250} (SPIClass \&bus, uint8\+\_\+t cs\+Pin)
+\item 
+\Hypertarget{class_m_p_u9250_ab0e26058e7148ebf5af4569138337a02}\label{class_m_p_u9250_ab0e26058e7148ebf5af4569138337a02} 
+int {\bfseries begin} ()
+\item 
+\Hypertarget{class_m_p_u9250_a469a02366142d54fb58e39880ea7fa01}\label{class_m_p_u9250_a469a02366142d54fb58e39880ea7fa01} 
+int {\bfseries set\+Accel\+Range} (Accel\+Range range)
+\item 
+\Hypertarget{class_m_p_u9250_a472679872163e0c4994ae125982d5fd2}\label{class_m_p_u9250_a472679872163e0c4994ae125982d5fd2} 
+int {\bfseries set\+Gyro\+Range} (Gyro\+Range range)
+\item 
+\Hypertarget{class_m_p_u9250_a0b3804d17270a7bfe40f2e31e2e4bdc8}\label{class_m_p_u9250_a0b3804d17270a7bfe40f2e31e2e4bdc8} 
+int {\bfseries set\+Dlpf\+Bandwidth} (Dlpf\+Bandwidth bandwidth)
+\item 
+\Hypertarget{class_m_p_u9250_a969857ba25ba11cc34eb900ca6428817}\label{class_m_p_u9250_a969857ba25ba11cc34eb900ca6428817} 
+int {\bfseries set\+Srd} (uint8\+\_\+t srd)
+\item 
+\Hypertarget{class_m_p_u9250_a6ad958f2e9cb77fffb1da250013f037b}\label{class_m_p_u9250_a6ad958f2e9cb77fffb1da250013f037b} 
+int {\bfseries enable\+Data\+Ready\+Interrupt} ()
+\item 
+\Hypertarget{class_m_p_u9250_a9483f60ce79ce2d1aaad23a4deef6e4b}\label{class_m_p_u9250_a9483f60ce79ce2d1aaad23a4deef6e4b} 
+int {\bfseries disable\+Data\+Ready\+Interrupt} ()
+\item 
+\Hypertarget{class_m_p_u9250_a981050697a927c69ee3c9ab6a8f3ede3}\label{class_m_p_u9250_a981050697a927c69ee3c9ab6a8f3ede3} 
+int {\bfseries enable\+Wake\+On\+Motion} (float wom\+Thresh\+\_\+mg, Lp\+Accel\+Odr odr)
+\item 
+\Hypertarget{class_m_p_u9250_aff5c0acd0797c79230d78c5e6c8a6321}\label{class_m_p_u9250_aff5c0acd0797c79230d78c5e6c8a6321} 
+int {\bfseries read\+Sensor} ()
+\item 
+\Hypertarget{class_m_p_u9250_ab9daf3fb8328d3fb3ae77a0fa0957a7e}\label{class_m_p_u9250_ab9daf3fb8328d3fb3ae77a0fa0957a7e} 
+float {\bfseries get\+Accel\+X\+\_\+mss} ()
+\item 
+\Hypertarget{class_m_p_u9250_ad3cbdd7b229e429b77c06cfabee778a1}\label{class_m_p_u9250_ad3cbdd7b229e429b77c06cfabee778a1} 
+float {\bfseries get\+Accel\+Y\+\_\+mss} ()
+\item 
+\Hypertarget{class_m_p_u9250_a58a1600a522933cd5cbd9a8f5ffc4536}\label{class_m_p_u9250_a58a1600a522933cd5cbd9a8f5ffc4536} 
+float {\bfseries get\+Accel\+Z\+\_\+mss} ()
+\item 
+\Hypertarget{class_m_p_u9250_a2ec6d66f8a1d381e5a6b558756e3275d}\label{class_m_p_u9250_a2ec6d66f8a1d381e5a6b558756e3275d} 
+float {\bfseries get\+Gyro\+X\+\_\+rads} ()
+\item 
+\Hypertarget{class_m_p_u9250_a187251337b4cfb80683cfaaa65ab9e58}\label{class_m_p_u9250_a187251337b4cfb80683cfaaa65ab9e58} 
+float {\bfseries get\+Gyro\+Y\+\_\+rads} ()
+\item 
+\Hypertarget{class_m_p_u9250_a07f8ccd1907f134d866105e3d5ec5a10}\label{class_m_p_u9250_a07f8ccd1907f134d866105e3d5ec5a10} 
+float {\bfseries get\+Gyro\+Z\+\_\+rads} ()
+\item 
+\Hypertarget{class_m_p_u9250_a65c4f2aace22a783462b0ee9ef5cdd7b}\label{class_m_p_u9250_a65c4f2aace22a783462b0ee9ef5cdd7b} 
+float {\bfseries get\+Mag\+X\+\_\+uT} ()
+\item 
+\Hypertarget{class_m_p_u9250_ac909d3078a23d24d44fb8852f9371c40}\label{class_m_p_u9250_ac909d3078a23d24d44fb8852f9371c40} 
+float {\bfseries get\+Mag\+Y\+\_\+uT} ()
+\item 
+\Hypertarget{class_m_p_u9250_a95b19aa80f3ce812d6ccb87b57475389}\label{class_m_p_u9250_a95b19aa80f3ce812d6ccb87b57475389} 
+float {\bfseries get\+Mag\+Z\+\_\+uT} ()
+\item 
+\Hypertarget{class_m_p_u9250_a3b6cad3768c6153c56fcac4edd3fe792}\label{class_m_p_u9250_a3b6cad3768c6153c56fcac4edd3fe792} 
+float {\bfseries get\+Temperature\+\_\+C} ()
+\item 
+\Hypertarget{class_m_p_u9250_a88596ddf9d0f52ca7b9181706d17217f}\label{class_m_p_u9250_a88596ddf9d0f52ca7b9181706d17217f} 
+int {\bfseries calibrate\+Gyro} ()
+\item 
+\Hypertarget{class_m_p_u9250_a551689391a2bfa5aa4af6f10b586ee76}\label{class_m_p_u9250_a551689391a2bfa5aa4af6f10b586ee76} 
+float {\bfseries get\+Gyro\+Bias\+X\+\_\+rads} ()
+\item 
+\Hypertarget{class_m_p_u9250_a42bd5c0267c0fa180dbc5c332db1ec66}\label{class_m_p_u9250_a42bd5c0267c0fa180dbc5c332db1ec66} 
+float {\bfseries get\+Gyro\+Bias\+Y\+\_\+rads} ()
+\item 
+\Hypertarget{class_m_p_u9250_aa48133a853a679469bfc91235c4a52cf}\label{class_m_p_u9250_aa48133a853a679469bfc91235c4a52cf} 
+float {\bfseries get\+Gyro\+Bias\+Z\+\_\+rads} ()
+\item 
+\Hypertarget{class_m_p_u9250_add18eb9ed44f047f11d75b2f1e44af4b}\label{class_m_p_u9250_add18eb9ed44f047f11d75b2f1e44af4b} 
+void {\bfseries set\+Gyro\+Bias\+X\+\_\+rads} (float bias)
+\item 
+\Hypertarget{class_m_p_u9250_aa4adc28e4c00afdd04d9a0c754ef5cfd}\label{class_m_p_u9250_aa4adc28e4c00afdd04d9a0c754ef5cfd} 
+void {\bfseries set\+Gyro\+Bias\+Y\+\_\+rads} (float bias)
+\item 
+\Hypertarget{class_m_p_u9250_a66bf9a29debfc2de700f77373544c1a7}\label{class_m_p_u9250_a66bf9a29debfc2de700f77373544c1a7} 
+void {\bfseries set\+Gyro\+Bias\+Z\+\_\+rads} (float bias)
+\item 
+\Hypertarget{class_m_p_u9250_ad5f4d08b299f35374d1bca9d7122fcdc}\label{class_m_p_u9250_ad5f4d08b299f35374d1bca9d7122fcdc} 
+int {\bfseries calibrate\+Accel} ()
+\item 
+\Hypertarget{class_m_p_u9250_ab1216d85d53de15fb1f8ddc1e4424318}\label{class_m_p_u9250_ab1216d85d53de15fb1f8ddc1e4424318} 
+float {\bfseries get\+Accel\+Bias\+X\+\_\+mss} ()
+\item 
+\Hypertarget{class_m_p_u9250_a2664ab962bccde644ef528349e1660d6}\label{class_m_p_u9250_a2664ab962bccde644ef528349e1660d6} 
+float {\bfseries get\+Accel\+Scale\+FactorX} ()
+\item 
+\Hypertarget{class_m_p_u9250_af02b9af589591792b6fe7328582e32ef}\label{class_m_p_u9250_af02b9af589591792b6fe7328582e32ef} 
+float {\bfseries get\+Accel\+Bias\+Y\+\_\+mss} ()
+\item 
+\Hypertarget{class_m_p_u9250_ad9b6213723700af8daba00f31840fe16}\label{class_m_p_u9250_ad9b6213723700af8daba00f31840fe16} 
+float {\bfseries get\+Accel\+Scale\+FactorY} ()
+\item 
+\Hypertarget{class_m_p_u9250_ab3421dae6ebe1190407be7a832b6313c}\label{class_m_p_u9250_ab3421dae6ebe1190407be7a832b6313c} 
+float {\bfseries get\+Accel\+Bias\+Z\+\_\+mss} ()
+\item 
+\Hypertarget{class_m_p_u9250_a046579c4492296dce3d3a0cf2e409e96}\label{class_m_p_u9250_a046579c4492296dce3d3a0cf2e409e96} 
+float {\bfseries get\+Accel\+Scale\+FactorZ} ()
+\item 
+\Hypertarget{class_m_p_u9250_acfc8adb5dcfe24eb35f2a82377c0d8a0}\label{class_m_p_u9250_acfc8adb5dcfe24eb35f2a82377c0d8a0} 
+void {\bfseries set\+Accel\+CalX} (float bias, float scale\+Factor)
+\item 
+\Hypertarget{class_m_p_u9250_aa56ca1f8a383ba760188f204a9ef6548}\label{class_m_p_u9250_aa56ca1f8a383ba760188f204a9ef6548} 
+void {\bfseries set\+Accel\+CalY} (float bias, float scale\+Factor)
+\item 
+\Hypertarget{class_m_p_u9250_a9ab03b06b0d01aa4f8588cd9fd6588c6}\label{class_m_p_u9250_a9ab03b06b0d01aa4f8588cd9fd6588c6} 
+void {\bfseries set\+Accel\+CalZ} (float bias, float scale\+Factor)
+\item 
+\Hypertarget{class_m_p_u9250_aba735458296fb277a05efcb1a3ceb761}\label{class_m_p_u9250_aba735458296fb277a05efcb1a3ceb761} 
+int {\bfseries calibrate\+Mag} ()
+\item 
+\Hypertarget{class_m_p_u9250_a9bb3dfd24f86ce01d45cc34759eff5f5}\label{class_m_p_u9250_a9bb3dfd24f86ce01d45cc34759eff5f5} 
+float {\bfseries get\+Mag\+Bias\+X\+\_\+uT} ()
+\item 
+\Hypertarget{class_m_p_u9250_a9ae0353e7326ba32a11422b3bc7b5cee}\label{class_m_p_u9250_a9ae0353e7326ba32a11422b3bc7b5cee} 
+float {\bfseries get\+Mag\+Scale\+FactorX} ()
+\item 
+\Hypertarget{class_m_p_u9250_a7f9328b066c9c07887c5c79fff33554c}\label{class_m_p_u9250_a7f9328b066c9c07887c5c79fff33554c} 
+float {\bfseries get\+Mag\+Bias\+Y\+\_\+uT} ()
+\item 
+\Hypertarget{class_m_p_u9250_a5457ecd92f0c920312af61df0c1bb1b3}\label{class_m_p_u9250_a5457ecd92f0c920312af61df0c1bb1b3} 
+float {\bfseries get\+Mag\+Scale\+FactorY} ()
+\item 
+\Hypertarget{class_m_p_u9250_a23d0c81842120b27af379961b773465f}\label{class_m_p_u9250_a23d0c81842120b27af379961b773465f} 
+float {\bfseries get\+Mag\+Bias\+Z\+\_\+uT} ()
+\item 
+\Hypertarget{class_m_p_u9250_a859590996f4e1673d0f21eabe5e1a2f4}\label{class_m_p_u9250_a859590996f4e1673d0f21eabe5e1a2f4} 
+float {\bfseries get\+Mag\+Scale\+FactorZ} ()
+\item 
+\Hypertarget{class_m_p_u9250_a063be654730f719544be8a7ce39a433c}\label{class_m_p_u9250_a063be654730f719544be8a7ce39a433c} 
+void {\bfseries set\+Mag\+CalX} (float bias, float scale\+Factor)
+\item 
+\Hypertarget{class_m_p_u9250_af85a3badd3f79969c4715fceec962e39}\label{class_m_p_u9250_af85a3badd3f79969c4715fceec962e39} 
+void {\bfseries set\+Mag\+CalY} (float bias, float scale\+Factor)
+\item 
+\Hypertarget{class_m_p_u9250_a36fab1c8d06aa5dcd0e6a4014d7ca5e7}\label{class_m_p_u9250_a36fab1c8d06aa5dcd0e6a4014d7ca5e7} 
+void {\bfseries set\+Mag\+CalZ} (float bias, float scale\+Factor)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_p_u9250_a5712e6a1fa4a34cf44234c1e44f1ca52}\label{class_m_p_u9250_a5712e6a1fa4a34cf44234c1e44f1ca52} 
+int {\bfseries write\+Register} (uint8\+\_\+t sub\+Address, uint8\+\_\+t data)
+\item 
+\Hypertarget{class_m_p_u9250_a1c68fa77b74761fdb2eac5f7c0887f48}\label{class_m_p_u9250_a1c68fa77b74761fdb2eac5f7c0887f48} 
+int {\bfseries read\+Registers} (uint8\+\_\+t sub\+Address, uint8\+\_\+t count, uint8\+\_\+t \texorpdfstring{$\ast$}{*}dest)
+\item 
+\Hypertarget{class_m_p_u9250_aeca0dc4aed0420c54cf13acba0bdf4d5}\label{class_m_p_u9250_aeca0dc4aed0420c54cf13acba0bdf4d5} 
+int {\bfseries write\+AK8963\+Register} (uint8\+\_\+t sub\+Address, uint8\+\_\+t data)
+\item 
+\Hypertarget{class_m_p_u9250_a8882aa5158664912c4d4354739d2bc23}\label{class_m_p_u9250_a8882aa5158664912c4d4354739d2bc23} 
+int {\bfseries read\+AK8963\+Registers} (uint8\+\_\+t sub\+Address, uint8\+\_\+t count, uint8\+\_\+t \texorpdfstring{$\ast$}{*}dest)
+\item 
+\Hypertarget{class_m_p_u9250_a319d7500e46f6b1212e0f4067f2f5f70}\label{class_m_p_u9250_a319d7500e46f6b1212e0f4067f2f5f70} 
+int {\bfseries who\+AmI} ()
+\item 
+\Hypertarget{class_m_p_u9250_a55bd8631b32052958e8e56ff42a0d18e}\label{class_m_p_u9250_a55bd8631b32052958e8e56ff42a0d18e} 
+int {\bfseries who\+Am\+IAK8963} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_p_u9250_a60e6abb8ef230f0acf6985eb7357fed4}\label{class_m_p_u9250_a60e6abb8ef230f0acf6985eb7357fed4} 
+uint8\+\_\+t {\bfseries \+\_\+address}
+\item 
+\Hypertarget{class_m_p_u9250_af585c85d1789f189de6077e2f90bcf80}\label{class_m_p_u9250_af585c85d1789f189de6077e2f90bcf80} 
+Two\+Wire \texorpdfstring{$\ast$}{*} {\bfseries \+\_\+i2c}
+\item 
+\Hypertarget{class_m_p_u9250_aaec46c0d0e6f95da9354603ab452a334}\label{class_m_p_u9250_aaec46c0d0e6f95da9354603ab452a334} 
+const uint32\+\_\+t {\bfseries \+\_\+i2c\+Rate} = 400000
+\item 
+\Hypertarget{class_m_p_u9250_a918378e856218114deeb0c6419e5835d}\label{class_m_p_u9250_a918378e856218114deeb0c6419e5835d} 
+size\+\_\+t {\bfseries \+\_\+num\+Bytes}
+\item 
+\Hypertarget{class_m_p_u9250_aa5e9683db4797e33cfcf58171fde5032}\label{class_m_p_u9250_aa5e9683db4797e33cfcf58171fde5032} 
+SPIClass \texorpdfstring{$\ast$}{*} {\bfseries \+\_\+spi}
+\item 
+\Hypertarget{class_m_p_u9250_a7c3780cd6cf0df6f7f2b7536edf8028e}\label{class_m_p_u9250_a7c3780cd6cf0df6f7f2b7536edf8028e} 
+uint8\+\_\+t {\bfseries \+\_\+cs\+Pin}
+\item 
+\Hypertarget{class_m_p_u9250_a356555f4f8ee9e9b5b1a3ec4db993535}\label{class_m_p_u9250_a356555f4f8ee9e9b5b1a3ec4db993535} 
+bool {\bfseries \+\_\+use\+SPI}
+\item 
+\Hypertarget{class_m_p_u9250_a7d5762fa190d66aa8bca23b3116e20f3}\label{class_m_p_u9250_a7d5762fa190d66aa8bca23b3116e20f3} 
+bool {\bfseries \+\_\+use\+SPIHS}
+\item 
+\Hypertarget{class_m_p_u9250_a29bf81faea471af3a3acdcc6fea7e6b3}\label{class_m_p_u9250_a29bf81faea471af3a3acdcc6fea7e6b3} 
+const uint8\+\_\+t {\bfseries SPI\+\_\+\+READ} = 0x80
+\item 
+\Hypertarget{class_m_p_u9250_ab9ce9097ac03b8ad6ef30b78362453ba}\label{class_m_p_u9250_ab9ce9097ac03b8ad6ef30b78362453ba} 
+const uint32\+\_\+t {\bfseries SPI\+\_\+\+LS\+\_\+\+CLOCK} = 1000000
+\item 
+\Hypertarget{class_m_p_u9250_a5a47758fcf1f7bf13525fbb28475163f}\label{class_m_p_u9250_a5a47758fcf1f7bf13525fbb28475163f} 
+const uint32\+\_\+t {\bfseries SPI\+\_\+\+HS\+\_\+\+CLOCK} = 15000000
+\item 
+\Hypertarget{class_m_p_u9250_a6749e098c973122d8837a347a0e8273f}\label{class_m_p_u9250_a6749e098c973122d8837a347a0e8273f} 
+int {\bfseries \+\_\+status}
+\item 
+\Hypertarget{class_m_p_u9250_a2c0fbd084154854375568538599f5402}\label{class_m_p_u9250_a2c0fbd084154854375568538599f5402} 
+uint8\+\_\+t {\bfseries \+\_\+buffer} \mbox{[}21\mbox{]}
+\item 
+\Hypertarget{class_m_p_u9250_a76c66330dbcf0ee5930bf4469157388a}\label{class_m_p_u9250_a76c66330dbcf0ee5930bf4469157388a} 
+int16\+\_\+t {\bfseries \+\_\+axcounts}
+\item 
+\Hypertarget{class_m_p_u9250_a987f3da987b47cc121033066a8a7370f}\label{class_m_p_u9250_a987f3da987b47cc121033066a8a7370f} 
+int16\+\_\+t {\bfseries \+\_\+aycounts}
+\item 
+\Hypertarget{class_m_p_u9250_ac64d86c0db561dd0168335684d11d2b9}\label{class_m_p_u9250_ac64d86c0db561dd0168335684d11d2b9} 
+int16\+\_\+t {\bfseries \+\_\+azcounts}
+\item 
+\Hypertarget{class_m_p_u9250_a8ccd2d48d82d0b9d305a9f6487e9785a}\label{class_m_p_u9250_a8ccd2d48d82d0b9d305a9f6487e9785a} 
+int16\+\_\+t {\bfseries \+\_\+gxcounts}
+\item 
+\Hypertarget{class_m_p_u9250_a53a1e76f9bd8a4517f4c80d90b4fde1e}\label{class_m_p_u9250_a53a1e76f9bd8a4517f4c80d90b4fde1e} 
+int16\+\_\+t {\bfseries \+\_\+gycounts}
+\item 
+\Hypertarget{class_m_p_u9250_aef12850908853d6a9b33bbbced4fa519}\label{class_m_p_u9250_aef12850908853d6a9b33bbbced4fa519} 
+int16\+\_\+t {\bfseries \+\_\+gzcounts}
+\item 
+\Hypertarget{class_m_p_u9250_ae3df404370f09d864168a2ffdb873295}\label{class_m_p_u9250_ae3df404370f09d864168a2ffdb873295} 
+int16\+\_\+t {\bfseries \+\_\+hxcounts}
+\item 
+\Hypertarget{class_m_p_u9250_af6115bbd9b8bdd8979f4de53279710be}\label{class_m_p_u9250_af6115bbd9b8bdd8979f4de53279710be} 
+int16\+\_\+t {\bfseries \+\_\+hycounts}
+\item 
+\Hypertarget{class_m_p_u9250_aa9c0fb28b2785ceffb245509bad4e483}\label{class_m_p_u9250_aa9c0fb28b2785ceffb245509bad4e483} 
+int16\+\_\+t {\bfseries \+\_\+hzcounts}
+\item 
+\Hypertarget{class_m_p_u9250_ae8899e4dc409fabd37c177f8e83bb351}\label{class_m_p_u9250_ae8899e4dc409fabd37c177f8e83bb351} 
+int16\+\_\+t {\bfseries \+\_\+tcounts}
+\item 
+\Hypertarget{class_m_p_u9250_a7f80ffcecb0dd28d2353b46f429d2a5f}\label{class_m_p_u9250_a7f80ffcecb0dd28d2353b46f429d2a5f} 
+float {\bfseries \+\_\+ax}
+\item 
+\Hypertarget{class_m_p_u9250_a32369a95df72383edd03fff2c7439233}\label{class_m_p_u9250_a32369a95df72383edd03fff2c7439233} 
+float {\bfseries \+\_\+ay}
+\item 
+\Hypertarget{class_m_p_u9250_aac7e2beff39549eaa82c7d677b8cc42e}\label{class_m_p_u9250_aac7e2beff39549eaa82c7d677b8cc42e} 
+float {\bfseries \+\_\+az}
+\item 
+\Hypertarget{class_m_p_u9250_a9af2d19af34ffdeb2d09f61f43ab62a8}\label{class_m_p_u9250_a9af2d19af34ffdeb2d09f61f43ab62a8} 
+float {\bfseries \+\_\+gx}
+\item 
+\Hypertarget{class_m_p_u9250_a3e4d7f5b0f10fecaf6e4cad3235d6e29}\label{class_m_p_u9250_a3e4d7f5b0f10fecaf6e4cad3235d6e29} 
+float {\bfseries \+\_\+gy}
+\item 
+\Hypertarget{class_m_p_u9250_af68ffa42e0bf808af73b11a9694d4f86}\label{class_m_p_u9250_af68ffa42e0bf808af73b11a9694d4f86} 
+float {\bfseries \+\_\+gz}
+\item 
+\Hypertarget{class_m_p_u9250_a0f8f1f024f8d3b0461385b53022472ac}\label{class_m_p_u9250_a0f8f1f024f8d3b0461385b53022472ac} 
+float {\bfseries \+\_\+hx}
+\item 
+\Hypertarget{class_m_p_u9250_a25695de739e4ca8432995c81592a5ed1}\label{class_m_p_u9250_a25695de739e4ca8432995c81592a5ed1} 
+float {\bfseries \+\_\+hy}
+\item 
+\Hypertarget{class_m_p_u9250_a28763d4c62447190bdb038623c2fc8c6}\label{class_m_p_u9250_a28763d4c62447190bdb038623c2fc8c6} 
+float {\bfseries \+\_\+hz}
+\item 
+\Hypertarget{class_m_p_u9250_a614da2a23f959ed1c3e68bae5389983d}\label{class_m_p_u9250_a614da2a23f959ed1c3e68bae5389983d} 
+float {\bfseries \+\_\+t}
+\item 
+\Hypertarget{class_m_p_u9250_abe731e2e9da74703945d671ff460545a}\label{class_m_p_u9250_abe731e2e9da74703945d671ff460545a} 
+uint8\+\_\+t {\bfseries \+\_\+wom\+Threshold}
+\item 
+\Hypertarget{class_m_p_u9250_aa60731a3c796175aec404278be70c7ac}\label{class_m_p_u9250_aa60731a3c796175aec404278be70c7ac} 
+float {\bfseries \+\_\+accel\+Scale}
+\item 
+\Hypertarget{class_m_p_u9250_a494b80d59f74314546b4a09d0513cd85}\label{class_m_p_u9250_a494b80d59f74314546b4a09d0513cd85} 
+float {\bfseries \+\_\+gyro\+Scale}
+\item 
+\Hypertarget{class_m_p_u9250_a92035717d3a621554476f1090fc7d9ce}\label{class_m_p_u9250_a92035717d3a621554476f1090fc7d9ce} 
+float {\bfseries \+\_\+mag\+ScaleX}
+\item 
+\Hypertarget{class_m_p_u9250_ad8a854d983ef261da1fe34aec3037886}\label{class_m_p_u9250_ad8a854d983ef261da1fe34aec3037886} 
+float {\bfseries \+\_\+mag\+ScaleY}
+\item 
+\Hypertarget{class_m_p_u9250_a6d0f9b6bca395995693e4eac0232fa67}\label{class_m_p_u9250_a6d0f9b6bca395995693e4eac0232fa67} 
+float {\bfseries \+\_\+mag\+ScaleZ}
+\item 
+\Hypertarget{class_m_p_u9250_ab4598bd2ae52a03e4ee214b7a758f9d0}\label{class_m_p_u9250_ab4598bd2ae52a03e4ee214b7a758f9d0} 
+const float {\bfseries \+\_\+temp\+Scale} = 333.\+87f
+\item 
+\Hypertarget{class_m_p_u9250_aa0d89ed49a662d057464ac3a355a0809}\label{class_m_p_u9250_aa0d89ed49a662d057464ac3a355a0809} 
+const float {\bfseries \+\_\+temp\+Offset} = 21.\+0f
+\item 
+\Hypertarget{class_m_p_u9250_a82d3efa18c5508ef79dd634054b67884}\label{class_m_p_u9250_a82d3efa18c5508ef79dd634054b67884} 
+Accel\+Range {\bfseries \+\_\+accel\+Range}
+\item 
+\Hypertarget{class_m_p_u9250_a170a374ad0a8eeb9de4b49a87a037f34}\label{class_m_p_u9250_a170a374ad0a8eeb9de4b49a87a037f34} 
+Gyro\+Range {\bfseries \+\_\+gyro\+Range}
+\item 
+\Hypertarget{class_m_p_u9250_a4818a1d98ba1f54ba37e66421eb7a872}\label{class_m_p_u9250_a4818a1d98ba1f54ba37e66421eb7a872} 
+Dlpf\+Bandwidth {\bfseries \+\_\+bandwidth}
+\item 
+\Hypertarget{class_m_p_u9250_a29cf790113cc58face9d1a2ddaddb567}\label{class_m_p_u9250_a29cf790113cc58face9d1a2ddaddb567} 
+uint8\+\_\+t {\bfseries \+\_\+srd}
+\item 
+\Hypertarget{class_m_p_u9250_ac3b38014b3abf51fc7ae85556d01f01b}\label{class_m_p_u9250_ac3b38014b3abf51fc7ae85556d01f01b} 
+size\+\_\+t {\bfseries \+\_\+num\+Samples} = 100
+\item 
+\Hypertarget{class_m_p_u9250_a1203dcb4934cab1394496a89ec447f51}\label{class_m_p_u9250_a1203dcb4934cab1394496a89ec447f51} 
+double {\bfseries \+\_\+gxbD}
+\item 
+\Hypertarget{class_m_p_u9250_aa9c0f8634eaf08acfd1ca87be7107f98}\label{class_m_p_u9250_aa9c0f8634eaf08acfd1ca87be7107f98} 
+double {\bfseries \+\_\+gybD}
+\item 
+\Hypertarget{class_m_p_u9250_a85833d9cb1ddd8429342dc27e2dbb539}\label{class_m_p_u9250_a85833d9cb1ddd8429342dc27e2dbb539} 
+double {\bfseries \+\_\+gzbD}
+\item 
+\Hypertarget{class_m_p_u9250_a7e454039270618119601a2a9b9990455}\label{class_m_p_u9250_a7e454039270618119601a2a9b9990455} 
+float {\bfseries \+\_\+gxb}
+\item 
+\Hypertarget{class_m_p_u9250_ae1ff9bdb0b34202100fbdfd81eeabf84}\label{class_m_p_u9250_ae1ff9bdb0b34202100fbdfd81eeabf84} 
+float {\bfseries \+\_\+gyb}
+\item 
+\Hypertarget{class_m_p_u9250_ad05e77f913449f7581db196ba9539091}\label{class_m_p_u9250_ad05e77f913449f7581db196ba9539091} 
+float {\bfseries \+\_\+gzb}
+\item 
+\Hypertarget{class_m_p_u9250_add3d273a6b8a64e79c9801878ee46cf8}\label{class_m_p_u9250_add3d273a6b8a64e79c9801878ee46cf8} 
+double {\bfseries \+\_\+axbD}
+\item 
+\Hypertarget{class_m_p_u9250_a439fc19492ea1677f10bcfdd460bb86f}\label{class_m_p_u9250_a439fc19492ea1677f10bcfdd460bb86f} 
+double {\bfseries \+\_\+aybD}
+\item 
+\Hypertarget{class_m_p_u9250_a4060c4186c2a8df99756e66b69123483}\label{class_m_p_u9250_a4060c4186c2a8df99756e66b69123483} 
+double {\bfseries \+\_\+azbD}
+\item 
+\Hypertarget{class_m_p_u9250_ae2f23e1f753520182b2afce0335bf4db}\label{class_m_p_u9250_ae2f23e1f753520182b2afce0335bf4db} 
+float {\bfseries \+\_\+axmax}
+\item 
+\Hypertarget{class_m_p_u9250_a560972430b5a7f0da4991b73ff62cc63}\label{class_m_p_u9250_a560972430b5a7f0da4991b73ff62cc63} 
+float {\bfseries \+\_\+aymax}
+\item 
+\Hypertarget{class_m_p_u9250_a4acdeadd95d0b6aef014e0cc71a4ed96}\label{class_m_p_u9250_a4acdeadd95d0b6aef014e0cc71a4ed96} 
+float {\bfseries \+\_\+azmax}
+\item 
+\Hypertarget{class_m_p_u9250_aa064330ea8ffef2045012f98a3c93822}\label{class_m_p_u9250_aa064330ea8ffef2045012f98a3c93822} 
+float {\bfseries \+\_\+axmin}
+\item 
+\Hypertarget{class_m_p_u9250_ae6b1e714b93115ad12f453acbe11d6aa}\label{class_m_p_u9250_ae6b1e714b93115ad12f453acbe11d6aa} 
+float {\bfseries \+\_\+aymin}
+\item 
+\Hypertarget{class_m_p_u9250_a12e54edd30a4cf916aecc7618c3c6927}\label{class_m_p_u9250_a12e54edd30a4cf916aecc7618c3c6927} 
+float {\bfseries \+\_\+azmin}
+\item 
+\Hypertarget{class_m_p_u9250_a89b23bcf08dfa5fa84f65c4b1945dbbd}\label{class_m_p_u9250_a89b23bcf08dfa5fa84f65c4b1945dbbd} 
+float {\bfseries \+\_\+axb}
+\item 
+\Hypertarget{class_m_p_u9250_a6f0acf8b986e2841d583c52ba5c329a9}\label{class_m_p_u9250_a6f0acf8b986e2841d583c52ba5c329a9} 
+float {\bfseries \+\_\+ayb}
+\item 
+\Hypertarget{class_m_p_u9250_a71f9480ba9054123167324e2bd45bf41}\label{class_m_p_u9250_a71f9480ba9054123167324e2bd45bf41} 
+float {\bfseries \+\_\+azb}
+\item 
+\Hypertarget{class_m_p_u9250_a63172ff6429f1531b5d0736b4b185cd3}\label{class_m_p_u9250_a63172ff6429f1531b5d0736b4b185cd3} 
+float {\bfseries \+\_\+axs} = 1.\+0f
+\item 
+\Hypertarget{class_m_p_u9250_a3c55394a0feeb00dc68a7ff5fa4683b5}\label{class_m_p_u9250_a3c55394a0feeb00dc68a7ff5fa4683b5} 
+float {\bfseries \+\_\+ays} = 1.\+0f
+\item 
+\Hypertarget{class_m_p_u9250_ab575585395fbbada01f25e4e92fb0d52}\label{class_m_p_u9250_ab575585395fbbada01f25e4e92fb0d52} 
+float {\bfseries \+\_\+azs} = 1.\+0f
+\item 
+\Hypertarget{class_m_p_u9250_abfff92f22023a19480fd03dcab1d23c0}\label{class_m_p_u9250_abfff92f22023a19480fd03dcab1d23c0} 
+uint16\+\_\+t {\bfseries \+\_\+max\+Counts} = 1000
+\item 
+\Hypertarget{class_m_p_u9250_a89a4d786d174693ef7bbb97d00837711}\label{class_m_p_u9250_a89a4d786d174693ef7bbb97d00837711} 
+float {\bfseries \+\_\+delta\+Thresh} = 0.\+3f
+\item 
+\Hypertarget{class_m_p_u9250_a2f06843f26cb165798a3f02af938ca65}\label{class_m_p_u9250_a2f06843f26cb165798a3f02af938ca65} 
+uint8\+\_\+t {\bfseries \+\_\+coeff} = 8
+\item 
+\Hypertarget{class_m_p_u9250_a6696bac69f56ed2c969272bc30ada3be}\label{class_m_p_u9250_a6696bac69f56ed2c969272bc30ada3be} 
+uint16\+\_\+t {\bfseries \+\_\+counter}
+\item 
+\Hypertarget{class_m_p_u9250_aa67b520e19d97fdfb11cd30ebbe54eb3}\label{class_m_p_u9250_aa67b520e19d97fdfb11cd30ebbe54eb3} 
+float {\bfseries \+\_\+framedelta}
+\item 
+\Hypertarget{class_m_p_u9250_a10b7f1a39477647f3be1802dea3f05b2}\label{class_m_p_u9250_a10b7f1a39477647f3be1802dea3f05b2} 
+float {\bfseries \+\_\+delta}
+\item 
+\Hypertarget{class_m_p_u9250_a9d9d70595f6a4082001d0436c25a6b14}\label{class_m_p_u9250_a9d9d70595f6a4082001d0436c25a6b14} 
+float {\bfseries \+\_\+hxfilt}
+\item 
+\Hypertarget{class_m_p_u9250_a1b9e58cf5841de019a5853dad98fd237}\label{class_m_p_u9250_a1b9e58cf5841de019a5853dad98fd237} 
+float {\bfseries \+\_\+hyfilt}
+\item 
+\Hypertarget{class_m_p_u9250_a6ec36221ce2d5ee1b82b5ab74791507a}\label{class_m_p_u9250_a6ec36221ce2d5ee1b82b5ab74791507a} 
+float {\bfseries \+\_\+hzfilt}
+\item 
+\Hypertarget{class_m_p_u9250_a6ab845cbb2e68597007af526384c1271}\label{class_m_p_u9250_a6ab845cbb2e68597007af526384c1271} 
+float {\bfseries \+\_\+hxmax}
+\item 
+\Hypertarget{class_m_p_u9250_a94c3d07250437a76164605f946a74227}\label{class_m_p_u9250_a94c3d07250437a76164605f946a74227} 
+float {\bfseries \+\_\+hymax}
+\item 
+\Hypertarget{class_m_p_u9250_abe675ff7830291543e0a29bb1faa7353}\label{class_m_p_u9250_abe675ff7830291543e0a29bb1faa7353} 
+float {\bfseries \+\_\+hzmax}
+\item 
+\Hypertarget{class_m_p_u9250_a06a7c665a4f85acbc48d6339b7267e84}\label{class_m_p_u9250_a06a7c665a4f85acbc48d6339b7267e84} 
+float {\bfseries \+\_\+hxmin}
+\item 
+\Hypertarget{class_m_p_u9250_ab38ed8b895f7c8a128da66084e085501}\label{class_m_p_u9250_ab38ed8b895f7c8a128da66084e085501} 
+float {\bfseries \+\_\+hymin}
+\item 
+\Hypertarget{class_m_p_u9250_ab23303877bd1f0f73f7702aebc20c722}\label{class_m_p_u9250_ab23303877bd1f0f73f7702aebc20c722} 
+float {\bfseries \+\_\+hzmin}
+\item 
+\Hypertarget{class_m_p_u9250_a163a99348a724a4dd8c9b2299ecf50f1}\label{class_m_p_u9250_a163a99348a724a4dd8c9b2299ecf50f1} 
+float {\bfseries \+\_\+hxb}
+\item 
+\Hypertarget{class_m_p_u9250_a379cf800463e13ed12c01467ea596096}\label{class_m_p_u9250_a379cf800463e13ed12c01467ea596096} 
+float {\bfseries \+\_\+hyb}
+\item 
+\Hypertarget{class_m_p_u9250_a35c23245b36a7088cf7e4e28f25f6819}\label{class_m_p_u9250_a35c23245b36a7088cf7e4e28f25f6819} 
+float {\bfseries \+\_\+hzb}
+\item 
+\Hypertarget{class_m_p_u9250_a18001505ab8b0633ad7a42519e532a36}\label{class_m_p_u9250_a18001505ab8b0633ad7a42519e532a36} 
+float {\bfseries \+\_\+hxs} = 1.\+0f
+\item 
+\Hypertarget{class_m_p_u9250_ab1d1d9aaada16cabea8550028bacc474}\label{class_m_p_u9250_ab1d1d9aaada16cabea8550028bacc474} 
+float {\bfseries \+\_\+hys} = 1.\+0f
+\item 
+\Hypertarget{class_m_p_u9250_a623df40210aed500bdb93948f31ff72c}\label{class_m_p_u9250_a623df40210aed500bdb93948f31ff72c} 
+float {\bfseries \+\_\+hzs} = 1.\+0f
+\item 
+\Hypertarget{class_m_p_u9250_a07accae4b4fe268fce2e26b007bb54c3}\label{class_m_p_u9250_a07accae4b4fe268fce2e26b007bb54c3} 
+float {\bfseries \+\_\+avgs}
+\item 
+\Hypertarget{class_m_p_u9250_af7d992743ffa2e15d5674b45a100791e}\label{class_m_p_u9250_af7d992743ffa2e15d5674b45a100791e} 
+const int16\+\_\+t {\bfseries tX} \mbox{[}3\mbox{]} = \{0, 1, 0\}
+\item 
+\Hypertarget{class_m_p_u9250_ae100c82474b1e78337ecfdc8d18518d5}\label{class_m_p_u9250_ae100c82474b1e78337ecfdc8d18518d5} 
+const int16\+\_\+t {\bfseries tY} \mbox{[}3\mbox{]} = \{1, 0, 0\}
+\item 
+\Hypertarget{class_m_p_u9250_a595f111a497c7727ac70a544b98162e1}\label{class_m_p_u9250_a595f111a497c7727ac70a544b98162e1} 
+const int16\+\_\+t {\bfseries tZ} \mbox{[}3\mbox{]} = \{0, 0, -\/1\}
+\item 
+\Hypertarget{class_m_p_u9250_a9f6f8a4a0e315741e8f2e2d56fbcd8bb}\label{class_m_p_u9250_a9f6f8a4a0e315741e8f2e2d56fbcd8bb} 
+const float {\bfseries G} = 9.\+807f
+\item 
+\Hypertarget{class_m_p_u9250_affbb71e6f18ec3c9fbc5efd8631bdd5e}\label{class_m_p_u9250_affbb71e6f18ec3c9fbc5efd8631bdd5e} 
+const float {\bfseries \+\_\+d2r} = 3.\+14159265359f/180.\+0f
+\item 
+\Hypertarget{class_m_p_u9250_a8140401a585c470360f3c0da0d0619b8}\label{class_m_p_u9250_a8140401a585c470360f3c0da0d0619b8} 
+const uint8\+\_\+t {\bfseries ACCEL\+\_\+\+OUT} = 0x3B
+\item 
+\Hypertarget{class_m_p_u9250_a2f3160391ac5e675a0b8a7a4cc7b5899}\label{class_m_p_u9250_a2f3160391ac5e675a0b8a7a4cc7b5899} 
+const uint8\+\_\+t {\bfseries GYRO\+\_\+\+OUT} = 0x43
+\item 
+\Hypertarget{class_m_p_u9250_ab40144403714611c828d55d466204c6d}\label{class_m_p_u9250_ab40144403714611c828d55d466204c6d} 
+const uint8\+\_\+t {\bfseries TEMP\+\_\+\+OUT} = 0x41
+\item 
+\Hypertarget{class_m_p_u9250_af3ff49b6a515f043ed76fc3f0088ccfe}\label{class_m_p_u9250_af3ff49b6a515f043ed76fc3f0088ccfe} 
+const uint8\+\_\+t {\bfseries EXT\+\_\+\+SENS\+\_\+\+DATA\+\_\+00} = 0x49
+\item 
+\Hypertarget{class_m_p_u9250_aafa6e01d85e697d8900a038434f72b27}\label{class_m_p_u9250_aafa6e01d85e697d8900a038434f72b27} 
+const uint8\+\_\+t {\bfseries ACCEL\+\_\+\+CONFIG} = 0x1C
+\item 
+\Hypertarget{class_m_p_u9250_a6bcf66a65783fe62e2b34587b544e26d}\label{class_m_p_u9250_a6bcf66a65783fe62e2b34587b544e26d} 
+const uint8\+\_\+t {\bfseries ACCEL\+\_\+\+FS\+\_\+\+SEL\+\_\+2G} = 0x00
+\item 
+\Hypertarget{class_m_p_u9250_a478a3d1f96f703ce49a8d1794d8ce984}\label{class_m_p_u9250_a478a3d1f96f703ce49a8d1794d8ce984} 
+const uint8\+\_\+t {\bfseries ACCEL\+\_\+\+FS\+\_\+\+SEL\+\_\+4G} = 0x08
+\item 
+\Hypertarget{class_m_p_u9250_a9a9e92210912334290c039e434cdfdb7}\label{class_m_p_u9250_a9a9e92210912334290c039e434cdfdb7} 
+const uint8\+\_\+t {\bfseries ACCEL\+\_\+\+FS\+\_\+\+SEL\+\_\+8G} = 0x10
+\item 
+\Hypertarget{class_m_p_u9250_aac5824e1992ba3dbede499d7dfc3579b}\label{class_m_p_u9250_aac5824e1992ba3dbede499d7dfc3579b} 
+const uint8\+\_\+t {\bfseries ACCEL\+\_\+\+FS\+\_\+\+SEL\+\_\+16G} = 0x18
+\item 
+\Hypertarget{class_m_p_u9250_afc7e974cfcdc039191527d56f243cdbe}\label{class_m_p_u9250_afc7e974cfcdc039191527d56f243cdbe} 
+const uint8\+\_\+t {\bfseries GYRO\+\_\+\+CONFIG} = 0x1B
+\item 
+\Hypertarget{class_m_p_u9250_a799cb2ffd7f565a4ade3ef7d7b7050e4}\label{class_m_p_u9250_a799cb2ffd7f565a4ade3ef7d7b7050e4} 
+const uint8\+\_\+t {\bfseries GYRO\+\_\+\+FS\+\_\+\+SEL\+\_\+250\+DPS} = 0x00
+\item 
+\Hypertarget{class_m_p_u9250_ae21f723bd44abf3427045f963f3daa4f}\label{class_m_p_u9250_ae21f723bd44abf3427045f963f3daa4f} 
+const uint8\+\_\+t {\bfseries GYRO\+\_\+\+FS\+\_\+\+SEL\+\_\+500\+DPS} = 0x08
+\item 
+\Hypertarget{class_m_p_u9250_ae4624b1ba98961e993b6e5996fc03359}\label{class_m_p_u9250_ae4624b1ba98961e993b6e5996fc03359} 
+const uint8\+\_\+t {\bfseries GYRO\+\_\+\+FS\+\_\+\+SEL\+\_\+1000\+DPS} = 0x10
+\item 
+\Hypertarget{class_m_p_u9250_adb921b80ddb7539c3e797c9115bf3ac4}\label{class_m_p_u9250_adb921b80ddb7539c3e797c9115bf3ac4} 
+const uint8\+\_\+t {\bfseries GYRO\+\_\+\+FS\+\_\+\+SEL\+\_\+2000\+DPS} = 0x18
+\item 
+\Hypertarget{class_m_p_u9250_a9c3c4be39f134ef83747075e6db1ba88}\label{class_m_p_u9250_a9c3c4be39f134ef83747075e6db1ba88} 
+const uint8\+\_\+t {\bfseries ACCEL\+\_\+\+CONFIG2} = 0x1D
+\item 
+\Hypertarget{class_m_p_u9250_a9b81ef693be2c28023b923888d41068a}\label{class_m_p_u9250_a9b81ef693be2c28023b923888d41068a} 
+const uint8\+\_\+t {\bfseries ACCEL\+\_\+\+DLPF\+\_\+184} = 0x01
+\item 
+\Hypertarget{class_m_p_u9250_a19e46ca6728ced88ff1dcec8d3f642e6}\label{class_m_p_u9250_a19e46ca6728ced88ff1dcec8d3f642e6} 
+const uint8\+\_\+t {\bfseries ACCEL\+\_\+\+DLPF\+\_\+92} = 0x02
+\item 
+\Hypertarget{class_m_p_u9250_a17c1301768497ed0718f01289f22d57a}\label{class_m_p_u9250_a17c1301768497ed0718f01289f22d57a} 
+const uint8\+\_\+t {\bfseries ACCEL\+\_\+\+DLPF\+\_\+41} = 0x03
+\item 
+\Hypertarget{class_m_p_u9250_a349d5ed7b80a586a135172562d0d0a03}\label{class_m_p_u9250_a349d5ed7b80a586a135172562d0d0a03} 
+const uint8\+\_\+t {\bfseries ACCEL\+\_\+\+DLPF\+\_\+20} = 0x04
+\item 
+\Hypertarget{class_m_p_u9250_aba33e8dab190e0a4bc0e5bb2f81d9b10}\label{class_m_p_u9250_aba33e8dab190e0a4bc0e5bb2f81d9b10} 
+const uint8\+\_\+t {\bfseries ACCEL\+\_\+\+DLPF\+\_\+10} = 0x05
+\item 
+\Hypertarget{class_m_p_u9250_a2530fe0e8fe51998d89088e298eb7465}\label{class_m_p_u9250_a2530fe0e8fe51998d89088e298eb7465} 
+const uint8\+\_\+t {\bfseries ACCEL\+\_\+\+DLPF\+\_\+5} = 0x06
+\item 
+\Hypertarget{class_m_p_u9250_aab05dcc81b5628ed687e152263c52966}\label{class_m_p_u9250_aab05dcc81b5628ed687e152263c52966} 
+const uint8\+\_\+t {\bfseries CONFIG} = 0x1A
+\item 
+\Hypertarget{class_m_p_u9250_a7dad5c0ccc51512fec5710fd305a753c}\label{class_m_p_u9250_a7dad5c0ccc51512fec5710fd305a753c} 
+const uint8\+\_\+t {\bfseries GYRO\+\_\+\+DLPF\+\_\+184} = 0x01
+\item 
+\Hypertarget{class_m_p_u9250_a8a310935f498e160829a16fefda2526c}\label{class_m_p_u9250_a8a310935f498e160829a16fefda2526c} 
+const uint8\+\_\+t {\bfseries GYRO\+\_\+\+DLPF\+\_\+92} = 0x02
+\item 
+\Hypertarget{class_m_p_u9250_a8dc7381c13d6d09a42196eec95a0ea06}\label{class_m_p_u9250_a8dc7381c13d6d09a42196eec95a0ea06} 
+const uint8\+\_\+t {\bfseries GYRO\+\_\+\+DLPF\+\_\+41} = 0x03
+\item 
+\Hypertarget{class_m_p_u9250_aae89c63e731b08f5e7310ff8e60cfb8c}\label{class_m_p_u9250_aae89c63e731b08f5e7310ff8e60cfb8c} 
+const uint8\+\_\+t {\bfseries GYRO\+\_\+\+DLPF\+\_\+20} = 0x04
+\item 
+\Hypertarget{class_m_p_u9250_a4d18afcf7abe10be8f5679ad98aec8f1}\label{class_m_p_u9250_a4d18afcf7abe10be8f5679ad98aec8f1} 
+const uint8\+\_\+t {\bfseries GYRO\+\_\+\+DLPF\+\_\+10} = 0x05
+\item 
+\Hypertarget{class_m_p_u9250_a833a53ed90e6851170abe4795cbd36c3}\label{class_m_p_u9250_a833a53ed90e6851170abe4795cbd36c3} 
+const uint8\+\_\+t {\bfseries GYRO\+\_\+\+DLPF\+\_\+5} = 0x06
+\item 
+\Hypertarget{class_m_p_u9250_a5ce31a1a99803ff34d240518121b4914}\label{class_m_p_u9250_a5ce31a1a99803ff34d240518121b4914} 
+const uint8\+\_\+t {\bfseries SMPDIV} = 0x19
+\item 
+\Hypertarget{class_m_p_u9250_a7e507212aa30920ba9a5c6e93c852b7a}\label{class_m_p_u9250_a7e507212aa30920ba9a5c6e93c852b7a} 
+const uint8\+\_\+t {\bfseries INT\+\_\+\+PIN\+\_\+\+CFG} = 0x37
+\item 
+\Hypertarget{class_m_p_u9250_a76419818d1ac3740a74f3203a6e4e93a}\label{class_m_p_u9250_a76419818d1ac3740a74f3203a6e4e93a} 
+const uint8\+\_\+t {\bfseries INT\+\_\+\+ENABLE} = 0x38
+\item 
+\Hypertarget{class_m_p_u9250_aa0334939994e2e178d3d282469031ae5}\label{class_m_p_u9250_aa0334939994e2e178d3d282469031ae5} 
+const uint8\+\_\+t {\bfseries INT\+\_\+\+DISABLE} = 0x00
+\item 
+\Hypertarget{class_m_p_u9250_a277aadbfbac2cfff461501843f55aeb0}\label{class_m_p_u9250_a277aadbfbac2cfff461501843f55aeb0} 
+const uint8\+\_\+t {\bfseries INT\+\_\+\+PULSE\+\_\+50\+US} = 0x00
+\item 
+\Hypertarget{class_m_p_u9250_a26e8a2bee0d7eab26656253e0398c796}\label{class_m_p_u9250_a26e8a2bee0d7eab26656253e0398c796} 
+const uint8\+\_\+t {\bfseries INT\+\_\+\+WOM\+\_\+\+EN} = 0x40
+\item 
+\Hypertarget{class_m_p_u9250_a69b3709bd55879f2824b6921256669a3}\label{class_m_p_u9250_a69b3709bd55879f2824b6921256669a3} 
+const uint8\+\_\+t {\bfseries INT\+\_\+\+RAW\+\_\+\+RDY\+\_\+\+EN} = 0x01
+\item 
+\Hypertarget{class_m_p_u9250_aa0bc719f1a0caff0f1864618a2a2fa80}\label{class_m_p_u9250_aa0bc719f1a0caff0f1864618a2a2fa80} 
+const uint8\+\_\+t {\bfseries PWR\+\_\+\+MGMNT\+\_\+1} = 0x6B
+\item 
+\Hypertarget{class_m_p_u9250_aa45b7c35140a74784f0dbb10d4a9b064}\label{class_m_p_u9250_aa45b7c35140a74784f0dbb10d4a9b064} 
+const uint8\+\_\+t {\bfseries PWR\+\_\+\+CYCLE} = 0x20
+\item 
+\Hypertarget{class_m_p_u9250_a729a11aa2cf968263b87934fd849478c}\label{class_m_p_u9250_a729a11aa2cf968263b87934fd849478c} 
+const uint8\+\_\+t {\bfseries PWR\+\_\+\+RESET} = 0x80
+\item 
+\Hypertarget{class_m_p_u9250_a1a52c1e61766f509eea69cb6d1fbbc56}\label{class_m_p_u9250_a1a52c1e61766f509eea69cb6d1fbbc56} 
+const uint8\+\_\+t {\bfseries CLOCK\+\_\+\+SEL\+\_\+\+PLL} = 0x01
+\item 
+\Hypertarget{class_m_p_u9250_af2ddd3ae16ad94754edb57aade224e1e}\label{class_m_p_u9250_af2ddd3ae16ad94754edb57aade224e1e} 
+const uint8\+\_\+t {\bfseries PWR\+\_\+\+MGMNT\+\_\+2} = 0x6C
+\item 
+\Hypertarget{class_m_p_u9250_ac49606c758570d1af1d687e4c3d44407}\label{class_m_p_u9250_ac49606c758570d1af1d687e4c3d44407} 
+const uint8\+\_\+t {\bfseries SEN\+\_\+\+ENABLE} = 0x00
+\item 
+\Hypertarget{class_m_p_u9250_abb9b02dd2f4b7d031c22bfb1422d5367}\label{class_m_p_u9250_abb9b02dd2f4b7d031c22bfb1422d5367} 
+const uint8\+\_\+t {\bfseries DIS\+\_\+\+GYRO} = 0x07
+\item 
+\Hypertarget{class_m_p_u9250_ac7a02a1a77fe8bf5a477cc37820d2f27}\label{class_m_p_u9250_ac7a02a1a77fe8bf5a477cc37820d2f27} 
+const uint8\+\_\+t {\bfseries USER\+\_\+\+CTRL} = 0x6A
+\item 
+\Hypertarget{class_m_p_u9250_a1af88fcc4f883c355c5393820931f2cc}\label{class_m_p_u9250_a1af88fcc4f883c355c5393820931f2cc} 
+const uint8\+\_\+t {\bfseries I2\+C\+\_\+\+MST\+\_\+\+EN} = 0x20
+\item 
+\Hypertarget{class_m_p_u9250_aa6406909082ec3822dc754efd19b181e}\label{class_m_p_u9250_aa6406909082ec3822dc754efd19b181e} 
+const uint8\+\_\+t {\bfseries I2\+C\+\_\+\+MST\+\_\+\+CLK} = 0x0D
+\item 
+\Hypertarget{class_m_p_u9250_a66f55e5fb1b752d0770d614f3ac79552}\label{class_m_p_u9250_a66f55e5fb1b752d0770d614f3ac79552} 
+const uint8\+\_\+t {\bfseries I2\+C\+\_\+\+MST\+\_\+\+CTRL} = 0x24
+\item 
+\Hypertarget{class_m_p_u9250_a40709f51f790ff69f5b06f35b0a91b72}\label{class_m_p_u9250_a40709f51f790ff69f5b06f35b0a91b72} 
+const uint8\+\_\+t {\bfseries I2\+C\+\_\+\+SLV0\+\_\+\+ADDR} = 0x25
+\item 
+\Hypertarget{class_m_p_u9250_a8b22e82027b25cdce70e4df0f412e856}\label{class_m_p_u9250_a8b22e82027b25cdce70e4df0f412e856} 
+const uint8\+\_\+t {\bfseries I2\+C\+\_\+\+SLV0\+\_\+\+REG} = 0x26
+\item 
+\Hypertarget{class_m_p_u9250_a406f474e4e0f402742c31be2c55c624d}\label{class_m_p_u9250_a406f474e4e0f402742c31be2c55c624d} 
+const uint8\+\_\+t {\bfseries I2\+C\+\_\+\+SLV0\+\_\+\+DO} = 0x63
+\item 
+\Hypertarget{class_m_p_u9250_a6e5e738a0a3766113b7122eb74a76e9a}\label{class_m_p_u9250_a6e5e738a0a3766113b7122eb74a76e9a} 
+const uint8\+\_\+t {\bfseries I2\+C\+\_\+\+SLV0\+\_\+\+CTRL} = 0x27
+\item 
+\Hypertarget{class_m_p_u9250_a6150b9869ac3d40c1773cfff6f123016}\label{class_m_p_u9250_a6150b9869ac3d40c1773cfff6f123016} 
+const uint8\+\_\+t {\bfseries I2\+C\+\_\+\+SLV0\+\_\+\+EN} = 0x80
+\item 
+\Hypertarget{class_m_p_u9250_ab0db27e3482e0d7a6b5c523780dfd35d}\label{class_m_p_u9250_ab0db27e3482e0d7a6b5c523780dfd35d} 
+const uint8\+\_\+t {\bfseries I2\+C\+\_\+\+READ\+\_\+\+FLAG} = 0x80
+\item 
+\Hypertarget{class_m_p_u9250_aec0050de3ee1ffb4cc976e8bed8fdf62}\label{class_m_p_u9250_aec0050de3ee1ffb4cc976e8bed8fdf62} 
+const uint8\+\_\+t {\bfseries MOT\+\_\+\+DETECT\+\_\+\+CTRL} = 0x69
+\item 
+\Hypertarget{class_m_p_u9250_a3899ad42ba5be85c1e85f060f8efb54f}\label{class_m_p_u9250_a3899ad42ba5be85c1e85f060f8efb54f} 
+const uint8\+\_\+t {\bfseries ACCEL\+\_\+\+INTEL\+\_\+\+EN} = 0x80
+\item 
+\Hypertarget{class_m_p_u9250_a2822f408b0d6ae2f6b8ac2be38ea1f33}\label{class_m_p_u9250_a2822f408b0d6ae2f6b8ac2be38ea1f33} 
+const uint8\+\_\+t {\bfseries ACCEL\+\_\+\+INTEL\+\_\+\+MODE} = 0x40
+\item 
+\Hypertarget{class_m_p_u9250_a20a0eee49ffef67d73ba8275486ba47e}\label{class_m_p_u9250_a20a0eee49ffef67d73ba8275486ba47e} 
+const uint8\+\_\+t {\bfseries LP\+\_\+\+ACCEL\+\_\+\+ODR} = 0x1E
+\item 
+\Hypertarget{class_m_p_u9250_a0168a9af5761328454e5fca3c725044a}\label{class_m_p_u9250_a0168a9af5761328454e5fca3c725044a} 
+const uint8\+\_\+t {\bfseries WOM\+\_\+\+THR} = 0x1F
+\item 
+\Hypertarget{class_m_p_u9250_a9b971effc265898fecc36d343d37ed81}\label{class_m_p_u9250_a9b971effc265898fecc36d343d37ed81} 
+const uint8\+\_\+t {\bfseries WHO\+\_\+\+AM\+\_\+I} = 0x75
+\item 
+\Hypertarget{class_m_p_u9250_a519b84b75228f1f80ba52ef5094f7281}\label{class_m_p_u9250_a519b84b75228f1f80ba52ef5094f7281} 
+const uint8\+\_\+t {\bfseries FIFO\+\_\+\+EN} = 0x23
+\item 
+\Hypertarget{class_m_p_u9250_a1e9ae1729852596e184f540d3cf187b5}\label{class_m_p_u9250_a1e9ae1729852596e184f540d3cf187b5} 
+const uint8\+\_\+t {\bfseries FIFO\+\_\+\+TEMP} = 0x80
+\item 
+\Hypertarget{class_m_p_u9250_a4babc9236fb621bcd96c6625144e700d}\label{class_m_p_u9250_a4babc9236fb621bcd96c6625144e700d} 
+const uint8\+\_\+t {\bfseries FIFO\+\_\+\+GYRO} = 0x70
+\item 
+\Hypertarget{class_m_p_u9250_ad24cca1803d0d63bcf8f0c800170e03a}\label{class_m_p_u9250_ad24cca1803d0d63bcf8f0c800170e03a} 
+const uint8\+\_\+t {\bfseries FIFO\+\_\+\+ACCEL} = 0x08
+\item 
+\Hypertarget{class_m_p_u9250_aa46038cd293d89d7287795df5cd9acfe}\label{class_m_p_u9250_aa46038cd293d89d7287795df5cd9acfe} 
+const uint8\+\_\+t {\bfseries FIFO\+\_\+\+MAG} = 0x01
+\item 
+\Hypertarget{class_m_p_u9250_a1b50ee530507b784e6bc3aa9195c9b80}\label{class_m_p_u9250_a1b50ee530507b784e6bc3aa9195c9b80} 
+const uint8\+\_\+t {\bfseries FIFO\+\_\+\+COUNT} = 0x72
+\item 
+\Hypertarget{class_m_p_u9250_ab3508ddaf5d02555e0055a17bafe7667}\label{class_m_p_u9250_ab3508ddaf5d02555e0055a17bafe7667} 
+const uint8\+\_\+t {\bfseries FIFO\+\_\+\+READ} = 0x74
+\item 
+\Hypertarget{class_m_p_u9250_a8e720e000d02178911ee1cc012d879a0}\label{class_m_p_u9250_a8e720e000d02178911ee1cc012d879a0} 
+const uint8\+\_\+t {\bfseries AK8963\+\_\+\+I2\+C\+\_\+\+ADDR} = 0x0C
+\item 
+\Hypertarget{class_m_p_u9250_a124f88905ef21fe516c76ae652227232}\label{class_m_p_u9250_a124f88905ef21fe516c76ae652227232} 
+const uint8\+\_\+t {\bfseries AK8963\+\_\+\+HXL} = 0x03
+\item 
+\Hypertarget{class_m_p_u9250_aacf91f7f0eaeeffe3bcd037d540095d8}\label{class_m_p_u9250_aacf91f7f0eaeeffe3bcd037d540095d8} 
+const uint8\+\_\+t {\bfseries AK8963\+\_\+\+CNTL1} = 0x0A
+\item 
+\Hypertarget{class_m_p_u9250_a7b12d669961fc847f3f5eab94c560e73}\label{class_m_p_u9250_a7b12d669961fc847f3f5eab94c560e73} 
+const uint8\+\_\+t {\bfseries AK8963\+\_\+\+PWR\+\_\+\+DOWN} = 0x00
+\item 
+\Hypertarget{class_m_p_u9250_ab3cde169087d4e06e153f58b448136d5}\label{class_m_p_u9250_ab3cde169087d4e06e153f58b448136d5} 
+const uint8\+\_\+t {\bfseries AK8963\+\_\+\+CNT\+\_\+\+MEAS1} = 0x12
+\item 
+\Hypertarget{class_m_p_u9250_aa74c8ffb8a828b7bd3c1ce4580a16b55}\label{class_m_p_u9250_aa74c8ffb8a828b7bd3c1ce4580a16b55} 
+const uint8\+\_\+t {\bfseries AK8963\+\_\+\+CNT\+\_\+\+MEAS2} = 0x16
+\item 
+\Hypertarget{class_m_p_u9250_a715699b6aad34202baf809998e760791}\label{class_m_p_u9250_a715699b6aad34202baf809998e760791} 
+const uint8\+\_\+t {\bfseries AK8963\+\_\+\+FUSE\+\_\+\+ROM} = 0x0F
+\item 
+\Hypertarget{class_m_p_u9250_a748a1e21b81ce8e6ab0dd3dee387b1f5}\label{class_m_p_u9250_a748a1e21b81ce8e6ab0dd3dee387b1f5} 
+const uint8\+\_\+t {\bfseries AK8963\+\_\+\+CNTL2} = 0x0B
+\item 
+\Hypertarget{class_m_p_u9250_a025bef32e50b09afcbaa02397a9749ca}\label{class_m_p_u9250_a025bef32e50b09afcbaa02397a9749ca} 
+const uint8\+\_\+t {\bfseries AK8963\+\_\+\+RESET} = 0x01
+\item 
+\Hypertarget{class_m_p_u9250_aafe4f26060946ba06c550cbe1510cf9c}\label{class_m_p_u9250_aafe4f26060946ba06c550cbe1510cf9c} 
+const uint8\+\_\+t {\bfseries AK8963\+\_\+\+ASA} = 0x10
+\item 
+\Hypertarget{class_m_p_u9250_ab83c85ca5103d4baf46d800f1bc5e52c}\label{class_m_p_u9250_ab83c85ca5103d4baf46d800f1bc5e52c} 
+const uint8\+\_\+t {\bfseries AK8963\+\_\+\+WHO\+\_\+\+AM\+\_\+I} = 0x00
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/westj/\+Micro\+Mouse/\+Code/\+Micromouse Final Code/include/MPU9250.\+h\item 
+C\+:/\+Users/westj/\+Micro\+Mouse/\+Code/\+Micromouse Final Code/src/MPU9250.\+cpp\end{DoxyCompactItemize}

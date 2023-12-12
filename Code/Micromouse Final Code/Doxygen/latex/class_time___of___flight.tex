@@ -1,0 +1,90 @@
+\doxysection{Time\+\_\+\+Of\+\_\+\+Flight Class Reference}
+\hypertarget{class_time___of___flight}{}\label{class_time___of___flight}\index{Time\_Of\_Flight@{Time\_Of\_Flight}}
+
+
+Class for Time-\/of-\/\+Flight (ToF) sensors.  
+
+
+
+
+{\ttfamily \#include $<$Sensors.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_time___of___flight_a022baad6e7d7738a18eab686d7099768}{Time\+\_\+\+Of\+\_\+\+Flight}} (int address\+\_\+)
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{class_time___of___flight}{Time\+\_\+\+Of\+\_\+\+Flight} class. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_time___of___flight_a50cce1b3f01889c93d03549e44c18ae9}{get}} ()
+\begin{DoxyCompactList}\small\item\em Get the distance measured by the Time-\/of-\/\+Flight sensor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_time___of___flight_adf2d5c2616d44bd3ccfbafa2358167df}{start}} ()
+\begin{DoxyCompactList}\small\item\em Start the Time-\/of-\/\+Flight sensor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_time___of___flight_a8202fbe9ab1a388a86fb8024cb0b2314}\label{class_time___of___flight_a8202fbe9ab1a388a86fb8024cb0b2314} 
+float {\bfseries dist} =0
+\begin{DoxyCompactList}\small\item\em The distance measured by the Time-\/of-\/\+Flight sensor. \end{DoxyCompactList}\item 
+\Hypertarget{class_time___of___flight_a8e097c2e8fead60a200cf96279e64d45}\label{class_time___of___flight_a8e097c2e8fead60a200cf96279e64d45} 
+Adafruit\+\_\+\+VL53\+L0X {\bfseries lox}
+\begin{DoxyCompactList}\small\item\em Adafruit VL53\+L0X sensor object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for Time-\/of-\/\+Flight (ToF) sensors. 
+
+This class provides methods for interacting with Time-\/of-\/\+Flight sensors. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_time___of___flight_a022baad6e7d7738a18eab686d7099768}\label{class_time___of___flight_a022baad6e7d7738a18eab686d7099768} 
+\index{Time\_Of\_Flight@{Time\_Of\_Flight}!Time\_Of\_Flight@{Time\_Of\_Flight}}
+\index{Time\_Of\_Flight@{Time\_Of\_Flight}!Time\_Of\_Flight@{Time\_Of\_Flight}}
+\doxysubsubsection{\texorpdfstring{Time\_Of\_Flight()}{Time\_Of\_Flight()}}
+{\footnotesize\ttfamily Time\+\_\+\+Of\+\_\+\+Flight\+::\+Time\+\_\+\+Of\+\_\+\+Flight (\begin{DoxyParamCaption}\item[{int}]{address }\end{DoxyParamCaption})}
+
+
+
+Constructor for the \doxylink{class_time___of___flight}{Time\+\_\+\+Of\+\_\+\+Flight} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em address\+\_\+} & The I2C address of the Time-\/of-\/\+Flight sensor (default\+: 0x29).\\
+\hline
+{\em address} & The I2C address of the TOF sensor. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_time___of___flight_a50cce1b3f01889c93d03549e44c18ae9}\label{class_time___of___flight_a50cce1b3f01889c93d03549e44c18ae9} 
+\index{Time\_Of\_Flight@{Time\_Of\_Flight}!get@{get}}
+\index{get@{get}!Time\_Of\_Flight@{Time\_Of\_Flight}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily float Time\+\_\+\+Of\+\_\+\+Flight\+::get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the distance measured by the Time-\/of-\/\+Flight sensor. 
+
+Get the distance measured by the TOF sensor.
+
+\begin{DoxyReturn}{Returns}
+The distance measured by the sensor.
+
+The distance in millimeters. 
+\end{DoxyReturn}
+\Hypertarget{class_time___of___flight_adf2d5c2616d44bd3ccfbafa2358167df}\label{class_time___of___flight_adf2d5c2616d44bd3ccfbafa2358167df} 
+\index{Time\_Of\_Flight@{Time\_Of\_Flight}!start@{start}}
+\index{start@{start}!Time\_Of\_Flight@{Time\_Of\_Flight}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void Time\+\_\+\+Of\+\_\+\+Flight\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Start the Time-\/of-\/\+Flight sensor. 
+
+Initialize the TOF sensor. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/westj/\+Micro\+Mouse/\+Code/\+Micromouse Final Code/include/Sensors.\+h\item 
+C\+:/\+Users/westj/\+Micro\+Mouse/\+Code/\+Micromouse Final Code/src/\mbox{\hyperlink{_sensors_8cpp}{Sensors.\+cpp}}\end{DoxyCompactItemize}

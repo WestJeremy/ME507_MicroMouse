@@ -1,0 +1,315 @@
+\doxysection{MPU9250.\+h}
+\hypertarget{_m_p_u9250_8h_source}{}\label{_m_p_u9250_8h_source}\index{C:/Users/westj/MicroMouse/Code/Micromouse Final Code/include/MPU9250.h@{C:/Users/westj/MicroMouse/Code/Micromouse Final Code/include/MPU9250.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ \ MPU9250.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ Brian\ R\ Taylor}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ brian.taylor@bolderflight.com}}
+\DoxyCodeLine{00005\ \textcolor{comment}{}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ Copyright\ (c)\ 2017\ Bolder\ Flight\ Systems}}
+\DoxyCodeLine{00007\ \textcolor{comment}{}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ This\ program\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ \ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ \ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ \ along\ with\ this\ program.\ \ If\ not,\ see\ <https://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00020\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#ifndef\ MPU9250\_h}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ MPU9250\_h}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}Arduino.h"{}}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}Wire.h"{}}\ \ \ \ \textcolor{comment}{//\ I2C\ library}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ "{}SPI.h"{}}\ \ \ \ \ \textcolor{comment}{//\ SPI\ library}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_p_u9250}{MPU9250}}\{}
+\DoxyCodeLine{00030\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{enum}\ GyroRange}
+\DoxyCodeLine{00032\ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ GYRO\_RANGE\_250DPS,}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ GYRO\_RANGE\_500DPS,}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ GYRO\_RANGE\_1000DPS,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ GYRO\_RANGE\_2000DPS}
+\DoxyCodeLine{00037\ \ \ \ \ \};}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{enum}\ AccelRange}
+\DoxyCodeLine{00039\ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ ACCEL\_RANGE\_2G,}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ ACCEL\_RANGE\_4G,}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ ACCEL\_RANGE\_8G,}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ ACCEL\_RANGE\_16G\ \ \ \ }
+\DoxyCodeLine{00044\ \ \ \ \ \};}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{enum}\ DlpfBandwidth}
+\DoxyCodeLine{00046\ \ \ \ \ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ DLPF\_BANDWIDTH\_184HZ,}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ DLPF\_BANDWIDTH\_92HZ,}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ DLPF\_BANDWIDTH\_41HZ,}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ DLPF\_BANDWIDTH\_20HZ,}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ DLPF\_BANDWIDTH\_10HZ,}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ DLPF\_BANDWIDTH\_5HZ}
+\DoxyCodeLine{00053\ \ \ \ \ \};}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{enum}\ LpAccelOdr}
+\DoxyCodeLine{00055\ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ LP\_ACCEL\_ODR\_0\_24HZ\ =\ 0,}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ LP\_ACCEL\_ODR\_0\_49HZ\ =\ 1,}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ LP\_ACCEL\_ODR\_0\_98HZ\ =\ 2,}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ LP\_ACCEL\_ODR\_1\_95HZ\ =\ 3,}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ LP\_ACCEL\_ODR\_3\_91HZ\ =\ 4,}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ LP\_ACCEL\_ODR\_7\_81HZ\ =\ 5,}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ LP\_ACCEL\_ODR\_15\_63HZ\ =\ 6,}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ LP\_ACCEL\_ODR\_31\_25HZ\ =\ 7,}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ LP\_ACCEL\_ODR\_62\_50HZ\ =\ 8,}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ LP\_ACCEL\_ODR\_125HZ\ =\ 9,}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ LP\_ACCEL\_ODR\_250HZ\ =\ 10,}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ LP\_ACCEL\_ODR\_500HZ\ =\ 11}
+\DoxyCodeLine{00068\ \ \ \ \ \};}
+\DoxyCodeLine{00069\ \ \ \ \ \mbox{\hyperlink{class_m_p_u9250}{MPU9250}}(TwoWire\ \&bus,uint8\_t\ address);}
+\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{class_m_p_u9250}{MPU9250}}(SPIClass\ \&bus,uint8\_t\ csPin);}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{int}\ begin();}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{int}\ setAccelRange(AccelRange\ range);}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{int}\ setGyroRange(GyroRange\ range);}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{int}\ setDlpfBandwidth(DlpfBandwidth\ bandwidth);}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{int}\ setSrd(uint8\_t\ srd);}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{int}\ enableDataReadyInterrupt();}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{int}\ disableDataReadyInterrupt();}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{int}\ enableWakeOnMotion(\textcolor{keywordtype}{float}\ womThresh\_mg,LpAccelOdr\ odr);}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{int}\ readSensor();}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{float}\ getAccelX\_mss();}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{float}\ getAccelY\_mss();}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{float}\ getAccelZ\_mss();}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{float}\ getGyroX\_rads();}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{float}\ getGyroY\_rads();}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{float}\ getGyroZ\_rads();}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{float}\ getMagX\_uT();}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{float}\ getMagY\_uT();}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{float}\ getMagZ\_uT();}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{float}\ getTemperature\_C();}
+\DoxyCodeLine{00090\ \ \ \ \ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{int}\ calibrateGyro();}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{float}\ getGyroBiasX\_rads();}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{float}\ getGyroBiasY\_rads();}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{float}\ getGyroBiasZ\_rads();}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{void}\ setGyroBiasX\_rads(\textcolor{keywordtype}{float}\ bias);}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{void}\ setGyroBiasY\_rads(\textcolor{keywordtype}{float}\ bias);}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{void}\ setGyroBiasZ\_rads(\textcolor{keywordtype}{float}\ bias);}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{int}\ calibrateAccel();}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{float}\ getAccelBiasX\_mss();}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{float}\ getAccelScaleFactorX();}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{float}\ getAccelBiasY\_mss();}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{float}\ getAccelScaleFactorY();}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{float}\ getAccelBiasZ\_mss();}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{float}\ getAccelScaleFactorZ();}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{void}\ setAccelCalX(\textcolor{keywordtype}{float}\ bias,\textcolor{keywordtype}{float}\ scaleFactor);}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{void}\ setAccelCalY(\textcolor{keywordtype}{float}\ bias,\textcolor{keywordtype}{float}\ scaleFactor);}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{void}\ setAccelCalZ(\textcolor{keywordtype}{float}\ bias,\textcolor{keywordtype}{float}\ scaleFactor);}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{int}\ calibrateMag();}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{float}\ getMagBiasX\_uT();}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{float}\ getMagScaleFactorX();}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{float}\ getMagBiasY\_uT();}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{float}\ getMagScaleFactorY();}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{float}\ getMagBiasZ\_uT();}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{float}\ getMagScaleFactorZ();}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{void}\ setMagCalX(\textcolor{keywordtype}{float}\ bias,\textcolor{keywordtype}{float}\ scaleFactor);}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{void}\ setMagCalY(\textcolor{keywordtype}{float}\ bias,\textcolor{keywordtype}{float}\ scaleFactor);}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{void}\ setMagCalZ(\textcolor{keywordtype}{float}\ bias,\textcolor{keywordtype}{float}\ scaleFactor);}
+\DoxyCodeLine{00118\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{comment}{//\ i2c}}
+\DoxyCodeLine{00120\ \ \ \ \ uint8\_t\ \_address;}
+\DoxyCodeLine{00121\ \ \ \ \ TwoWire\ *\_i2c;}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ \_i2cRate\ =\ 400000;\ \textcolor{comment}{//\ 400\ kHz}}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \_numBytes;\ \textcolor{comment}{//\ number\ of\ bytes\ received\ from\ I2C}}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{comment}{//\ spi}}
+\DoxyCodeLine{00125\ \ \ \ \ SPIClass\ *\_spi;}
+\DoxyCodeLine{00126\ \ \ \ \ uint8\_t\ \_csPin;}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{bool}\ \_useSPI;}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{bool}\ \_useSPIHS;}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ SPI\_READ\ =\ 0x80;}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ SPI\_LS\_CLOCK\ =\ 1000000;\ \ \textcolor{comment}{//\ 1\ MHz}}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ SPI\_HS\_CLOCK\ =\ 15000000;\ \textcolor{comment}{//\ 15\ MHz}}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{comment}{//\ track\ success\ of\ interacting\ with\ sensor}}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{int}\ \_status;}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{comment}{//\ buffer\ for\ reading\ from\ sensor}}
+\DoxyCodeLine{00135\ \ \ \ \ uint8\_t\ \_buffer[21];}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{comment}{//\ data\ counts}}
+\DoxyCodeLine{00137\ \ \ \ \ int16\_t\ \_axcounts,\_aycounts,\_azcounts;}
+\DoxyCodeLine{00138\ \ \ \ \ int16\_t\ \_gxcounts,\_gycounts,\_gzcounts;}
+\DoxyCodeLine{00139\ \ \ \ \ int16\_t\ \_hxcounts,\_hycounts,\_hzcounts;}
+\DoxyCodeLine{00140\ \ \ \ \ int16\_t\ \_tcounts;}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{comment}{//\ data\ buffer}}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordtype}{float}\ \_ax,\ \_ay,\ \_az;}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{float}\ \_gx,\ \_gy,\ \_gz;}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordtype}{float}\ \_hx,\ \_hy,\ \_hz;}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordtype}{float}\ \_t;}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{comment}{//\ wake\ on\ motion}}
+\DoxyCodeLine{00147\ \ \ \ \ uint8\_t\ \_womThreshold;}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{comment}{//\ scale\ factors}}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{float}\ \_accelScale;}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordtype}{float}\ \_gyroScale;}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordtype}{float}\ \_magScaleX,\ \_magScaleY,\ \_magScaleZ;}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \_tempScale\ =\ 333.87f;}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \_tempOffset\ =\ 21.0f;}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{comment}{//\ configuration}}
+\DoxyCodeLine{00155\ \ \ \ \ AccelRange\ \_accelRange;}
+\DoxyCodeLine{00156\ \ \ \ \ GyroRange\ \_gyroRange;}
+\DoxyCodeLine{00157\ \ \ \ \ DlpfBandwidth\ \_bandwidth;}
+\DoxyCodeLine{00158\ \ \ \ \ uint8\_t\ \_srd;}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{comment}{//\ gyro\ bias\ estimation}}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \_numSamples\ =\ 100;}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordtype}{double}\ \_gxbD,\ \_gybD,\ \_gzbD;}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordtype}{float}\ \_gxb,\ \_gyb,\ \_gzb;}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{comment}{//\ accel\ bias\ and\ scale\ factor\ estimation}}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordtype}{double}\ \_axbD,\ \_aybD,\ \_azbD;}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordtype}{float}\ \_axmax,\ \_aymax,\ \_azmax;}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordtype}{float}\ \_axmin,\ \_aymin,\ \_azmin;}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordtype}{float}\ \_axb,\ \_ayb,\ \_azb;}
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keywordtype}{float}\ \_axs\ =\ 1.0f;}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordtype}{float}\ \_ays\ =\ 1.0f;}
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keywordtype}{float}\ \_azs\ =\ 1.0f;}
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{comment}{//\ magnetometer\ bias\ and\ scale\ factor\ estimation}}
+\DoxyCodeLine{00172\ \ \ \ \ uint16\_t\ \_maxCounts\ =\ 1000;}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordtype}{float}\ \_deltaThresh\ =\ 0.3f;}
+\DoxyCodeLine{00174\ \ \ \ \ uint8\_t\ \_coeff\ =\ 8;}
+\DoxyCodeLine{00175\ \ \ \ \ uint16\_t\ \_counter;}
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keywordtype}{float}\ \_framedelta,\ \_delta;}
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordtype}{float}\ \_hxfilt,\ \_hyfilt,\ \_hzfilt;}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keywordtype}{float}\ \_hxmax,\ \_hymax,\ \_hzmax;}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordtype}{float}\ \_hxmin,\ \_hymin,\ \_hzmin;}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keywordtype}{float}\ \_hxb,\ \_hyb,\ \_hzb;}
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keywordtype}{float}\ \_hxs\ =\ 1.0f;}
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordtype}{float}\ \_hys\ =\ 1.0f;}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordtype}{float}\ \_hzs\ =\ 1.0f;}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordtype}{float}\ \_avgs;}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{comment}{//\ transformation\ matrix}}
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{comment}{/*\ transform\ the\ accel\ and\ gyro\ axes\ to\ match\ the\ magnetometer\ axes\ */}}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keyword}{const}\ int16\_t\ tX[3]\ =\ \{0,\ \ 1,\ \ 0\};\ }
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keyword}{const}\ int16\_t\ tY[3]\ =\ \{1,\ \ 0,\ \ 0\};}
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{keyword}{const}\ int16\_t\ tZ[3]\ =\ \{0,\ \ 0,\ -\/1\};}
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{comment}{//\ constants}}
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ G\ =\ 9.807f;}
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \_d2r\ =\ 3.14159265359f/180.0f;}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{comment}{//\ MPU9250\ registers}}
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ ACCEL\_OUT\ =\ 0x3B;}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ GYRO\_OUT\ =\ 0x43;}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ TEMP\_OUT\ =\ 0x41;}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ EXT\_SENS\_DATA\_00\ =\ 0x49;}
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ ACCEL\_CONFIG\ =\ 0x1C;}
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ ACCEL\_FS\_SEL\_2G\ =\ 0x00;}
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ ACCEL\_FS\_SEL\_4G\ =\ 0x08;}
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ ACCEL\_FS\_SEL\_8G\ =\ 0x10;}
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ ACCEL\_FS\_SEL\_16G\ =\ 0x18;}
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ GYRO\_CONFIG\ =\ 0x1B;}
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ GYRO\_FS\_SEL\_250DPS\ =\ 0x00;}
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ GYRO\_FS\_SEL\_500DPS\ =\ 0x08;}
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ GYRO\_FS\_SEL\_1000DPS\ =\ 0x10;}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ GYRO\_FS\_SEL\_2000DPS\ =\ 0x18;}
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ ACCEL\_CONFIG2\ =\ 0x1D;}
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ ACCEL\_DLPF\_184\ =\ 0x01;}
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ ACCEL\_DLPF\_92\ =\ 0x02;}
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ ACCEL\_DLPF\_41\ =\ 0x03;}
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ ACCEL\_DLPF\_20\ =\ 0x04;}
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ ACCEL\_DLPF\_10\ =\ 0x05;}
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ ACCEL\_DLPF\_5\ =\ 0x06;}
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ CONFIG\ =\ 0x1A;}
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ GYRO\_DLPF\_184\ =\ 0x01;}
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ GYRO\_DLPF\_92\ =\ 0x02;}
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ GYRO\_DLPF\_41\ =\ 0x03;}
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ GYRO\_DLPF\_20\ =\ 0x04;}
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ GYRO\_DLPF\_10\ =\ 0x05;}
+\DoxyCodeLine{00221\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ GYRO\_DLPF\_5\ =\ 0x06;}
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ SMPDIV\ =\ 0x19;}
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ INT\_PIN\_CFG\ =\ 0x37;}
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ INT\_ENABLE\ =\ 0x38;}
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ INT\_DISABLE\ =\ 0x00;}
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ INT\_PULSE\_50US\ =\ 0x00;}
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ INT\_WOM\_EN\ =\ 0x40;}
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ INT\_RAW\_RDY\_EN\ =\ 0x01;}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ PWR\_MGMNT\_1\ =\ 0x6B;}
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ PWR\_CYCLE\ =\ 0x20;}
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ PWR\_RESET\ =\ 0x80;}
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ CLOCK\_SEL\_PLL\ =\ 0x01;}
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ PWR\_MGMNT\_2\ =\ 0x6C;}
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ SEN\_ENABLE\ =\ 0x00;}
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ DIS\_GYRO\ =\ 0x07;}
+\DoxyCodeLine{00236\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ USER\_CTRL\ =\ 0x6A;}
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ I2C\_MST\_EN\ =\ 0x20;}
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ I2C\_MST\_CLK\ =\ 0x0D;}
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ I2C\_MST\_CTRL\ =\ 0x24;}
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ I2C\_SLV0\_ADDR\ =\ 0x25;}
+\DoxyCodeLine{00241\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ I2C\_SLV0\_REG\ =\ 0x26;}
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ I2C\_SLV0\_DO\ =\ 0x63;}
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ I2C\_SLV0\_CTRL\ =\ 0x27;}
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ I2C\_SLV0\_EN\ =\ 0x80;}
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ I2C\_READ\_FLAG\ =\ 0x80;}
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ MOT\_DETECT\_CTRL\ =\ 0x69;}
+\DoxyCodeLine{00247\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ ACCEL\_INTEL\_EN\ =\ 0x80;}
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ ACCEL\_INTEL\_MODE\ =\ 0x40;}
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ LP\_ACCEL\_ODR\ =\ 0x1E;}
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ WOM\_THR\ =\ 0x1F;}
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ WHO\_AM\_I\ =\ 0x75;}
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ FIFO\_EN\ =\ 0x23;}
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ FIFO\_TEMP\ =\ 0x80;}
+\DoxyCodeLine{00254\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ FIFO\_GYRO\ =\ 0x70;}
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ FIFO\_ACCEL\ =\ 0x08;}
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ FIFO\_MAG\ =\ 0x01;}
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ FIFO\_COUNT\ =\ 0x72;}
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ FIFO\_READ\ =\ 0x74;}
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{comment}{//\ AK8963\ registers}}
+\DoxyCodeLine{00260\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ AK8963\_I2C\_ADDR\ =\ 0x0C;}
+\DoxyCodeLine{00261\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ AK8963\_HXL\ =\ 0x03;\ }
+\DoxyCodeLine{00262\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ AK8963\_CNTL1\ =\ 0x0A;}
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ AK8963\_PWR\_DOWN\ =\ 0x00;}
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ AK8963\_CNT\_MEAS1\ =\ 0x12;}
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ AK8963\_CNT\_MEAS2\ =\ 0x16;}
+\DoxyCodeLine{00266\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ AK8963\_FUSE\_ROM\ =\ 0x0F;}
+\DoxyCodeLine{00267\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ AK8963\_CNTL2\ =\ 0x0B;}
+\DoxyCodeLine{00268\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ AK8963\_RESET\ =\ 0x01;}
+\DoxyCodeLine{00269\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ AK8963\_ASA\ =\ 0x10;}
+\DoxyCodeLine{00270\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ AK8963\_WHO\_AM\_I\ =\ 0x00;}
+\DoxyCodeLine{00271\ \ \ \ \ \textcolor{comment}{//\ private\ functions}}
+\DoxyCodeLine{00272\ \ \ \ \ \textcolor{keywordtype}{int}\ writeRegister(uint8\_t\ subAddress,\ uint8\_t\ data);}
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{keywordtype}{int}\ readRegisters(uint8\_t\ subAddress,\ uint8\_t\ count,\ uint8\_t*\ dest);}
+\DoxyCodeLine{00274\ \ \ \ \ \textcolor{keywordtype}{int}\ writeAK8963Register(uint8\_t\ subAddress,\ uint8\_t\ data);}
+\DoxyCodeLine{00275\ \ \ \ \ \textcolor{keywordtype}{int}\ readAK8963Registers(uint8\_t\ subAddress,\ uint8\_t\ count,\ uint8\_t*\ dest);}
+\DoxyCodeLine{00276\ \ \ \ \ \textcolor{keywordtype}{int}\ whoAmI();}
+\DoxyCodeLine{00277\ \ \ \ \ \textcolor{keywordtype}{int}\ whoAmIAK8963();}
+\DoxyCodeLine{00278\ \};}
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00280\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_p_u9250_f_i_f_o}{MPU9250FIFO}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_m_p_u9250}{MPU9250}}\ \{}
+\DoxyCodeLine{00281\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00282\ \ \ \ \ \textcolor{keyword}{using\ }MPU9250::MPU9250;}
+\DoxyCodeLine{00283\ \ \ \ \ \textcolor{keywordtype}{int}\ enableFifo(\textcolor{keywordtype}{bool}\ accel,\textcolor{keywordtype}{bool}\ gyro,\textcolor{keywordtype}{bool}\ mag,\textcolor{keywordtype}{bool}\ temp);}
+\DoxyCodeLine{00284\ \ \ \ \ \textcolor{keywordtype}{int}\ readFifo();}
+\DoxyCodeLine{00285\ \ \ \ \ \textcolor{keywordtype}{void}\ getFifoAccelX\_mss(\textcolor{keywordtype}{size\_t}\ *size,\textcolor{keywordtype}{float}*\ data);}
+\DoxyCodeLine{00286\ \ \ \ \ \textcolor{keywordtype}{void}\ getFifoAccelY\_mss(\textcolor{keywordtype}{size\_t}\ *size,\textcolor{keywordtype}{float}*\ data);}
+\DoxyCodeLine{00287\ \ \ \ \ \textcolor{keywordtype}{void}\ getFifoAccelZ\_mss(\textcolor{keywordtype}{size\_t}\ *size,\textcolor{keywordtype}{float}*\ data);}
+\DoxyCodeLine{00288\ \ \ \ \ \textcolor{keywordtype}{void}\ getFifoGyroX\_rads(\textcolor{keywordtype}{size\_t}\ *size,\textcolor{keywordtype}{float}*\ data);}
+\DoxyCodeLine{00289\ \ \ \ \ \textcolor{keywordtype}{void}\ getFifoGyroY\_rads(\textcolor{keywordtype}{size\_t}\ *size,\textcolor{keywordtype}{float}*\ data);}
+\DoxyCodeLine{00290\ \ \ \ \ \textcolor{keywordtype}{void}\ getFifoGyroZ\_rads(\textcolor{keywordtype}{size\_t}\ *size,\textcolor{keywordtype}{float}*\ data);}
+\DoxyCodeLine{00291\ \ \ \ \ \textcolor{keywordtype}{void}\ getFifoMagX\_uT(\textcolor{keywordtype}{size\_t}\ *size,\textcolor{keywordtype}{float}*\ data);}
+\DoxyCodeLine{00292\ \ \ \ \ \textcolor{keywordtype}{void}\ getFifoMagY\_uT(\textcolor{keywordtype}{size\_t}\ *size,\textcolor{keywordtype}{float}*\ data);}
+\DoxyCodeLine{00293\ \ \ \ \ \textcolor{keywordtype}{void}\ getFifoMagZ\_uT(\textcolor{keywordtype}{size\_t}\ *size,\textcolor{keywordtype}{float}*\ data);}
+\DoxyCodeLine{00294\ \ \ \ \ \textcolor{keywordtype}{void}\ getFifoTemperature\_C(\textcolor{keywordtype}{size\_t}\ *size,\textcolor{keywordtype}{float}*\ data);}
+\DoxyCodeLine{00295\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00296\ \ \ \ \ \textcolor{comment}{//\ fifo}}
+\DoxyCodeLine{00297\ \ \ \ \ \textcolor{keywordtype}{bool}\ \_enFifoAccel,\_enFifoGyro,\_enFifoMag,\_enFifoTemp;}
+\DoxyCodeLine{00298\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \_fifoSize,\_fifoFrameSize;}
+\DoxyCodeLine{00299\ \ \ \ \ \textcolor{keywordtype}{float}\ \_axFifo[85],\ \_ayFifo[85],\ \_azFifo[85];}
+\DoxyCodeLine{00300\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \_aSize;}
+\DoxyCodeLine{00301\ \ \ \ \ \textcolor{keywordtype}{float}\ \_gxFifo[85],\ \_gyFifo[85],\ \_gzFifo[85];}
+\DoxyCodeLine{00302\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \_gSize;}
+\DoxyCodeLine{00303\ \ \ \ \ \textcolor{keywordtype}{float}\ \_hxFifo[73],\ \_hyFifo[73],\ \_hzFifo[73];}
+\DoxyCodeLine{00304\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \_hSize;}
+\DoxyCodeLine{00305\ \ \ \ \ \textcolor{keywordtype}{float}\ \_tFifo[256];}
+\DoxyCodeLine{00306\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \_tSize;}
+\DoxyCodeLine{00307\ \};}
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00309\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

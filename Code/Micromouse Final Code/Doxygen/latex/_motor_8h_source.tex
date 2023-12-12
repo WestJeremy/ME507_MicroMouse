@@ -1,0 +1,52 @@
+\doxysection{Motor.\+h}
+\hypertarget{_motor_8h_source}{}\label{_motor_8h_source}\index{C:/Users/westj/MicroMouse/Code/Micromouse Final Code/include/Motor.h@{C:/Users/westj/MicroMouse/Code/Micromouse Final Code/include/Motor.h}}
+\mbox{\hyperlink{_motor_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ MOTOR\_H}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ MOTOR\_H}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_motor}{Motor}}\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_motor}{Motor}}(\textcolor{keywordtype}{int}\ pwmPin,\ \textcolor{keywordtype}{int}\ dirPin1,\ \textcolor{keywordtype}{int}\ dirPin2,\textcolor{keywordtype}{int}\ encA1Pin,\textcolor{keywordtype}{int}\ encA2Pin);}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_motor_a20a52196ed3d0ff88efd318ae7e94d56}{move}}(\textcolor{keywordtype}{int}\ speed,\ \textcolor{keywordtype}{boolean}\ dir);}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_motor_a20a52196ed3d0ff88efd318ae7e94d56}{move}}(\textcolor{keywordtype}{int}\ speed);}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_motor_ac6860dca821b06155d0125d60821a4b1}{forward}}(\textcolor{keywordtype}{int}\ speed);}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_motor_aac1fdcb666337f2f3ca7c5747a5ea48b}{loop}}(\textcolor{keywordtype}{int}\ speed,\textcolor{keywordtype}{boolean}\ dir);}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_motor_a4f3e9a76a8e2ff87b6e009b45ca0976b}{reverse}}(\textcolor{keywordtype}{int}\ speed);}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{boolean}\ \mbox{\hyperlink{class_motor_a201cf3928e6fbbcf3304090f4fa188c3}{getenc}}();}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_motor_a8cd1df6555bfb76a4e2cd9847baa7c37}{updateEncoder}}();}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ ISR\_Enc\_Read();\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_motor_a015fd5308d4d27e5dcf7f9ea3d5c03f6}{stop}}();}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_motor_a6fbf61f796fbcf7a093f8fd074c08804}{zeroEncPos}}();}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_motor_ad0151d7b85bfbb78976487e3f3cca3d1}{setgoalpos}}(\textcolor{keywordtype}{int}\ pos);}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_motor_a88abd93f6876e59b86a4f95ac34b34ee}{setpos}}(\textcolor{keywordtype}{int}\ goalpos,\ \textcolor{keywordtype}{int}\ speed);}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_motor_a009f264b96fd5d335c14454763b5c4bd}{setposPID}}();}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_motor_a3c6750024e70c708c865b2c3ec701f7a}{stepsetposPID}}();}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_motor_a3c6750024e70c708c865b2c3ec701f7a}{stepsetposPID}}(\textcolor{keywordtype}{float}\ error);}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_motor_a86e4e9fdccc6cbfae821bab11f208460}{stepsetposPIDU}}(\textcolor{keywordtype}{float}\ U);}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_motor_ab3706d4e7e194c4bfebfc64bc0c76a5c}{Movetest}}(\textcolor{keywordtype}{int}\ speed);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{int}\ speed;\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{bool}\ dir;}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{int}\ goalpos=0;\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{int}\ curpos=0;\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{volatile}\ \textcolor{keywordtype}{int}\ encoderPosition;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{int}\ pwmPin\_;}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{int}\ dirPin1\_;}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{int}\ dirPin2\_;}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{int}\ encA1Pin\_;}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{int}\ encA2Pin\_;}
+\DoxyCodeLine{00051\ \ \ \ \ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{volatile}\ \textcolor{keywordtype}{int}\ lastEncoded;}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{volatile}\ \textcolor{keywordtype}{long}\ lastMillis;}
+\DoxyCodeLine{00054\ \};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

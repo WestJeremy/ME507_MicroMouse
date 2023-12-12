@@ -1,0 +1,148 @@
+\doxysection{Websocket\+Connection Class Reference}
+\hypertarget{class_websocket_connection}{}\label{class_websocket_connection}\index{WebsocketConnection@{WebsocketConnection}}
+
+
+Class for managing Websockets communications with a \doxylink{class_micromouse}{Micromouse}.  
+
+
+
+
+{\ttfamily \#include $<$Websocket\+Interface.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_websocket_connection_a9a8e9a4aa42184d182f8c55d7f29d04f}{Websocket\+Connection}} (const char \texorpdfstring{$\ast$}{*}ssid, const char \texorpdfstring{$\ast$}{*}password, String webpage)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_websocket_connection}{Websocket\+Connection} class without \doxylink{class_micromouse}{Micromouse} parameter. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_websocket_connection_a8fca5f8fbb1292084753085dc3719222}{Websocket\+Connection}} (const char \texorpdfstring{$\ast$}{*}ssid, const char \texorpdfstring{$\ast$}{*}password, String webpage, \mbox{\hyperlink{class_micromouse}{Micromouse}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_micromouse}{Micromouse}})
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_websocket_connection}{Websocket\+Connection} class with \doxylink{class_micromouse}{Micromouse} parameter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_websocket_connection_a2047940a22dd8bd914fe2de0d7d391ba}{Event}} (byte num, WStype\+\_\+t type, uint8\+\_\+t \texorpdfstring{$\ast$}{*}payload, size\+\_\+t length)
+\begin{DoxyCompactList}\small\item\em Event handler for Web\+Sockets. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_websocket_connection_a909ad59bf68535dc69743aed4448d0c5}{task}} ()
+\begin{DoxyCompactList}\small\item\em Task function for handling clients and updating data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_websocket_connection_ac348c1a794957906e3117802e9894f86}{Start}} ()
+\begin{DoxyCompactList}\small\item\em Start the webserver and websockets. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for managing Websockets communications with a \doxylink{class_micromouse}{Micromouse}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_websocket_connection_a9a8e9a4aa42184d182f8c55d7f29d04f}\label{class_websocket_connection_a9a8e9a4aa42184d182f8c55d7f29d04f} 
+\index{WebsocketConnection@{WebsocketConnection}!WebsocketConnection@{WebsocketConnection}}
+\index{WebsocketConnection@{WebsocketConnection}!WebsocketConnection@{WebsocketConnection}}
+\doxysubsubsection{\texorpdfstring{WebsocketConnection()}{WebsocketConnection()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Websocket\+Connection\+::\+Websocket\+Connection (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{ssid,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{password,  }\item[{String}]{webpage }\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{class_websocket_connection}{Websocket\+Connection} class without \doxylink{class_micromouse}{Micromouse} parameter. 
+
+Constructor for the \doxylink{class_websocket_connection}{Websocket\+Connection} class without \doxylink{class_micromouse}{Micromouse} parameter.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ssid} & SSID for Wi\+Fi connection. \\
+\hline
+{\em password} & Wi\+Fi password. \\
+\hline
+{\em webpage} & HTML webpage content as a String.\\
+\hline
+{\em ssid} & The SSID of the Wi\+Fi network. \\
+\hline
+{\em password} & The password for the Wi\+Fi network. \\
+\hline
+{\em webpage} & The HTML webpage to be served. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_websocket_connection_a8fca5f8fbb1292084753085dc3719222}\label{class_websocket_connection_a8fca5f8fbb1292084753085dc3719222} 
+\index{WebsocketConnection@{WebsocketConnection}!WebsocketConnection@{WebsocketConnection}}
+\index{WebsocketConnection@{WebsocketConnection}!WebsocketConnection@{WebsocketConnection}}
+\doxysubsubsection{\texorpdfstring{WebsocketConnection()}{WebsocketConnection()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Websocket\+Connection\+::\+Websocket\+Connection (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{ssid,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{password,  }\item[{String}]{webpage,  }\item[{\mbox{\hyperlink{class_micromouse}{Micromouse}} \texorpdfstring{$\ast$}{*}}]{Micromouse }\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{class_websocket_connection}{Websocket\+Connection} class with \doxylink{class_micromouse}{Micromouse} parameter. 
+
+Constructor for the \doxylink{class_websocket_connection}{Websocket\+Connection} class with \doxylink{class_micromouse}{Micromouse} parameter.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ssid} & SSID for Wi\+Fi connection. \\
+\hline
+{\em password} & Wi\+Fi password. \\
+\hline
+{\em webpage} & HTML webpage content as a String. \\
+\hline
+{\em \doxylink{class_micromouse}{Micromouse}} & Pointer to the \doxylink{class_micromouse}{Micromouse} object.\\
+\hline
+{\em ssid} & The SSID of the Wi\+Fi network. \\
+\hline
+{\em password} & The password for the Wi\+Fi network. \\
+\hline
+{\em webpage} & The HTML webpage to be served. \\
+\hline
+{\em \doxylink{class_micromouse}{Micromouse}} & Pointer to the \doxylink{class_micromouse}{Micromouse} object. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_websocket_connection_a2047940a22dd8bd914fe2de0d7d391ba}\label{class_websocket_connection_a2047940a22dd8bd914fe2de0d7d391ba} 
+\index{WebsocketConnection@{WebsocketConnection}!Event@{Event}}
+\index{Event@{Event}!WebsocketConnection@{WebsocketConnection}}
+\doxysubsubsection{\texorpdfstring{Event()}{Event()}}
+{\footnotesize\ttfamily void Websocket\+Connection\+::\+Event (\begin{DoxyParamCaption}\item[{byte}]{num,  }\item[{WStype\+\_\+t}]{type,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{payload,  }\item[{size\+\_\+t}]{length }\end{DoxyParamCaption})}
+
+
+
+Event handler for Web\+Sockets. 
+
+Web\+Socket event handler.
+
+
+\begin{DoxyParams}{Parameters}
+{\em num} & Client ID. \\
+\hline
+{\em type} & Type of Web\+Socket event. \\
+\hline
+{\em payload} & Payload data. \\
+\hline
+{\em length} & Length of payload.\\
+\hline
+{\em num} & The client ID. \\
+\hline
+{\em type} & The type of the Web\+Socket event. \\
+\hline
+{\em payload} & The payload of the Web\+Socket event. \\
+\hline
+{\em length} & The length of the payload. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_websocket_connection_ac348c1a794957906e3117802e9894f86}\label{class_websocket_connection_ac348c1a794957906e3117802e9894f86} 
+\index{WebsocketConnection@{WebsocketConnection}!Start@{Start}}
+\index{Start@{Start}!WebsocketConnection@{WebsocketConnection}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void Websocket\+Connection\+::\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Start the webserver and websockets. 
+
+Start the Wi\+Fi connection, server, and Web\+Socket. \Hypertarget{class_websocket_connection_a909ad59bf68535dc69743aed4448d0c5}\label{class_websocket_connection_a909ad59bf68535dc69743aed4448d0c5} 
+\index{WebsocketConnection@{WebsocketConnection}!task@{task}}
+\index{task@{task}!WebsocketConnection@{WebsocketConnection}}
+\doxysubsubsection{\texorpdfstring{task()}{task()}}
+{\footnotesize\ttfamily void Websocket\+Connection\+::task (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Task function for handling clients and updating data. 
+
+Main task function for handling server and Web\+Socket. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/westj/\+Micro\+Mouse/\+Code/\+Micromouse Final Code/include/\mbox{\hyperlink{_websocket_interface_8h}{Websocket\+Interface.\+h}}\item 
+C\+:/\+Users/westj/\+Micro\+Mouse/\+Code/\+Micromouse Final Code/src/\mbox{\hyperlink{_websocket_interface_8cpp}{Websocket\+Interface.\+cpp}}\end{DoxyCompactItemize}

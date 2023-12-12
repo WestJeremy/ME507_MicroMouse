@@ -1,0 +1,626 @@
+\doxysection{MPU9250\+FIFO Class Reference}
+\hypertarget{class_m_p_u9250_f_i_f_o}{}\label{class_m_p_u9250_f_i_f_o}\index{MPU9250FIFO@{MPU9250FIFO}}
+Inheritance diagram for MPU9250\+FIFO\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_m_p_u9250_f_i_f_o}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_p_u9250_f_i_f_o_a4047be2775d63243d5f238eb893ed6be}\label{class_m_p_u9250_f_i_f_o_a4047be2775d63243d5f238eb893ed6be} 
+int {\bfseries enable\+Fifo} (bool accel, bool gyro, bool mag, bool temp)
+\item 
+\Hypertarget{class_m_p_u9250_f_i_f_o_a5645855f72f0eadeeb2b0c915243bfd4}\label{class_m_p_u9250_f_i_f_o_a5645855f72f0eadeeb2b0c915243bfd4} 
+int {\bfseries read\+Fifo} ()
+\item 
+\Hypertarget{class_m_p_u9250_f_i_f_o_aca259d1b3bebb13e7a10292cd51a13ff}\label{class_m_p_u9250_f_i_f_o_aca259d1b3bebb13e7a10292cd51a13ff} 
+void {\bfseries get\+Fifo\+Accel\+X\+\_\+mss} (size\+\_\+t \texorpdfstring{$\ast$}{*}size, float \texorpdfstring{$\ast$}{*}data)
+\item 
+\Hypertarget{class_m_p_u9250_f_i_f_o_ac33bec82de07cd6095df488ac06770f3}\label{class_m_p_u9250_f_i_f_o_ac33bec82de07cd6095df488ac06770f3} 
+void {\bfseries get\+Fifo\+Accel\+Y\+\_\+mss} (size\+\_\+t \texorpdfstring{$\ast$}{*}size, float \texorpdfstring{$\ast$}{*}data)
+\item 
+\Hypertarget{class_m_p_u9250_f_i_f_o_a7917088bf64a12b1f5e3c2b5cb69bb17}\label{class_m_p_u9250_f_i_f_o_a7917088bf64a12b1f5e3c2b5cb69bb17} 
+void {\bfseries get\+Fifo\+Accel\+Z\+\_\+mss} (size\+\_\+t \texorpdfstring{$\ast$}{*}size, float \texorpdfstring{$\ast$}{*}data)
+\item 
+\Hypertarget{class_m_p_u9250_f_i_f_o_abdacabccfb1015190ce8fd4ef2f09289}\label{class_m_p_u9250_f_i_f_o_abdacabccfb1015190ce8fd4ef2f09289} 
+void {\bfseries get\+Fifo\+Gyro\+X\+\_\+rads} (size\+\_\+t \texorpdfstring{$\ast$}{*}size, float \texorpdfstring{$\ast$}{*}data)
+\item 
+\Hypertarget{class_m_p_u9250_f_i_f_o_aa3dcd22747ccdde5585dfdf9e1d78e2e}\label{class_m_p_u9250_f_i_f_o_aa3dcd22747ccdde5585dfdf9e1d78e2e} 
+void {\bfseries get\+Fifo\+Gyro\+Y\+\_\+rads} (size\+\_\+t \texorpdfstring{$\ast$}{*}size, float \texorpdfstring{$\ast$}{*}data)
+\item 
+\Hypertarget{class_m_p_u9250_f_i_f_o_af42466d4aa13d914d1cf2377275e2702}\label{class_m_p_u9250_f_i_f_o_af42466d4aa13d914d1cf2377275e2702} 
+void {\bfseries get\+Fifo\+Gyro\+Z\+\_\+rads} (size\+\_\+t \texorpdfstring{$\ast$}{*}size, float \texorpdfstring{$\ast$}{*}data)
+\item 
+\Hypertarget{class_m_p_u9250_f_i_f_o_a5a696a81d704db89a73fc5f4ee1eebd9}\label{class_m_p_u9250_f_i_f_o_a5a696a81d704db89a73fc5f4ee1eebd9} 
+void {\bfseries get\+Fifo\+Mag\+X\+\_\+uT} (size\+\_\+t \texorpdfstring{$\ast$}{*}size, float \texorpdfstring{$\ast$}{*}data)
+\item 
+\Hypertarget{class_m_p_u9250_f_i_f_o_a9e0b123af0298c491d33899e73268498}\label{class_m_p_u9250_f_i_f_o_a9e0b123af0298c491d33899e73268498} 
+void {\bfseries get\+Fifo\+Mag\+Y\+\_\+uT} (size\+\_\+t \texorpdfstring{$\ast$}{*}size, float \texorpdfstring{$\ast$}{*}data)
+\item 
+\Hypertarget{class_m_p_u9250_f_i_f_o_a7c859854572ae7d9bef07d5464fdbef1}\label{class_m_p_u9250_f_i_f_o_a7c859854572ae7d9bef07d5464fdbef1} 
+void {\bfseries get\+Fifo\+Mag\+Z\+\_\+uT} (size\+\_\+t \texorpdfstring{$\ast$}{*}size, float \texorpdfstring{$\ast$}{*}data)
+\item 
+\Hypertarget{class_m_p_u9250_f_i_f_o_a237e76228c565b9f98e981714a70e1e5}\label{class_m_p_u9250_f_i_f_o_a237e76228c565b9f98e981714a70e1e5} 
+void {\bfseries get\+Fifo\+Temperature\+\_\+C} (size\+\_\+t \texorpdfstring{$\ast$}{*}size, float \texorpdfstring{$\ast$}{*}data)
+\item 
+\Hypertarget{class_m_p_u9250_f_i_f_o_acaf2ae31cfdeb6d47b922996feb55b69}\label{class_m_p_u9250_f_i_f_o_acaf2ae31cfdeb6d47b922996feb55b69} 
+{\bfseries MPU9250} (Two\+Wire \&bus, uint8\+\_\+t address)
+\item 
+\Hypertarget{class_m_p_u9250_f_i_f_o_a4b15facd0ce38964d241db56b1c57f75}\label{class_m_p_u9250_f_i_f_o_a4b15facd0ce38964d241db56b1c57f75} 
+{\bfseries MPU9250} (SPIClass \&bus, uint8\+\_\+t cs\+Pin)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_m_p_u9250}{MPU9250}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries MPU9250} (Two\+Wire \&bus, uint8\+\_\+t address)
+\item 
+{\bfseries MPU9250} (SPIClass \&bus, uint8\+\_\+t cs\+Pin)
+\item 
+int {\bfseries begin} ()
+\item 
+int {\bfseries set\+Accel\+Range} (Accel\+Range range)
+\item 
+int {\bfseries set\+Gyro\+Range} (Gyro\+Range range)
+\item 
+int {\bfseries set\+Dlpf\+Bandwidth} (Dlpf\+Bandwidth bandwidth)
+\item 
+int {\bfseries set\+Srd} (uint8\+\_\+t srd)
+\item 
+int {\bfseries enable\+Data\+Ready\+Interrupt} ()
+\item 
+int {\bfseries disable\+Data\+Ready\+Interrupt} ()
+\item 
+int {\bfseries enable\+Wake\+On\+Motion} (float wom\+Thresh\+\_\+mg, Lp\+Accel\+Odr odr)
+\item 
+int {\bfseries read\+Sensor} ()
+\item 
+float {\bfseries get\+Accel\+X\+\_\+mss} ()
+\item 
+float {\bfseries get\+Accel\+Y\+\_\+mss} ()
+\item 
+float {\bfseries get\+Accel\+Z\+\_\+mss} ()
+\item 
+float {\bfseries get\+Gyro\+X\+\_\+rads} ()
+\item 
+float {\bfseries get\+Gyro\+Y\+\_\+rads} ()
+\item 
+float {\bfseries get\+Gyro\+Z\+\_\+rads} ()
+\item 
+float {\bfseries get\+Mag\+X\+\_\+uT} ()
+\item 
+float {\bfseries get\+Mag\+Y\+\_\+uT} ()
+\item 
+float {\bfseries get\+Mag\+Z\+\_\+uT} ()
+\item 
+float {\bfseries get\+Temperature\+\_\+C} ()
+\item 
+int {\bfseries calibrate\+Gyro} ()
+\item 
+float {\bfseries get\+Gyro\+Bias\+X\+\_\+rads} ()
+\item 
+float {\bfseries get\+Gyro\+Bias\+Y\+\_\+rads} ()
+\item 
+float {\bfseries get\+Gyro\+Bias\+Z\+\_\+rads} ()
+\item 
+void {\bfseries set\+Gyro\+Bias\+X\+\_\+rads} (float bias)
+\item 
+void {\bfseries set\+Gyro\+Bias\+Y\+\_\+rads} (float bias)
+\item 
+void {\bfseries set\+Gyro\+Bias\+Z\+\_\+rads} (float bias)
+\item 
+int {\bfseries calibrate\+Accel} ()
+\item 
+float {\bfseries get\+Accel\+Bias\+X\+\_\+mss} ()
+\item 
+float {\bfseries get\+Accel\+Scale\+FactorX} ()
+\item 
+float {\bfseries get\+Accel\+Bias\+Y\+\_\+mss} ()
+\item 
+float {\bfseries get\+Accel\+Scale\+FactorY} ()
+\item 
+float {\bfseries get\+Accel\+Bias\+Z\+\_\+mss} ()
+\item 
+float {\bfseries get\+Accel\+Scale\+FactorZ} ()
+\item 
+void {\bfseries set\+Accel\+CalX} (float bias, float scale\+Factor)
+\item 
+void {\bfseries set\+Accel\+CalY} (float bias, float scale\+Factor)
+\item 
+void {\bfseries set\+Accel\+CalZ} (float bias, float scale\+Factor)
+\item 
+int {\bfseries calibrate\+Mag} ()
+\item 
+float {\bfseries get\+Mag\+Bias\+X\+\_\+uT} ()
+\item 
+float {\bfseries get\+Mag\+Scale\+FactorX} ()
+\item 
+float {\bfseries get\+Mag\+Bias\+Y\+\_\+uT} ()
+\item 
+float {\bfseries get\+Mag\+Scale\+FactorY} ()
+\item 
+float {\bfseries get\+Mag\+Bias\+Z\+\_\+uT} ()
+\item 
+float {\bfseries get\+Mag\+Scale\+FactorZ} ()
+\item 
+void {\bfseries set\+Mag\+CalX} (float bias, float scale\+Factor)
+\item 
+void {\bfseries set\+Mag\+CalY} (float bias, float scale\+Factor)
+\item 
+void {\bfseries set\+Mag\+CalZ} (float bias, float scale\+Factor)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_p_u9250_f_i_f_o_ad4e3c1c46c969335aafd31d3950cadfb}\label{class_m_p_u9250_f_i_f_o_ad4e3c1c46c969335aafd31d3950cadfb} 
+bool {\bfseries \+\_\+en\+Fifo\+Accel}
+\item 
+\Hypertarget{class_m_p_u9250_f_i_f_o_a6915950fdef6a67cdf692909a05e4140}\label{class_m_p_u9250_f_i_f_o_a6915950fdef6a67cdf692909a05e4140} 
+bool {\bfseries \+\_\+en\+Fifo\+Gyro}
+\item 
+\Hypertarget{class_m_p_u9250_f_i_f_o_a5550ca37889de36b9b79664eb3c0d1bb}\label{class_m_p_u9250_f_i_f_o_a5550ca37889de36b9b79664eb3c0d1bb} 
+bool {\bfseries \+\_\+en\+Fifo\+Mag}
+\item 
+\Hypertarget{class_m_p_u9250_f_i_f_o_a138a8d8b2e3d580c00ea566fff7a7686}\label{class_m_p_u9250_f_i_f_o_a138a8d8b2e3d580c00ea566fff7a7686} 
+bool {\bfseries \+\_\+en\+Fifo\+Temp}
+\item 
+\Hypertarget{class_m_p_u9250_f_i_f_o_a8e2971e67be80638c58580397a3d4bf3}\label{class_m_p_u9250_f_i_f_o_a8e2971e67be80638c58580397a3d4bf3} 
+size\+\_\+t {\bfseries \+\_\+fifo\+Size}
+\item 
+\Hypertarget{class_m_p_u9250_f_i_f_o_afcc08693f063db73bc69bbc0edd94d7c}\label{class_m_p_u9250_f_i_f_o_afcc08693f063db73bc69bbc0edd94d7c} 
+size\+\_\+t {\bfseries \+\_\+fifo\+Frame\+Size}
+\item 
+\Hypertarget{class_m_p_u9250_f_i_f_o_a538dddb6f169edabae06a6b7d55a556e}\label{class_m_p_u9250_f_i_f_o_a538dddb6f169edabae06a6b7d55a556e} 
+float {\bfseries \+\_\+ax\+Fifo} \mbox{[}85\mbox{]}
+\item 
+\Hypertarget{class_m_p_u9250_f_i_f_o_a7a8ea8c5d5ea6bae2e0e5289ffdf595b}\label{class_m_p_u9250_f_i_f_o_a7a8ea8c5d5ea6bae2e0e5289ffdf595b} 
+float {\bfseries \+\_\+ay\+Fifo} \mbox{[}85\mbox{]}
+\item 
+\Hypertarget{class_m_p_u9250_f_i_f_o_a28de8c9bdaf67d9b2688f57cf2218415}\label{class_m_p_u9250_f_i_f_o_a28de8c9bdaf67d9b2688f57cf2218415} 
+float {\bfseries \+\_\+az\+Fifo} \mbox{[}85\mbox{]}
+\item 
+\Hypertarget{class_m_p_u9250_f_i_f_o_a8c0a924515c32003a0f6a7ebfdd60181}\label{class_m_p_u9250_f_i_f_o_a8c0a924515c32003a0f6a7ebfdd60181} 
+size\+\_\+t {\bfseries \+\_\+a\+Size}
+\item 
+\Hypertarget{class_m_p_u9250_f_i_f_o_a1a2a466ab9692c592b91000674d26c31}\label{class_m_p_u9250_f_i_f_o_a1a2a466ab9692c592b91000674d26c31} 
+float {\bfseries \+\_\+gx\+Fifo} \mbox{[}85\mbox{]}
+\item 
+\Hypertarget{class_m_p_u9250_f_i_f_o_a75c47423fbddf6f9fe00fb1f6722dbae}\label{class_m_p_u9250_f_i_f_o_a75c47423fbddf6f9fe00fb1f6722dbae} 
+float {\bfseries \+\_\+gy\+Fifo} \mbox{[}85\mbox{]}
+\item 
+\Hypertarget{class_m_p_u9250_f_i_f_o_a170e0378763ba3a0b3a1dcef0c7f99e5}\label{class_m_p_u9250_f_i_f_o_a170e0378763ba3a0b3a1dcef0c7f99e5} 
+float {\bfseries \+\_\+gz\+Fifo} \mbox{[}85\mbox{]}
+\item 
+\Hypertarget{class_m_p_u9250_f_i_f_o_acfff6a809c9bba8f5a6dfa1ceef325de}\label{class_m_p_u9250_f_i_f_o_acfff6a809c9bba8f5a6dfa1ceef325de} 
+size\+\_\+t {\bfseries \+\_\+g\+Size}
+\item 
+\Hypertarget{class_m_p_u9250_f_i_f_o_aaaca271d2f6d72f6987d592255154c01}\label{class_m_p_u9250_f_i_f_o_aaaca271d2f6d72f6987d592255154c01} 
+float {\bfseries \+\_\+hx\+Fifo} \mbox{[}73\mbox{]}
+\item 
+\Hypertarget{class_m_p_u9250_f_i_f_o_a5d60d662c2102bc5ee2b0fe56a9c727e}\label{class_m_p_u9250_f_i_f_o_a5d60d662c2102bc5ee2b0fe56a9c727e} 
+float {\bfseries \+\_\+hy\+Fifo} \mbox{[}73\mbox{]}
+\item 
+\Hypertarget{class_m_p_u9250_f_i_f_o_ac0bfdf910116c28f892b9ef1ef76c238}\label{class_m_p_u9250_f_i_f_o_ac0bfdf910116c28f892b9ef1ef76c238} 
+float {\bfseries \+\_\+hz\+Fifo} \mbox{[}73\mbox{]}
+\item 
+\Hypertarget{class_m_p_u9250_f_i_f_o_acfc16f87f1d5318ead4fd14c8adddbd5}\label{class_m_p_u9250_f_i_f_o_acfc16f87f1d5318ead4fd14c8adddbd5} 
+size\+\_\+t {\bfseries \+\_\+h\+Size}
+\item 
+\Hypertarget{class_m_p_u9250_f_i_f_o_a23e68d07de050096a85a0640fee0fa15}\label{class_m_p_u9250_f_i_f_o_a23e68d07de050096a85a0640fee0fa15} 
+float {\bfseries \+\_\+t\+Fifo} \mbox{[}256\mbox{]}
+\item 
+\Hypertarget{class_m_p_u9250_f_i_f_o_a3ace78d10c1619e8778956936b3facde}\label{class_m_p_u9250_f_i_f_o_a3ace78d10c1619e8778956936b3facde} 
+size\+\_\+t {\bfseries \+\_\+t\+Size}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_m_p_u9250}{MPU9250}}}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t {\bfseries \+\_\+address}
+\item 
+Two\+Wire \texorpdfstring{$\ast$}{*} {\bfseries \+\_\+i2c}
+\item 
+const uint32\+\_\+t {\bfseries \+\_\+i2c\+Rate} = 400000
+\item 
+size\+\_\+t {\bfseries \+\_\+num\+Bytes}
+\item 
+SPIClass \texorpdfstring{$\ast$}{*} {\bfseries \+\_\+spi}
+\item 
+uint8\+\_\+t {\bfseries \+\_\+cs\+Pin}
+\item 
+bool {\bfseries \+\_\+use\+SPI}
+\item 
+bool {\bfseries \+\_\+use\+SPIHS}
+\item 
+const uint8\+\_\+t {\bfseries SPI\+\_\+\+READ} = 0x80
+\item 
+const uint32\+\_\+t {\bfseries SPI\+\_\+\+LS\+\_\+\+CLOCK} = 1000000
+\item 
+const uint32\+\_\+t {\bfseries SPI\+\_\+\+HS\+\_\+\+CLOCK} = 15000000
+\item 
+int {\bfseries \+\_\+status}
+\item 
+uint8\+\_\+t {\bfseries \+\_\+buffer} \mbox{[}21\mbox{]}
+\item 
+int16\+\_\+t {\bfseries \+\_\+axcounts}
+\item 
+int16\+\_\+t {\bfseries \+\_\+aycounts}
+\item 
+int16\+\_\+t {\bfseries \+\_\+azcounts}
+\item 
+int16\+\_\+t {\bfseries \+\_\+gxcounts}
+\item 
+int16\+\_\+t {\bfseries \+\_\+gycounts}
+\item 
+int16\+\_\+t {\bfseries \+\_\+gzcounts}
+\item 
+int16\+\_\+t {\bfseries \+\_\+hxcounts}
+\item 
+int16\+\_\+t {\bfseries \+\_\+hycounts}
+\item 
+int16\+\_\+t {\bfseries \+\_\+hzcounts}
+\item 
+int16\+\_\+t {\bfseries \+\_\+tcounts}
+\item 
+float {\bfseries \+\_\+ax}
+\item 
+float {\bfseries \+\_\+ay}
+\item 
+float {\bfseries \+\_\+az}
+\item 
+float {\bfseries \+\_\+gx}
+\item 
+float {\bfseries \+\_\+gy}
+\item 
+float {\bfseries \+\_\+gz}
+\item 
+float {\bfseries \+\_\+hx}
+\item 
+float {\bfseries \+\_\+hy}
+\item 
+float {\bfseries \+\_\+hz}
+\item 
+float {\bfseries \+\_\+t}
+\item 
+uint8\+\_\+t {\bfseries \+\_\+wom\+Threshold}
+\item 
+float {\bfseries \+\_\+accel\+Scale}
+\item 
+float {\bfseries \+\_\+gyro\+Scale}
+\item 
+float {\bfseries \+\_\+mag\+ScaleX}
+\item 
+float {\bfseries \+\_\+mag\+ScaleY}
+\item 
+float {\bfseries \+\_\+mag\+ScaleZ}
+\item 
+const float {\bfseries \+\_\+temp\+Scale} = 333.\+87f
+\item 
+const float {\bfseries \+\_\+temp\+Offset} = 21.\+0f
+\item 
+Accel\+Range {\bfseries \+\_\+accel\+Range}
+\item 
+Gyro\+Range {\bfseries \+\_\+gyro\+Range}
+\item 
+Dlpf\+Bandwidth {\bfseries \+\_\+bandwidth}
+\item 
+uint8\+\_\+t {\bfseries \+\_\+srd}
+\item 
+size\+\_\+t {\bfseries \+\_\+num\+Samples} = 100
+\item 
+double {\bfseries \+\_\+gxbD}
+\item 
+double {\bfseries \+\_\+gybD}
+\item 
+double {\bfseries \+\_\+gzbD}
+\item 
+float {\bfseries \+\_\+gxb}
+\item 
+float {\bfseries \+\_\+gyb}
+\item 
+float {\bfseries \+\_\+gzb}
+\item 
+double {\bfseries \+\_\+axbD}
+\item 
+double {\bfseries \+\_\+aybD}
+\item 
+double {\bfseries \+\_\+azbD}
+\item 
+float {\bfseries \+\_\+axmax}
+\item 
+float {\bfseries \+\_\+aymax}
+\item 
+float {\bfseries \+\_\+azmax}
+\item 
+float {\bfseries \+\_\+axmin}
+\item 
+float {\bfseries \+\_\+aymin}
+\item 
+float {\bfseries \+\_\+azmin}
+\item 
+float {\bfseries \+\_\+axb}
+\item 
+float {\bfseries \+\_\+ayb}
+\item 
+float {\bfseries \+\_\+azb}
+\item 
+float {\bfseries \+\_\+axs} = 1.\+0f
+\item 
+float {\bfseries \+\_\+ays} = 1.\+0f
+\item 
+float {\bfseries \+\_\+azs} = 1.\+0f
+\item 
+uint16\+\_\+t {\bfseries \+\_\+max\+Counts} = 1000
+\item 
+float {\bfseries \+\_\+delta\+Thresh} = 0.\+3f
+\item 
+uint8\+\_\+t {\bfseries \+\_\+coeff} = 8
+\item 
+uint16\+\_\+t {\bfseries \+\_\+counter}
+\item 
+float {\bfseries \+\_\+framedelta}
+\item 
+float {\bfseries \+\_\+delta}
+\item 
+float {\bfseries \+\_\+hxfilt}
+\item 
+float {\bfseries \+\_\+hyfilt}
+\item 
+float {\bfseries \+\_\+hzfilt}
+\item 
+float {\bfseries \+\_\+hxmax}
+\item 
+float {\bfseries \+\_\+hymax}
+\item 
+float {\bfseries \+\_\+hzmax}
+\item 
+float {\bfseries \+\_\+hxmin}
+\item 
+float {\bfseries \+\_\+hymin}
+\item 
+float {\bfseries \+\_\+hzmin}
+\item 
+float {\bfseries \+\_\+hxb}
+\item 
+float {\bfseries \+\_\+hyb}
+\item 
+float {\bfseries \+\_\+hzb}
+\item 
+float {\bfseries \+\_\+hxs} = 1.\+0f
+\item 
+float {\bfseries \+\_\+hys} = 1.\+0f
+\item 
+float {\bfseries \+\_\+hzs} = 1.\+0f
+\item 
+float {\bfseries \+\_\+avgs}
+\item 
+const int16\+\_\+t {\bfseries tX} \mbox{[}3\mbox{]} = \{0, 1, 0\}
+\item 
+const int16\+\_\+t {\bfseries tY} \mbox{[}3\mbox{]} = \{1, 0, 0\}
+\item 
+const int16\+\_\+t {\bfseries tZ} \mbox{[}3\mbox{]} = \{0, 0, -\/1\}
+\item 
+const float {\bfseries G} = 9.\+807f
+\item 
+const float {\bfseries \+\_\+d2r} = 3.\+14159265359f/180.\+0f
+\item 
+const uint8\+\_\+t {\bfseries ACCEL\+\_\+\+OUT} = 0x3B
+\item 
+const uint8\+\_\+t {\bfseries GYRO\+\_\+\+OUT} = 0x43
+\item 
+const uint8\+\_\+t {\bfseries TEMP\+\_\+\+OUT} = 0x41
+\item 
+const uint8\+\_\+t {\bfseries EXT\+\_\+\+SENS\+\_\+\+DATA\+\_\+00} = 0x49
+\item 
+const uint8\+\_\+t {\bfseries ACCEL\+\_\+\+CONFIG} = 0x1C
+\item 
+const uint8\+\_\+t {\bfseries ACCEL\+\_\+\+FS\+\_\+\+SEL\+\_\+2G} = 0x00
+\item 
+const uint8\+\_\+t {\bfseries ACCEL\+\_\+\+FS\+\_\+\+SEL\+\_\+4G} = 0x08
+\item 
+const uint8\+\_\+t {\bfseries ACCEL\+\_\+\+FS\+\_\+\+SEL\+\_\+8G} = 0x10
+\item 
+const uint8\+\_\+t {\bfseries ACCEL\+\_\+\+FS\+\_\+\+SEL\+\_\+16G} = 0x18
+\item 
+const uint8\+\_\+t {\bfseries GYRO\+\_\+\+CONFIG} = 0x1B
+\item 
+const uint8\+\_\+t {\bfseries GYRO\+\_\+\+FS\+\_\+\+SEL\+\_\+250\+DPS} = 0x00
+\item 
+const uint8\+\_\+t {\bfseries GYRO\+\_\+\+FS\+\_\+\+SEL\+\_\+500\+DPS} = 0x08
+\item 
+const uint8\+\_\+t {\bfseries GYRO\+\_\+\+FS\+\_\+\+SEL\+\_\+1000\+DPS} = 0x10
+\item 
+const uint8\+\_\+t {\bfseries GYRO\+\_\+\+FS\+\_\+\+SEL\+\_\+2000\+DPS} = 0x18
+\item 
+const uint8\+\_\+t {\bfseries ACCEL\+\_\+\+CONFIG2} = 0x1D
+\item 
+const uint8\+\_\+t {\bfseries ACCEL\+\_\+\+DLPF\+\_\+184} = 0x01
+\item 
+const uint8\+\_\+t {\bfseries ACCEL\+\_\+\+DLPF\+\_\+92} = 0x02
+\item 
+const uint8\+\_\+t {\bfseries ACCEL\+\_\+\+DLPF\+\_\+41} = 0x03
+\item 
+const uint8\+\_\+t {\bfseries ACCEL\+\_\+\+DLPF\+\_\+20} = 0x04
+\item 
+const uint8\+\_\+t {\bfseries ACCEL\+\_\+\+DLPF\+\_\+10} = 0x05
+\item 
+const uint8\+\_\+t {\bfseries ACCEL\+\_\+\+DLPF\+\_\+5} = 0x06
+\item 
+const uint8\+\_\+t {\bfseries CONFIG} = 0x1A
+\item 
+const uint8\+\_\+t {\bfseries GYRO\+\_\+\+DLPF\+\_\+184} = 0x01
+\item 
+const uint8\+\_\+t {\bfseries GYRO\+\_\+\+DLPF\+\_\+92} = 0x02
+\item 
+const uint8\+\_\+t {\bfseries GYRO\+\_\+\+DLPF\+\_\+41} = 0x03
+\item 
+const uint8\+\_\+t {\bfseries GYRO\+\_\+\+DLPF\+\_\+20} = 0x04
+\item 
+const uint8\+\_\+t {\bfseries GYRO\+\_\+\+DLPF\+\_\+10} = 0x05
+\item 
+const uint8\+\_\+t {\bfseries GYRO\+\_\+\+DLPF\+\_\+5} = 0x06
+\item 
+const uint8\+\_\+t {\bfseries SMPDIV} = 0x19
+\item 
+const uint8\+\_\+t {\bfseries INT\+\_\+\+PIN\+\_\+\+CFG} = 0x37
+\item 
+const uint8\+\_\+t {\bfseries INT\+\_\+\+ENABLE} = 0x38
+\item 
+const uint8\+\_\+t {\bfseries INT\+\_\+\+DISABLE} = 0x00
+\item 
+const uint8\+\_\+t {\bfseries INT\+\_\+\+PULSE\+\_\+50\+US} = 0x00
+\item 
+const uint8\+\_\+t {\bfseries INT\+\_\+\+WOM\+\_\+\+EN} = 0x40
+\item 
+const uint8\+\_\+t {\bfseries INT\+\_\+\+RAW\+\_\+\+RDY\+\_\+\+EN} = 0x01
+\item 
+const uint8\+\_\+t {\bfseries PWR\+\_\+\+MGMNT\+\_\+1} = 0x6B
+\item 
+const uint8\+\_\+t {\bfseries PWR\+\_\+\+CYCLE} = 0x20
+\item 
+const uint8\+\_\+t {\bfseries PWR\+\_\+\+RESET} = 0x80
+\item 
+const uint8\+\_\+t {\bfseries CLOCK\+\_\+\+SEL\+\_\+\+PLL} = 0x01
+\item 
+const uint8\+\_\+t {\bfseries PWR\+\_\+\+MGMNT\+\_\+2} = 0x6C
+\item 
+const uint8\+\_\+t {\bfseries SEN\+\_\+\+ENABLE} = 0x00
+\item 
+const uint8\+\_\+t {\bfseries DIS\+\_\+\+GYRO} = 0x07
+\item 
+const uint8\+\_\+t {\bfseries USER\+\_\+\+CTRL} = 0x6A
+\item 
+const uint8\+\_\+t {\bfseries I2\+C\+\_\+\+MST\+\_\+\+EN} = 0x20
+\item 
+const uint8\+\_\+t {\bfseries I2\+C\+\_\+\+MST\+\_\+\+CLK} = 0x0D
+\item 
+const uint8\+\_\+t {\bfseries I2\+C\+\_\+\+MST\+\_\+\+CTRL} = 0x24
+\item 
+const uint8\+\_\+t {\bfseries I2\+C\+\_\+\+SLV0\+\_\+\+ADDR} = 0x25
+\item 
+const uint8\+\_\+t {\bfseries I2\+C\+\_\+\+SLV0\+\_\+\+REG} = 0x26
+\item 
+const uint8\+\_\+t {\bfseries I2\+C\+\_\+\+SLV0\+\_\+\+DO} = 0x63
+\item 
+const uint8\+\_\+t {\bfseries I2\+C\+\_\+\+SLV0\+\_\+\+CTRL} = 0x27
+\item 
+const uint8\+\_\+t {\bfseries I2\+C\+\_\+\+SLV0\+\_\+\+EN} = 0x80
+\item 
+const uint8\+\_\+t {\bfseries I2\+C\+\_\+\+READ\+\_\+\+FLAG} = 0x80
+\item 
+const uint8\+\_\+t {\bfseries MOT\+\_\+\+DETECT\+\_\+\+CTRL} = 0x69
+\item 
+const uint8\+\_\+t {\bfseries ACCEL\+\_\+\+INTEL\+\_\+\+EN} = 0x80
+\item 
+const uint8\+\_\+t {\bfseries ACCEL\+\_\+\+INTEL\+\_\+\+MODE} = 0x40
+\item 
+const uint8\+\_\+t {\bfseries LP\+\_\+\+ACCEL\+\_\+\+ODR} = 0x1E
+\item 
+const uint8\+\_\+t {\bfseries WOM\+\_\+\+THR} = 0x1F
+\item 
+const uint8\+\_\+t {\bfseries WHO\+\_\+\+AM\+\_\+I} = 0x75
+\item 
+const uint8\+\_\+t {\bfseries FIFO\+\_\+\+EN} = 0x23
+\item 
+const uint8\+\_\+t {\bfseries FIFO\+\_\+\+TEMP} = 0x80
+\item 
+const uint8\+\_\+t {\bfseries FIFO\+\_\+\+GYRO} = 0x70
+\item 
+const uint8\+\_\+t {\bfseries FIFO\+\_\+\+ACCEL} = 0x08
+\item 
+const uint8\+\_\+t {\bfseries FIFO\+\_\+\+MAG} = 0x01
+\item 
+const uint8\+\_\+t {\bfseries FIFO\+\_\+\+COUNT} = 0x72
+\item 
+const uint8\+\_\+t {\bfseries FIFO\+\_\+\+READ} = 0x74
+\item 
+const uint8\+\_\+t {\bfseries AK8963\+\_\+\+I2\+C\+\_\+\+ADDR} = 0x0C
+\item 
+const uint8\+\_\+t {\bfseries AK8963\+\_\+\+HXL} = 0x03
+\item 
+const uint8\+\_\+t {\bfseries AK8963\+\_\+\+CNTL1} = 0x0A
+\item 
+const uint8\+\_\+t {\bfseries AK8963\+\_\+\+PWR\+\_\+\+DOWN} = 0x00
+\item 
+const uint8\+\_\+t {\bfseries AK8963\+\_\+\+CNT\+\_\+\+MEAS1} = 0x12
+\item 
+const uint8\+\_\+t {\bfseries AK8963\+\_\+\+CNT\+\_\+\+MEAS2} = 0x16
+\item 
+const uint8\+\_\+t {\bfseries AK8963\+\_\+\+FUSE\+\_\+\+ROM} = 0x0F
+\item 
+const uint8\+\_\+t {\bfseries AK8963\+\_\+\+CNTL2} = 0x0B
+\item 
+const uint8\+\_\+t {\bfseries AK8963\+\_\+\+RESET} = 0x01
+\item 
+const uint8\+\_\+t {\bfseries AK8963\+\_\+\+ASA} = 0x10
+\item 
+const uint8\+\_\+t {\bfseries AK8963\+\_\+\+WHO\+\_\+\+AM\+\_\+I} = 0x00
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_m_p_u9250}{MPU9250}}}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_p_u9250_afef8319c985d9930cd31797263b37585}\label{class_m_p_u9250_afef8319c985d9930cd31797263b37585} 
+enum {\bfseries Gyro\+Range} \{ {\bfseries GYRO\+\_\+\+RANGE\+\_\+250\+DPS}
+, {\bfseries GYRO\+\_\+\+RANGE\+\_\+500\+DPS}
+, {\bfseries GYRO\+\_\+\+RANGE\+\_\+1000\+DPS}
+, {\bfseries GYRO\+\_\+\+RANGE\+\_\+2000\+DPS}
+ \}
+\item 
+\Hypertarget{class_m_p_u9250_a1d1d4f36ec5a9cd9cea9e196b02cb0f1}\label{class_m_p_u9250_a1d1d4f36ec5a9cd9cea9e196b02cb0f1} 
+enum {\bfseries Accel\+Range} \{ {\bfseries ACCEL\+\_\+\+RANGE\+\_\+2G}
+, {\bfseries ACCEL\+\_\+\+RANGE\+\_\+4G}
+, {\bfseries ACCEL\+\_\+\+RANGE\+\_\+8G}
+, {\bfseries ACCEL\+\_\+\+RANGE\+\_\+16G}
+ \}
+\item 
+\Hypertarget{class_m_p_u9250_a7eb38e4553c5cb064169037c6172baa8}\label{class_m_p_u9250_a7eb38e4553c5cb064169037c6172baa8} 
+enum {\bfseries Dlpf\+Bandwidth} \{ \newline
+{\bfseries DLPF\+\_\+\+BANDWIDTH\+\_\+184\+HZ}
+, {\bfseries DLPF\+\_\+\+BANDWIDTH\+\_\+92\+HZ}
+, {\bfseries DLPF\+\_\+\+BANDWIDTH\+\_\+41\+HZ}
+, {\bfseries DLPF\+\_\+\+BANDWIDTH\+\_\+20\+HZ}
+, \newline
+{\bfseries DLPF\+\_\+\+BANDWIDTH\+\_\+10\+HZ}
+, {\bfseries DLPF\+\_\+\+BANDWIDTH\+\_\+5\+HZ}
+ \}
+\item 
+\Hypertarget{class_m_p_u9250_a497013a9b2a7273571fb83c9c2b2266f}\label{class_m_p_u9250_a497013a9b2a7273571fb83c9c2b2266f} 
+enum {\bfseries Lp\+Accel\+Odr} \{ \newline
+{\bfseries LP\+\_\+\+ACCEL\+\_\+\+ODR\+\_\+0\+\_\+24\+HZ} = 0
+, {\bfseries LP\+\_\+\+ACCEL\+\_\+\+ODR\+\_\+0\+\_\+49\+HZ} = 1
+, {\bfseries LP\+\_\+\+ACCEL\+\_\+\+ODR\+\_\+0\+\_\+98\+HZ} = 2
+, {\bfseries LP\+\_\+\+ACCEL\+\_\+\+ODR\+\_\+1\+\_\+95\+HZ} = 3
+, \newline
+{\bfseries LP\+\_\+\+ACCEL\+\_\+\+ODR\+\_\+3\+\_\+91\+HZ} = 4
+, {\bfseries LP\+\_\+\+ACCEL\+\_\+\+ODR\+\_\+7\+\_\+81\+HZ} = 5
+, {\bfseries LP\+\_\+\+ACCEL\+\_\+\+ODR\+\_\+15\+\_\+63\+HZ} = 6
+, {\bfseries LP\+\_\+\+ACCEL\+\_\+\+ODR\+\_\+31\+\_\+25\+HZ} = 7
+, \newline
+{\bfseries LP\+\_\+\+ACCEL\+\_\+\+ODR\+\_\+62\+\_\+50\+HZ} = 8
+, {\bfseries LP\+\_\+\+ACCEL\+\_\+\+ODR\+\_\+125\+HZ} = 9
+, {\bfseries LP\+\_\+\+ACCEL\+\_\+\+ODR\+\_\+250\+HZ} = 10
+, {\bfseries LP\+\_\+\+ACCEL\+\_\+\+ODR\+\_\+500\+HZ} = 11
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_m_p_u9250}{MPU9250}}}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries write\+Register} (uint8\+\_\+t sub\+Address, uint8\+\_\+t data)
+\item 
+int {\bfseries read\+Registers} (uint8\+\_\+t sub\+Address, uint8\+\_\+t count, uint8\+\_\+t \texorpdfstring{$\ast$}{*}dest)
+\item 
+int {\bfseries write\+AK8963\+Register} (uint8\+\_\+t sub\+Address, uint8\+\_\+t data)
+\item 
+int {\bfseries read\+AK8963\+Registers} (uint8\+\_\+t sub\+Address, uint8\+\_\+t count, uint8\+\_\+t \texorpdfstring{$\ast$}{*}dest)
+\item 
+int {\bfseries who\+AmI} ()
+\item 
+int {\bfseries who\+Am\+IAK8963} ()
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/westj/\+Micro\+Mouse/\+Code/\+Micromouse Final Code/include/MPU9250.\+h\item 
+C\+:/\+Users/westj/\+Micro\+Mouse/\+Code/\+Micromouse Final Code/src/MPU9250.\+cpp\end{DoxyCompactItemize}
