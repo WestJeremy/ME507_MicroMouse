@@ -1,5 +1,7 @@
 /** @file Motor.h
  *  This includes class for generic dc motor control
+ *  @author Jeremy West
+ *  @date   2023-Oct-10
  *
  */
 

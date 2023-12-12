@@ -1,26 +1,45 @@
+/** 
+ * @file Sensors.cpp
+ * @brief Implementation of the Sensors class.
+ *  @author Jeremy West
+ *  @date   2023-Nov-10
+ */
+
 #include "Sensors.h"
 
-
-
-
-
+/**
+ * @brief Constructor for the IR class.
+ * 
+ * @param pin The pin connected to the IR sensor.
+ */
 IR::IR(int pin):pin_(pin){
     pinMode(pin, INPUT);
 }
 
+/**
+ * @brief Get the status of the IR sensor.
+ * 
+ * @return True if an object is detected, false otherwise.
+ */
 boolean IR::get() {
     //read if object detected 1 yes 0 no
     return(!digitalRead(pin_));
 }
 
-
+/**
+ * @brief Constructor for the Time_Of_Flight class.
+ * 
+ * @param address The I2C address of the TOF sensor.
+ */
 Time_Of_Flight::Time_Of_Flight(int address): address_(address){
     Serial.println("here we go...");
 
 }
 
 
-
+/**
+ * @brief Initialize the TOF sensor.
+ */
 void Time_Of_Flight::start(){
 // wait until serial port opens for native USB devices
   while (! Serial) {
@@ -37,7 +56,11 @@ void Time_Of_Flight::start(){
   Serial.println(F("VL53L0X API Simple Ranging example\n\n")); 
 }
 
-
+/**
+ * @brief Get the distance measured by the TOF sensor.
+ * 
+ * @return The distance in millimeters.
+ */
 float Time_Of_Flight::get() {
   //for TOF sensor https://electronoobs.com/eng_arduino_tut73.php
   VL53L0X_RangingMeasurementData_t measure;

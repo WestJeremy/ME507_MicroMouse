@@ -3,12 +3,15 @@
  * 
  *  @author Cesar Sanatana
  *  @date   2023-Dec-04
+ * 
+ *  Adapted to OOP by
+ *  @author Jeremy West
+
 */
 
 #include <Arduino.h>
 #include <queue>
 #include "Printstream.h"
-//#include "shares.h"
 #include "Task_Floodfill.h"
 
 
@@ -74,11 +77,12 @@ void Solver::task_floodfill()
                         {' ', ' ', ' ', '-', ' '},
                         {'-', '-', '-', '-', '-'},};  
     
-    for(;;)
+    while(Micromouse_ -> state_->get()==1)
     {
         // initial state, goes to state 1 once button pressed
         if (state == 0)
         {
+            
             state=1;
             /* if (digitalRead(button) == false)
             {

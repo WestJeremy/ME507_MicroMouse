@@ -1,5 +1,5 @@
 /** @file WebsocketInterface.h
- *  Thiss includes functions for websockets communications with a micromouse.
+ *  This includes functions for websockets communications with a micromouse.
  *
  */
 

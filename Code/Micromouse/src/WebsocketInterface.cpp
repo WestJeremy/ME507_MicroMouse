@@ -1,12 +1,52 @@
 
+/** 
+ * @file WebsocketInterface.cpp
+ * @brief Implementation of the WebsocketConnection class.
+ * 
+ *  @author mo thunderz 
+ *  @date  27.08.2022
+ * 
+ *  Adapted to OOP by
+ *  @author Jeremy West
+ *  @date  December 10, 2023
+ */
+
+// ---------------------------------------------------------------------------------------
+//
+// Code for a simple webserver on the ESP32 (device used for tests: ESP32-WROOM-32D).
+// The code generates two random numbers on the ESP32 and uses Websockets to continuously
+// update the web-clients. For data transfer JSON encapsulation is used.
+//
+// For installation, the following libraries need to be installed:
+// * Websockets by Markus Sattler (can be tricky to find -> search for "Arduino Websockets"
+// * ArduinoJson by Benoit Blanchon
+//
+// NOTE: in principle this code is universal and can be used on Arduino AVR as well. However, AVR is only supported with version 1.3 of the webSocketsServer. Also, the Websocket
+// library will require quite a bit of memory, so wont load on Arduino UNO for instance. The ESP32 and ESP8266 are cheap and powerful, so use of this platform is recommended. 
+//
+// Refer to https://youtu.be/15X0WvGaVg8
+//
+// Written by mo thunderz (last update: 27.08.2022)
+// Adapted to OOP and configured for micromouse by Jeremy West (12.10.2023)
+//
+// ---------------------------------------------------------------------------------------
+
 #include "WebsocketInterface.h"
 
+/**
+ * @brief Constructor for the WebsocketConnection class with Micromouse parameter.
+ * 
+ * @param ssid The SSID of the WiFi network.
+ * @param password The password for the WiFi network.
+ * @param webpage The HTML webpage to be served.
+ * @param Micromouse Pointer to the Micromouse object.
+ */
 WebsocketConnection::WebsocketConnection(const char *ssid, const char *password, String webpage, Micromouse* Micromouse)
     : ssid_(ssid), password_(password), webpage_(webpage), webSocket(socketsport),Micromouse_(Micromouse) 
 {
 
     // The JSON library uses static memory, so this will need to be allocated:
-    // -> in the video I used global variables for "doc_tx" and "doc_rx", however, I now changed this in the code to local variables instead "doc" -> Arduino documentation recomends to use local containers instead of global to prevent data corruption
+    // Arduino documentation recomends to use local containers instead of global to prevent data corruption
     // We want to periodically send values to the clients, so we need to define an "interval" and remember the last time we sent data to the client (with "previousMillis")
 
     // Initialization of webserver and websocket
@@ -14,6 +54,13 @@ WebsocketConnection::WebsocketConnection(const char *ssid, const char *password,
     WebSocketsServer webSocket = WebSocketsServer(socketsport); // the websocket uses port 81 (standard port for websockets
 }
 
+/**
+ * @brief Constructor for the WebsocketConnection class without Micromouse parameter.
+ * 
+ * @param ssid The SSID of the WiFi network.
+ * @param password The password for the WiFi network.
+ * @param webpage The HTML webpage to be served.
+ */
 WebsocketConnection::WebsocketConnection(const char *ssid, const char *password, String webpage)
     : ssid_(ssid), password_(password), webpage_(webpage), webSocket(socketsport) 
 {
@@ -26,6 +73,15 @@ WebsocketConnection::WebsocketConnection(const char *ssid, const char *password,
     WebServer server(serverport);                               // the server uses port 80 (standard port for websites
     WebSocketsServer webSocket = WebSocketsServer(socketsport); // the websocket uses port 81 (standard port for websockets
 }
+
+/**
+ * @brief WebSocket event handler.
+ * 
+ * @param num The client ID.
+ * @param type The type of the WebSocket event.
+ * @param payload The payload of the WebSocket event.
+ * @param length The length of the payload.
+ */
 void WebsocketConnection::Event(byte num, WStype_t type, uint8_t *payload, size_t length)
 { // the parameters of this callback function are always the same -> num: id of the client who send the event, type: type of message, payload: actual data sent and length: length of payload
     switch (type)
@@ -50,9 +106,14 @@ void WebsocketConnection::Event(byte num, WStype_t type, uint8_t *payload, size_
         else
         {
             // JSON string was received correctly, so information can be retrieved:
-            const char *inc = doc["Increment"];
+            int inc = doc["state"];
 
+
+            //Micromouse_->setstate(inc);
             Micromouse_->state_->update();
+    
+            Serial.print(Micromouse_->state_->get());
+            delay(1000);
 
         }
         Serial.println("");
@@ -60,6 +121,9 @@ void WebsocketConnection::Event(byte num, WStype_t type, uint8_t *payload, size_
     }
 }
 
+/**
+ * @brief Start the WiFi connection, server, and WebSocket.
+ */
 void WebsocketConnection::Start()
 {
     IPAddress staticIP(192, 168, 0, 10);  // Change this to your desired static IP address
@@ -87,6 +151,9 @@ void WebsocketConnection::Start()
     webSocket.onEvent(std::bind(&WebsocketConnection::Event, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
 }
 
+/**
+ * @brief Main task function for handling server and WebSocket.
+ */
 void WebsocketConnection::task()
 {
     for (;;)

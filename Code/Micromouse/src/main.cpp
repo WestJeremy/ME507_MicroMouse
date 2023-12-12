@@ -1,3 +1,10 @@
+/**
+ * @file main.cpp
+ * @brief Micromouse main application.
+ *  @author Jeremy West
+ *  @date   2023-Nov-3
+ */
+
 #include <Arduino.h>
 #include "Motor.h"
 #include "States.h"
@@ -6,17 +13,6 @@
 #include "Task_Floodfill.h"
 #include "WebsocketInterface.h"
 
-
-//#include "FreeRTOS.h"
-//#include "task.h"
-
- /*
-  TB6612FNG-Dual-Driver
-  made on 28 oct 2020
-  by Amir Mohammad Shojaee @ Electropeak
-  Adapted for esp32 feather by Jeremy West 2023
-  Home
-*/
 
 // Pin Setup
 #define button 34
@@ -47,7 +43,7 @@ int tof_address = 0x29;
 volatile bool interruptFlag = false;
 
 int cur_state=0;
-int micromouse_states=3;
+int micromouse_states=2;
 
 boolean x=1;
 uint8_t pos=0;
@@ -90,14 +86,19 @@ TaskHandle_t buttonIntTaskHandle = NULL;
 
 // ___________________Functions___________________
 
-//Update Both Encoders
+/**
+ * @brief Function to update both encoders.
+ */
 void EncoderUpdate(){
-  motor1.updateEncoder();
-  motor2.updateEncoder();
+
   Mouse.updateEncoder();
 }
 
-//Task loop For Encoder Interrupt
+/**
+ * @brief Task loop for encoder interrupt.
+ * 
+ * @param parameter Task parameter (not used).
+ */
 void myInterruptTask(void* parameter){
   //Task resumes on interrupt then suspends self
   for(;;){
@@ -108,7 +109,11 @@ void myInterruptTask(void* parameter){
   }
 }
 
-//Task loop For Button Interrupt
+/**
+ * @brief Task loop for button interrupt.
+ * 
+ * @param parameter Task parameter (not used).
+ */
 void buttonInterruptTask(void* parameter){
   //Task resumes on interrupt then suspends self
   for(;;){
@@ -121,10 +126,16 @@ void buttonInterruptTask(void* parameter){
   }
 }
 
+/**
+ * @brief resume encoder task.
+ */
 void handleInterrupt(){
   vTaskResume(myIntTaskHandle);
 }
 
+/**
+ * @brief resume button task.
+ */
 void handleButtonInterrupt(){
   vTaskResume(buttonIntTaskHandle);
 }
@@ -132,6 +143,9 @@ void handleButtonInterrupt(){
 portMUX_TYPE mux = portMUX_INITIALIZER_UNLOCKED;
 
 
+/**
+ * @brief ISR handler for button interrupt.
+ */
 void IRAM_ATTR ISRH_Handler_button() {
     portENTER_CRITICAL_ISR(&mux);
 
@@ -146,6 +160,9 @@ void IRAM_ATTR ISRH_Handler_button() {
     portEXIT_CRITICAL_ISR(&mux);
 }
 
+/**
+ * @brief ISR handler for encoder interrupt.
+ */
 void IRAM_ATTR ISRH_Handler_Encoder() {
     portENTER_CRITICAL_ISR(&mux);
 
@@ -159,6 +176,9 @@ void IRAM_ATTR ISRH_Handler_Encoder() {
     portEXIT_CRITICAL_ISR(&mux);
 }
 
+/**
+ * @brief Poll all sensors, and states and print to serial.
+ */
 void PollSensors(){
 
   Serial.print("Motor 1: ");
@@ -171,7 +191,7 @@ void PollSensors(){
 
   Serial.print("State: ");
   Serial.println(cur_state);
-/* 
+
   Serial.print("IR Left: ");
   Serial.print(IR_L.get());
   Serial.print("  ");
@@ -181,9 +201,9 @@ void PollSensors(){
   Serial.print("TOF: ");
   Serial.println(TOF.get());
 
-  Serial.print("IMU Z: ");*/
+  Serial.print("IMU Z: ");
   IMU.readSensor();
-/*   Serial.print("X:  ");
+  Serial.print("X:  ");
   Serial.print("  ");
   Serial.print(IMU.getMagX_uT(), 6);//roll 
   Serial.print("  ");
@@ -192,7 +212,7 @@ void PollSensors(){
   Serial.print(IMU.getMagY_uT(), 6);//yaw
   Serial.print("  ");
   Serial.print("Z:  ");
-  Serial.println(IMU.getMagZ_uT(), 6);//pitch */
+  Serial.println(IMU.getMagZ_uT(), 6);//pitch
 
 
   Serial.print("X:  ");
@@ -208,8 +228,9 @@ void PollSensors(){
 
 }
 
-
-
+/**
+ * @brief Main state system dispatcher for the microcmouse
+ */
 void Gotask(void* parameter){
   int Cells=1;
   int Moveops=2;
@@ -221,17 +242,18 @@ void Gotask(void* parameter){
   
   for(;;){
   int cur_state=state.get();
+  Serial.println(cur_state);
 
 
   if(cur_state >= 1){
     vTaskDelay(100);
     
-    if (state.get()==1){
+    if (cur_state ==1){
       solve.task_floodfill();
       state.set(0);
     }
 
-    if (state.get()==2){
+    if (cur_state ==2){
       PollSensors();
       
       //Serial.print("Started PID");
@@ -252,7 +274,9 @@ void Gotask(void* parameter){
 
 
 
-
+/**
+ * @brief test software to set arbitrary goal position
+ */
 void setpostask(void* parameter){
   for(;;){
   int cur_state=state.get();
@@ -272,18 +296,9 @@ void setpostask(void* parameter){
   }
 }
 
-void but_task(void* parameter){
-  for(;;){
-    while(interruptFlag==true){
-      vTaskDelay(10);
-    }
-
-    ( digitalRead(button) == HIGH) ?  motor1.move(100): motor1.move(200);
-
-    vTaskDelay(10);
-  }
-}
-
+/**
+ * @brief task wrapper for webserver init
+ */
 void webservertask(void* parameter){
   BeepBoopStream.task();
 }
@@ -310,8 +325,8 @@ void setup() {
     while (1) {}
   }
 
-  Mouse.calIMU();
-  Mouse.zeroenc();
+  Mouse.calIMU(); //calibrate IMU
+  Mouse.zeroenc(); //Zero encoders
 
   //Start webserver
   BeepBoopStream.Start();
